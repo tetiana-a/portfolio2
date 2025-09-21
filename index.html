@@ -1,0 +1,2785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetiana Kotolup - Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #4a148c;
+            --accent: #87ceeb;
+            --light: #ffffff;
+            --dark: #1a1a1a;
+            --text: #000000;
+            --light-bg: #ffffff;
+            --dark-bg: #000000;
+            --card-bg: #ffffff;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --shadow: rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            /* Додано нові змінні для ефектів */
+            --purple: #4a148c;            /* темно-фіолетовий */
+            --gold: #f2d27a;              /* світло-золотий */
+        }
+
+        [data-theme="dark"] {
+            --primary: #ffffff;
+            --secondary: #87ceeb;
+            --accent: #4a148c;
+            --light: #000000;
+            --dark: #ffffff;
+            --text: #ffffff;
+            --light-bg: #000000;
+            --dark-bg: #1a1a1a;
+            --card-bg: #1a1a1a;
+            --nav-bg: rgba(0, 0, 0, 0.95);
+            --shadow: rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Цифровий фон з кругами */
+        #digital-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--dark-bg) 100%);
+        }
+
+        .digit {
+            position: absolute;
+            color: rgba(74, 20, 140, 0.07);
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            animation: fall linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Фіолетові круги */
+        .purple-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(74, 20, 140, 0.15) 0%, rgba(74, 20, 140, 0.05) 70%, transparent 100%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+            top: 10%;
+            left: 5%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .circle-2 {
+            width: 300px;
+            height: 300px;
+            top: 60%;
+            right: 10%;
+            animation: float 25s infinite ease-in-out reverse;
+        }
+
+        .circle-3 {
+            width: 200px;
+            height: 200px;
+            bottom: 20%;
+            left: 20%;
+            animation: float 30s infinite ease-in-out;
+        }
+
+        .circle-4 {
+            width: 350px;
+            height: 350px;
+            top: 30%;
+            right: 30%;
+            animation: float 22s infinite ease-in-out reverse;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px) rotate(5deg);
+            }
+            50% {
+                transform: translateY(10px) translateX(-10px) rotate(-5deg);
+            }
+            75% {
+                transform: translateY(-15px) translateX(5px) rotate(3deg);
+            }
+        }
+
+        /* Навігація */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .lang-selector {
+            background: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--text);
+            padding: 5px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .lang-selector:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .theme-toggle:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        /* Музичний плеєр */
+        .music-player {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            background: var(--card-bg);
+            border-radius: 50px;
+            padding: 15px;
+            box-shadow: 0 10px 30px var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+        }
+
+        .music-player:hover {
+            transform: translateY(-5px);
+        }
+
+        .play-btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .play-btn:hover {
+            background: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .music-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .music-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .music-artist {
+            font-size: 0.8rem;
+            color: var(--dark);
+        }
+
+        /* Hero секція */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(74, 20, 140, 0.9)), url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3') center/cover no-repeat;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: white;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: -1;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #6bb6ff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--secondary);
+        }
+
+        /* Секції */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--dark);
+            max-width: 600px;
+            margin: 20px auto 0;
+            font-size: 1.1rem;
+        }
+
+        /* Про мене */
+        .about {
+            background-color: var(--card-bg);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-img {
+            flex: 1;
+            position: relative;
+        }
+
+        .about-img::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary);
+            border-radius: 10px;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        .about-img img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px var(--shadow);
+            border: 5px solid var(--card-bg);
+            transition: var(--transition);
+        }
+
+        .about-img:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .about-text h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text);
+            font-size: 1.1rem;
+        }
+
+        .about-info {
+            margin-top: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .info-item i {
+            color: var(--secondary);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .info-item span {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* Навички */
+        .skills {
+            background-color: var(--light-bg);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
+
+        .skill-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .skill-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .skill-card p {
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .skill-level {
+            height: 8px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 4px;
+            width: 90%;
+            transition: width 1.5s ease;
+        }
+
+        /* Сертифікати */
+        .certificates {
+            background-color: var(--card-bg);
+        }
+
+        .certificates-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .certificate-card {
+            background: var(--light-bg);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificate-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .certificate-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+
+        .certificate-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .certificate-info h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .certificate-issuer {
+            color: var(--dark);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .certificate-date {
+            display: inline-block;
+            background: rgba(74, 20, 140, 0.1);
+            color: var(--secondary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 15px;
+        }
+
+        .certificate-skills {
+            margin-top: 15px;
+        }
+
+        .certificate-skills span {
+            display: inline-block;
+            background: rgba(135, 206, 235, 0.1);
+            color: var(--accent);
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        /* Досвід роботи */
+        .experience {
+            background-color: var(--light-bg);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: 25px;
+            z-index: 1;
+            box-shadow: 0 0 0 4px rgba(135, 206, 235, 0.2);
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .timeline-content .company {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .timeline-content .date {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(135, 206, 235, 0.1);
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .timeline-content p {
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .timeline-content ul {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+
+        .timeline-content li {
+            color: var(--text);
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        /* Освіта */
+        .education {
+            background-color: var(--card-bg);
+        }
+
+        .education-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .edu-card {
+            background: var(--light-bg);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .edu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
+        }
+
+        .edu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .edu-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .edu-card .institution {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .edu-card .date {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(135, 206, 235, 0.1);
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .edu-card p {
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .edu-card .major {
+            font-weight: 600;
+            margin-top: 10px;
+            color: var(--primary);
+        }
+
+        /* Проєкти */
+        .projects {
+            background-color: var(--light-bg);
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+
+        .project-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-category {
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-info {
+            padding: 30px;
+        }
+
+        .project-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .project-info p {
+            color: var(--text);
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .tech-tag {
+            background: rgba(52, 152, 219, 0.1);
+            color: var(--secondary);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-links a {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(52, 152, 219, 0.1);
+        }
+
+        .project-links a:hover {
+            color: white;
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        /* Контакти */
+        .contact {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(74, 20, 140, 0.9)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3') center/cover no-repeat;
+            color: white;
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 0;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            margin-right: 20px;
+            color: var(--accent);
+            background: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover i {
+            background: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 25px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 1rem;
+        }
+
+        /* Анімації */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Адаптивність */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .about-img {
+                margin-bottom: 40px;
+            }
+            
+            .timeline::after {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 20px;
+            }
+            
+            .timeline-item:nth-child(odd)::after {
+                right: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding-top: 100px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .certificates-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .music-player {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .skill-card,
+            .edu-card,
+            .certificate-card,
+            .project-card {
+                padding: 20px;
+            }
+            
+            .timeline-content {
+                padding: 20px;
+            }
+            
+            .timeline-content h3 {
+                font-size: 1.3rem;
+            }
+            
+            .contact-info h3 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* НОВІ СТИЛІ ДЛЯ ПЛАВАЮЧИХ КІЛ ТА КУРСОРА */
+        /* напівпрозорі кола на фоні */
+        #bg-circles{
+            position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
+        }
+        .circle{
+            position:absolute; border-radius:50%;
+            background: radial-gradient(circle at 35% 35%,
+                        color-mix(in srgb, var(--purple) 18%, transparent) 0%,
+                        color-mix(in srgb, var(--purple) 10%, transparent) 60%,
+                        transparent 100%);
+            filter: blur(0.2px);
+            animation: float 24s ease-in-out infinite;
+        }
+        .c1{ width:42vmax; height:42vmax; top:8%; left:6%; animation-delay:0s; }
+        .c2{ width:28vmax; height:28vmax; bottom:12%; right:8%; animation-delay:3s; }
+        .c3{ width:22vmax; height:22vmax; top:28%; right:28%; animation-delay:6s; }
+        .c4{ width:34vmax; height:34vmax; bottom:22%; left:18%; animation-delay:9s; }
+
+        /* зроби секції трохи прозорими, щоб фон просвічував */
+        section, header, footer{
+            position:relative; z-index:1;
+            background: color-mix(in srgb, var(--light-bg, #ffffff) 92%, transparent);
+        }
+
+        /* ВАРІАНТ А: легкий CSS-курсор — SVG data URI (без JS) */
+        body{
+            cursor: url("data:image/svg+xml;utf8,\
+            <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'>\
+                <circle cx='8' cy='8' r='6' fill='%23f2d27a'/>\
+            </svg>") 8 8, auto;
+        }
+
+        /* ВАРІАНТ Б: кастомний "золотий" курсор */
+        .has-gold-cursor{ cursor:none; }
+        #gold-cursor{
+            position:fixed; top:0; left:0; width:14px; height:14px; margin:-7px 0 0 -7px;
+            border-radius:50%;
+            background: var(--gold);
+            mix-blend-mode:screen;
+            pointer-events:none; z-index:9999;
+            opacity:.95; transform: translate3d(0,0,0);
+            transition: width .12s ease, height .12s ease, opacity .2s ease;
+        }
+        /* невеликий ефект при кліку/ховері */
+        a:hover ~ #gold-cursor, button:hover ~ #gold-cursor{ width:18px; height:18px; }
+    </style>
+</head>
+<body>
+    <!-- Background circles -->
+    <div id="bg-circles" aria-hidden="true">
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        <div class="circle c3"></div>
+        <div class="circle c4"></div>
+    </div>
+
+    <!-- Gold cursor follower -->
+    <div id="gold-cursor" aria-hidden="true"></div>
+
+    <!-- Цифровий фон з кругами -->
+    <div id="digital-bg">
+        <div class="purple-circle circle-1"></div>
+        <div class="purple-circle circle-2"></div>
+        <div class="purple-circle circle-3"></div>
+        <div class="purple-circle circle-4"></div>
+    </div>
+
+    <!-- Навігація -->
+    <nav>
+        <a href="#" class="logo">Tetiana Kotolup</a>
+        <ul class="nav-links">
+            <li><a href="#home" data-lang="nav_home">Home</a></li>
+            <li><a href="#about" data-lang="nav_about">About</a></li>
+            <li><a href="#skills" data-lang="nav_skills">Skills</a></li>
+            <li><a href="#certificates" data-lang="nav_certificates">Certificates</a></li>
+            <li><a href="#experience" data-lang="nav_experience">Experience</a></li>
+            <li><a href="#education" data-lang="nav_education">Education</a></li>
+            <li><a href="#projects" data-lang="nav_projects">Projects</a></li>
+            <li><a href="#contact" data-lang="nav_contact">Contact</a></li>
+        </ul>
+        <div class="nav-controls">
+            <select class="lang-selector" id="lang-selector">
+                <option value="en">English</option>
+                <option value="cs">Čeština</option>
+                <option value="uk">Українська</option>
+            </select>
+            <button class="theme-toggle" id="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Музичний плеєр -->
+    <div class="music-player">
+        <button class="play-btn" id="play-btn">
+            <i class="fas fa-play"></i>
+        </button>
+        <div class="music-info">
+            <div class="music-title" data-lang="music_title">Ambient Background</div>
+            <div class="music-artist" data-lang="music_artist">Portfolio Soundtrack</div>
+        </div>
+    </div>
+
+    <!-- Hero секція -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 data-lang="hero_title">Tetiana Kotolup</h1>
+            <p data-lang="hero_subtitle">Frontend Developer | SEO Specialist | IT Expert</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary" data-lang="hero_btn1">View My Projects</a>
+                <a href="#contact" class="btn btn-secondary" data-lang="hero_btn2">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Про мене -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 data-lang="about_title">About Me</h2>
+                <p data-lang="about_subtitle">Get to know me, my background and expertise</p>
+            </div>
+            <div class="about-content fade-in">
+                <div class="about-img">
+                    <img src="https://via.placeholder.com/400" alt="Tetiana Kotolup">
+                </div>
+                <div class="about-text">
+                    <h3 data-lang="about_heading">IT Professional from Ukraine</h3>
+                    <p data-lang="about_text1">I am a dedicated and versatile IT professional with a strong background in frontend development, SEO optimization, and digital marketing. My passion lies in creating efficient technological solutions and continuously expanding my knowledge in emerging technologies.</p>
+                    <p data-lang="about_text2">Currently, I'm deeply studying SEO to enhance website visibility and ranking. With multiple certifications in web development, CRM, and AI applications, I bring a comprehensive skill set that combines technical expertise with business acumen.</p>
+                    <div class="about-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-lang="about_location">Brno, Czech Republic</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>kotolup24@gmail.com</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+420 608 317 700</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-globe"></i>
+                            <span>https://tetiana-a.github.io/portfolio1/</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Навички -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 data-lang="skills_title">My Skills</h2>
+                <p data-lang="skills_subtitle">Technical and professional expertise</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 data-lang="skill1_title">SEO Optimization</h3>
+                    <p data-lang="skill1_text">Deeply studying SEO techniques, keyword research, on-page and off-page optimization</p>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 95%;"></div>
+                    </div>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 data-lang="skill2_title">Web Development</h3>
+                    <p data-lang="skill2_text">HTML, CSS, JavaScript, Google Web Designer</p>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 data-lang="skill3_title">Backend Technologies</h3>
+                    <p data-lang="skill3_text">Node.js, Google Cloud Platform</p>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 75%;"></div>
+                    </div>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 data-lang="skill4_title">CRM Systems</h3>
+                    <p data-lang="skill4_text">Customer Relationship Management</p>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 data-lang="skill5_title">AI Applications</h3>
+                    <p data-lang="skill5_text">ChatGPT for Business, AI Marketing, Machine Learning</p>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 data-lang="skill6_title">Finance & Trading</h3>
+                    <p data-lang="skill6_text">Investments, Machine Learning for Trading</p>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 70%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Сертифікати -->
+    <section id="certificates" class="certificates">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 data-lang="certificates_title">Certificates & Licenses</h2>
+                <p data-lang="certificates_subtitle">Professional certifications I've earned</p>
+            </div>
+            <div class="certificates-container">
+                <div class="certificate-card fade-in">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3 data-lang="cert1_title">Search Engine Optimization (SEO)</h3>
+                            <div class="certificate-issuer" data-lang="cert1_issuer">Coursera</div>
+                        </div>
+                    </div>
+                    <div class="certificate-date" data-lang="cert1_date">Jan 2023</div>
+                    <div class="certificate-skills">
+                        <span data-lang="cert1_skill">SEO</span>
+                    </div>
+                </div>
+                <div class="certificate-card fade-in">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3 data-lang="cert2_title">Customer Relationship Management</h3>
+                            <div class="certificate-issuer" data-lang="cert2_issuer">Simplilearn</div>
+                        </div>
+                    </div>
+                    <div class="certificate-date" data-lang="cert2_date">Sep 2025</div>
+                    <div class="certificate-skills">
+                        <span data-lang="cert2_skill">CRM</span>
+                    </div>
+                </div>
+                <div class="certificate-card fade-in">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3 data-lang="cert3_title">NodeJS</h3>
+                            <div class="certificate-issuer" data-lang="cert3_issuer">Simplilearn</div>
+                        </div>
+                    </div>
+                    <div class="certificate-date" data-lang="cert3_date">Sep 2025</div>
+                    <div class="certificate-skills">
+                        <span data-lang="cert3_skill">Node.js</span>
+                    </div>
+                </div>
+                <div class="certificate-card fade-in">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3 data-lang="cert4_title">ChatGPT for Business Communication</h3>
+                            <div class="certificate-issuer" data-lang="cert4_issuer">GreatLearning</div>
+                        </div>
+                    </div>
+                    <div class="certificate-date" data-lang="cert4_date">Jul 2025</div>
+                    <div class="certificate-skills">
+                        <span data-lang="cert4_skill">Business Communication</span>
+                    </div>
+                </div>
+                <div class="certificate-card fade-in">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3 data-lang="cert5_title">Introduction to Machine Learning for Trading</h3>
+                            <div class="certificate-issuer" data-lang="cert5_issuer">QuantInsti</div>
+                        </div>
+                    </div>
+                    <div class="certificate-date" data-lang="cert5_date">Jul 2025 - Jul 2034</div>
+                    <div class="certificate-skills">
+                        <span data-lang="cert5_skill1">Trading</span>
+                        <span data-lang="cert5_skill2">Machine Learning</span>
+                    </div>
+                </div>
+                <div class="certificate-card fade-in">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3 data-lang="cert6_title">AI Marketing</h3>
+                            <div class="certificate-issuer" data-lang="cert6_issuer">Alison</div>
+                        </div>
+                    </div>
+                    <div class="certificate-date" data-lang="cert6_date">Jun 2025</div>
+                    <div class="certificate-skills">
+                        <span data-lang="cert6_skill">AI for Marketing</span>
+                    </div>
+                </div>
+                <div class="certificate-card fade-in">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3 data-lang="cert7_title">Investments</h3>
+                            <div class="certificate-issuer" data-lang="cert7_issuer">Golden Academy</div>
+                        </div>
+                    </div>
+                    <div class="certificate-date" data-lang="cert7_date">May 2025</div>
+                    <div class="certificate-skills">
+                        <span data-lang="cert7_skill">Investments</span>
+                    </div>
+                </div>
+                <div class="certificate-card fade-in">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3 data-lang="cert8_title">Training</h3>
+                            <div class="certificate-issuer" data-lang="cert8_issuer">United Latino Students Association</div>
+                        </div>
+                    </div>
+                    <div class="certificate-date" data-lang="cert8_date">May 2025</div>
+                    <div class="certificate-skills">
+                        <span data-lang="cert8_skill">Training</span>
+                    </div>
+                </div>
+                <div class="certificate-card fade-in">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3 data-lang="cert9_title">Google Web Designer</h3>
+                            <div class="certificate-issuer" data-lang="cert9_issuer">European IT Certification Institute</div>
+                        </div>
+                    </div>
+                    <div class="certificate-date" data-lang="cert9_date">Sep 2024</div>
+                    <div class="certificate-skills">
+                        <span data-lang="cert9_skill">Google Web Designer</span>
+                    </div>
+                </div>
+                <div class="certificate-card fade-in">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3 data-lang="cert10_title">HTML/CSS Fundamentals</h3>
+                            <div class="certificate-issuer" data-lang="cert10_issuer">European IT Certification Institute</div>
+                        </div>
+                    </div>
+                    <div class="certificate-date" data-lang="cert10_date">Sep 2024</div>
+                    <div class="certificate-skills">
+                        <span data-lang="cert10_skill">HTML/CSS</span>
+                    </div>
+                </div>
+                <div class="certificate-card fade-in">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fab fa-js-square"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3 data-lang="cert11_title">JavaScript Fundamentals</h3>
+                            <div class="certificate-issuer" data-lang="cert11_issuer">European IT Certification Institute</div>
+                        </div>
+                    </div>
+                    <div class="certificate-date" data-lang="cert11_date">Sep 2024</div>
+                    <div class="certificate-skills">
+                        <span data-lang="cert11_skill">JavaScript</span>
+                    </div>
+                </div>
+                <div class="certificate-card fade-in">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3 data-lang="cert12_title">Web Programming Fundamentals</h3>
+                            <div class="certificate-issuer" data-lang="cert12_issuer">European IT Certification Institute</div>
+                        </div>
+                    </div>
+                    <div class="certificate-date" data-lang="cert12_date">Sep 2024</div>
+                    <div class="certificate-skills">
+                        <span data-lang="cert12_skill">Web Programming</span>
+                    </div>
+                </div>
+                <div class="certificate-card fade-in">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fab fa-google-cloud"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3 data-lang="cert13_title">Google Cloud Platform</h3>
+                            <div class="certificate-issuer" data-lang="cert13_issuer">European IT Certification Institute</div>
+                        </div>
+                    </div>
+                    <div class="certificate-date" data-lang="cert13_date">Jul 2024</div>
+                    <div class="certificate-skills">
+                        <span data-lang="cert13_skill">Google Cloud Platform</span>
+                    </div>
+                </div>
+                <div class="certificate-card fade-in">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3 data-lang="cert14_title">Coaching & Mentoring</h3>
+                            <div class="certificate-issuer" data-lang="cert14_issuer">Femme Palette</div>
+                        </div>
+                    </div>
+                    <div class="certificate-date" data-lang="cert14_date">Jun 2024 - Jun 2034</div>
+                    <div class="certificate-skills">
+                        <span data-lang="cert14_skill">Coaching & Mentoring</span>
+                    </div>
+                </div>
+                <div class="certificate-card fade-in">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3 data-lang="cert15_title">User Experience (UX)</h3>
+                            <div class="certificate-issuer" data-lang="cert15_issuer">ITnetwork s.r.o.</div>
+                        </div>
+                    </div>
+                    <div class="certificate-date" data-lang="cert15_date">Jan 2023</div>
+                    <div class="certificate-skills">
+                        <span data-lang="cert15_skill1">User Experience (UX)</span>
+                        <span data-lang="cert15_skill2">HTML</span>
+                        <span data-lang="cert15_skill3">CSS</span>
+                    </div>
+                </div>
+                <div class="certificate-card fade-in">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3 data-lang="cert16_title">Front-end Development</h3>
+                            <div class="certificate-issuer" data-lang="cert16_issuer">Johns Hopkins University via Coursera</div>
+                        </div>
+                    </div>
+                    <div class="certificate-date" data-lang="cert16_date">Nov 2022</div>
+                    <div class="certificate-skills">
+                        <span data-lang="cert16_skill1">Front-end Development</span>
+                        <span data-lang="cert16_skill2">Web Development</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Досвід роботи -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 data-lang="experience_title">Work Experience</h2>
+                <p data-lang="experience_subtitle">My professional journey</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 data-lang="exp1_title">EXPEDICE</h3>
+                        <div class="company" data-lang="exp1_company">ViaPharma</div>
+                        <div class="date" data-lang="exp1_date">Jul 2025 - Present</div>
+                        <ul>
+                            <li data-lang="exp1_task1">Responsible for expedition and logistics operations</li>
+                            <li data-lang="exp1_task2">Coordinating shipments and documentation</li>
+                            <li data-lang="exp1_task3">Ensuring timely delivery and customer satisfaction</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 data-lang="exp2_title">Entrepreneur</h3>
+                        <div class="company" data-lang="exp2_company">Self-Employed</div>
+                        <div class="date" data-lang="exp2_date">Apr 2025 - Jun 2025</div>
+                        <ul>
+                            <li data-lang="exp2_task1">Managed independent business operations</li>
+                            <li data-lang="exp2_task2">Developed business strategies and client relationships</li>
+                            <li data-lang="exp2_task3">Handled financial planning and administration</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 data-lang="exp3_title">Production Associate</h3>
+                        <div class="company" data-lang="exp3_company">Nová Mosilana, a.s.</div>
+                        <div class="date" data-lang="exp3_date">Mar 2018 - Mar 2025</div>
+                        <ul>
+                            <li data-lang="exp3_task1">Operated and maintained textile machinery and equipment</li>
+                            <li data-lang="exp3_task2">Trained and instructed new employees</li>
+                            <li data-lang="exp3_task3">Demonstrated physical stamina and resilience in solving problems</li>
+                            <li data-lang="exp3_task4">Exhibited strong planning and organizational skills</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 data-lang="exp4_title">Electrical Assembly Specialist</h3>
+                        <div class="company" data-lang="exp4_company">TOV "UKR THECH"</div>
+                        <div class="date" data-lang="exp4_date">Jan 2017 - Dec 2018</div>
+                        <ul>
+                            <li data-lang="exp4_task1">Performed soldering operations and assembled voltage stabilizers</li>
+                            <li data-lang="exp4_task2">Trained and instructed new employees</li>
+                            <li data-lang="exp4_task3">Led and motivated teams of employees</li>
+                            <li data-lang="exp4_task4">Provided car maintenance services</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 data-lang="exp5_title">Sales Assistant</h3>
+                        <div class="company" data-lang="exp5_company">DELIKAT</div>
+                        <div class="date" data-lang="exp5_date">Oct 2016 - May 2017</div>
+                        <ul>
+                            <li data-lang="exp5_task1">Greeted and assisted customers</li>
+                            <li data-lang="exp5_task2">Trained and instructed new employees</li>
+                            <li data-lang="exp5_task3">Prepared documents and reports</li>
+                            <li data-lang="exp5_task4">Operated office equipment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Освіта -->
+    <section id="education" class="education">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 data-lang="education_title">Education</h2>
+                <p data-lang="education_subtitle">My educational background</p>
+            </div>
+            <div class="education-container">
+                <div class="edu-card fade-in">
+                    <h3 data-lang="edu1_title">Junior Specialist in Information Technology</h3>
+                    <div class="institution" data-lang="edu1_institution">Čerkasy State Trade School</div>
+                    <div class="date" data-lang="edu1_date">2013 - 2017</div>
+                    <p data-lang="edu1_text">Specialized in Computer Systems and Network Maintenance</p>
+                    <div class="major" data-lang="edu1_major">Qualification: Computer Systems Technician</div>
+                    <div class="major" data-lang="edu1_additional">Additional: Group Leader (nostrification in the Czech Republic)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Проєкти -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 data-lang="projects_title">My Projects</h2>
+                <p data-lang="projects_subtitle">Recent work I'm proud of</p>
+            </div>
+            <div class="projects-container">
+                <div class="project-card fade-in">
+                    <div class="project-img">
+                        <img src="https://via.placeholder.com/600x400" alt="King House Travel">
+                        <div class="project-overlay">
+                            <span class="project-category" data-lang="project1_category">Travel Agency</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 data-lang="project1_title">King House Travel</h3>
+                        <p data-lang="project1_text">A comprehensive travel agency website with booking functionality and destination guides. Currently implementing advanced SEO strategies to improve search engine rankings and increase organic traffic.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">SEO</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://kinghousetravel.github.io/0/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/kinghousetravel/kinghousetravel.github.io" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-img">
+                        <img src="https://via.placeholder.com/600x400" alt="Portfolio">
+                        <div class="project-overlay">
+                            <span class="project-category" data-lang="project2_category">Portfolio</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 data-lang="project2_title">Professional Portfolio</h3>
+                        <p data-lang="project2_text">My personal portfolio website showcasing my skills, projects, and professional experience. Designed with SEO best practices in mind to ensure maximum visibility and accessibility.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">SEO</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://tetiana-a.github.io/portfolio1/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/tetiana-a/portfolio1" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакти -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 data-lang="contact_title">Get In Touch</h2>
+                <p data-lang="contact_subtitle">I'm always open to new opportunities and collaborations</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info fade-in">
+                    <h3 data-lang="contact_heading">Let's Connect!</h3>
+                    <p data-lang="contact_text">If you have a project you'd like to discuss, or just want to say hello, feel free to reach out through the contact form or directly via the information below.</p>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>kotolup24@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+420 608 317 700</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span data-lang="contact_location">Brno, Czech Republic</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <span>https://tetiana-a.github.io/portfolio1/</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-certificate"></i>
+                        <span data-lang="contact_ef">EF SET English Certificate</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/tetiana-kotolup-1685892a1/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://tetiana-a.github.io/portfolio1/" target="_blank"><i class="fas fa-globe"></i></a>
+                        <a href="https://cert.efset.org/spKGNG" target="_blank"><i class="fas fa-certificate"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" data-lang-placeholder="form_name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" data-lang-placeholder="form_email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject" data-lang-placeholder="form_subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" data-lang-placeholder="form_message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-lang="form_submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p data-lang="footer">&copy; 2023 Tetiana Kotolup. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Локалізація
+        const translations = {
+            en: {
+                nav_home: "Home",
+                nav_about: "About",
+                nav_skills: "Skills",
+                nav_certificates: "Certificates",
+                nav_experience: "Experience",
+                nav_education: "Education",
+                nav_projects: "Projects",
+                nav_contact: "Contact",
+                hero_title: "Tetiana Kotolup",
+                hero_subtitle: "Frontend Developer | SEO Specialist | IT Expert",
+                hero_btn1: "View My Projects",
+                hero_btn2: "Contact Me",
+                about_title: "About Me",
+                about_subtitle: "Get to know me, my background and expertise",
+                about_heading: "IT Professional from Ukraine",
+                about_text1: "I am a dedicated and versatile IT professional with a strong background in frontend development, SEO optimization, and digital marketing. My passion lies in creating efficient technological solutions and continuously expanding my knowledge in emerging technologies.",
+                about_text2: "Currently, I'm deeply studying SEO to enhance website visibility and ranking. With multiple certifications in web development, CRM, and AI applications, I bring a comprehensive skill set that combines technical expertise with business acumen.",
+                about_location: "Brno, Czech Republic",
+                skills_title: "My Skills",
+                skills_subtitle: "Technical and professional expertise",
+                skill1_title: "SEO Optimization",
+                skill1_text: "Deeply studying SEO techniques, keyword research, on-page and off-page optimization",
+                skill2_title: "Web Development",
+                skill2_text: "HTML, CSS, JavaScript, Google Web Designer",
+                skill3_title: "Backend Technologies",
+                skill3_text: "Node.js, Google Cloud Platform",
+                skill4_title: "CRM Systems",
+                skill4_text: "Customer Relationship Management",
+                skill5_title: "AI Applications",
+                skill5_text: "ChatGPT for Business, AI Marketing, Machine Learning",
+                skill6_title: "Finance & Trading",
+                skill6_text: "Investments, Machine Learning for Trading",
+                certificates_title: "Certificates & Licenses",
+                certificates_subtitle: "Professional certifications I've earned",
+                cert1_title: "Search Engine Optimization (SEO)",
+                cert1_issuer: "Coursera",
+                cert1_date: "Jan 2023",
+                cert1_skill: "SEO",
+                cert2_title: "Customer Relationship Management",
+                cert2_issuer: "Simplilearn",
+                cert2_date: "Sep 2025",
+                cert2_skill: "CRM",
+                cert3_title: "NodeJS",
+                cert3_issuer: "Simplilearn",
+                cert3_date: "Sep 2025",
+                cert3_skill: "Node.js",
+                cert4_title: "ChatGPT for Business Communication",
+                cert4_issuer: "GreatLearning",
+                cert4_date: "Jul 2025",
+                cert4_skill: "Business Communication",
+                cert5_title: "Introduction to Machine Learning for Trading",
+                cert5_issuer: "QuantInsti",
+                cert5_date: "Jul 2025 - Jul 2034",
+                cert5_skill1: "Trading",
+                cert5_skill2: "Machine Learning",
+                cert6_title: "AI Marketing",
+                cert6_issuer: "Alison",
+                cert6_date: "Jun 2025",
+                cert6_skill: "AI for Marketing",
+                cert7_title: "Investments",
+                cert7_issuer: "Golden Academy",
+                cert7_date: "May 2025",
+                cert7_skill: "Investments",
+                cert8_title: "Training",
+                cert8_issuer: "United Latino Students Association",
+                cert8_date: "May 2025",
+                cert8_skill: "Training",
+                cert9_title: "Google Web Designer",
+                cert9_issuer: "European IT Certification Institute",
+                cert9_date: "Sep 2024",
+                cert9_skill: "Google Web Designer",
+                cert10_title: "HTML/CSS Fundamentals",
+                cert10_issuer: "European IT Certification Institute",
+                cert10_date: "Sep 2024",
+                cert10_skill: "HTML/CSS",
+                cert11_title: "JavaScript Fundamentals",
+                cert11_issuer: "European IT Certification Institute",
+                cert11_date: "Sep 2024",
+                cert11_skill: "JavaScript",
+                cert12_title: "Web Programming Fundamentals",
+                cert12_issuer: "European IT Certification Institute",
+                cert12_date: "Sep 2024",
+                cert12_skill: "Web Programming",
+                cert13_title: "Google Cloud Platform",
+                cert13_issuer: "European IT Certification Institute",
+                cert13_date: "Jul 2024",
+                cert13_skill: "Google Cloud Platform",
+                cert14_title: "Coaching & Mentoring",
+                cert14_issuer: "Femme Palette",
+                cert14_date: "Jun 2024 - Jun 2034",
+                cert14_skill: "Coaching & Mentoring",
+                cert15_title: "User Experience (UX)",
+                cert15_issuer: "ITnetwork s.r.o.",
+                cert15_date: "Jan 2023",
+                cert15_skill1: "User Experience (UX)",
+                cert15_skill2: "HTML",
+                cert15_skill3: "CSS",
+                cert16_title: "Front-end Development",
+                cert16_issuer: "Johns Hopkins University via Coursera",
+                cert16_date: "Nov 2022",
+                cert16_skill1: "Front-end Development",
+                cert16_skill2: "Web Development",
+                experience_title: "Work Experience",
+                experience_subtitle: "My professional journey",
+                exp1_title: "EXPEDICE",
+                exp1_company: "ViaPharma",
+                exp1_date: "Jul 2025 - Present",
+                exp1_task1: "Responsible for expedition and logistics operations",
+                exp1_task2: "Coordinating shipments and documentation",
+                exp1_task3: "Ensuring timely delivery and customer satisfaction",
+                exp2_title: "Entrepreneur",
+                exp2_company: "Self-Employed",
+                exp2_date: "Apr 2025 - Jun 2025",
+                exp2_task1: "Managed independent business operations",
+                exp2_task2: "Developed business strategies and client relationships",
+                exp2_task3: "Handled financial planning and administration",
+                exp3_title: "Production Associate",
+                exp3_company: "Nová Mosilana, a.s.",
+                exp3_date: "Mar 2018 - Mar 2025",
+                exp3_task1: "Operated and maintained textile machinery and equipment",
+                exp3_task2: "Trained and instructed new employees",
+                exp3_task3: "Demonstrated physical stamina and resilience in solving problems",
+                exp3_task4: "Exhibited strong planning and organizational skills",
+                exp4_title: "Electrical Assembly Specialist",
+                exp4_company: "TOV \"UKR THECH\"",
+                exp4_date: "Jan 2017 - Dec 2018",
+                exp4_task1: "Performed soldering operations and assembled voltage stabilizers",
+                exp4_task2: "Trained and instructed new employees",
+                exp4_task3: "Led and motivated teams of employees",
+                exp4_task4: "Provided car maintenance services",
+                exp5_title: "Sales Assistant",
+                exp5_company: "DELIKAT",
+                exp5_date: "Oct 2016 - May 2017",
+                exp5_task1: "Greeted and assisted customers",
+                exp5_task2: "Trained and instructed new employees",
+                exp5_task3: "Prepared documents and reports",
+                exp5_task4: "Operated office equipment",
+                education_title: "Education",
+                education_subtitle: "My educational background",
+                edu1_title: "Junior Specialist in Information Technology",
+                edu1_institution: "Čerkasy State Trade School",
+                edu1_date: "2013 - 2017",
+                edu1_text: "Specialized in Computer Systems and Network Maintenance",
+                edu1_major: "Qualification: Computer Systems Technician",
+                edu1_additional: "Additional: Group Leader (nostrification in the Czech Republic)",
+                projects_title: "My Projects",
+                projects_subtitle: "Recent work I'm proud of",
+                project1_category: "Travel Agency",
+                project1_title: "King House Travel",
+                project1_text: "A comprehensive travel agency website with booking functionality and destination guides. Currently implementing advanced SEO strategies to improve search engine rankings and increase organic traffic.",
+                project2_category: "Portfolio",
+                project2_title: "Professional Portfolio",
+                project2_text: "My personal portfolio website showcasing my skills, projects, and professional experience. Designed with SEO best practices in mind to ensure maximum visibility and accessibility.",
+                contact_title: "Get In Touch",
+                contact_subtitle: "I'm always open to new opportunities and collaborations",
+                contact_heading: "Let's Connect!",
+                contact_text: "If you have a project you'd like to discuss, or just want to say hello, feel free to reach out through the contact form or directly via the information below.",
+                contact_location: "Brno, Czech Republic",
+                contact_ef: "EF SET English Certificate",
+                form_name: "Your Name",
+                form_email: "Your Email",
+                form_subject: "Subject",
+                form_message: "Your Message",
+                form_submit: "Send Message",
+                footer: "&copy; 2023 Tetiana Kotolup. All Rights Reserved.",
+                music_title: "Ambient Background",
+                music_artist: "Portfolio Soundtrack"
+            },
+            cs: {
+                nav_home: "Domů",
+                nav_about: "O mě",
+                nav_skills: "Dovednosti",
+                nav_certificates: "Certifikáty",
+                nav_experience: "Zkušenosti",
+                nav_education: "Vzdělání",
+                nav_projects: "Projekty",
+                nav_contact: "Kontakt",
+                hero_title: "Tetiana Kotolup",
+                hero_subtitle: "Frontend Vývojář | SEO Specialista | IT Expert",
+                hero_btn1: "Zobrazit Projekty",
+                hero_btn2: "Kontaktujte Mě",
+                about_title: "O Mně",
+                about_subtitle: "Poznejte mě, mé zázemí a odborné znalosti",
+                about_heading: "IT Profesionálka z Ukrajiny",
+                about_text1: "Jsem oddaná a všestranná IT profesionálka se silným zázemím ve frontend vývoji, SEO optimalizaci a digitálním marketingu. Moje vášeň spočívá ve vytváření efektivních technologických řešení a neustálém rozšiřování znalostí v oblasti nových technologií.",
+                about_text2: "V současnosti se hluboce věnuji studiu SEO pro zlepšení viditelnosti webových stránek a jejich hodnocení. S mnoha certifikáty ve vývoji webu, CRM a AI aplikacích přináším komplexní sadu dovedností, která kombinuje technické znalosti s obchodními znalostmi.",
+                about_location: "Brno, Česká republika",
+                skills_title: "Mé Dovednosti",
+                skills_subtitle: "Technické a profesionální odborné znalosti",
+                skill1_title: "SEO Optimalizace",
+                skill1_text: "Hluboké studium SEO technik, výzkum klíčových slov, on-page a off-page optimalizace",
+                skill2_title: "Vývoj Webu",
+                skill2_text: "HTML, CSS, JavaScript, Google Web Designer",
+                skill3_title: "Backend Technologie",
+                skill3_text: "Node.js, Google Cloud Platform",
+                skill4_title: "CRM Systémy",
+                skill4_text: "Řízení vztahů se zákazníky",
+                skill5_title: "AI Aplikace",
+                skill5_text: "ChatGPT pro Business, AI Marketing, Machine Learning",
+                skill6_title: "Finance & Trading",
+                skill6_text: "Investice, Machine Learning pro Trading",
+                certificates_title: "Certifikáty & Licence",
+                certificates_subtitle: "Profesionální certifikáty, které jsem získala",
+                cert1_title: "Optimalizace pro vyhledávače (SEO)",
+                cert1_issuer: "Coursera",
+                cert1_date: "Leden 2023",
+                cert1_skill: "SEO",
+                cert2_title: "Řízení vztahů se zákazníky",
+                cert2_issuer: "Simplilearn",
+                cert2_date: "Září 2025",
+                cert2_skill: "CRM",
+                cert3_title: "NodeJS",
+                cert3_issuer: "Simplilearn",
+                cert3_date: "Září 2025",
+                cert3_skill: "Node.js",
+                cert4_title: "ChatGPT pro Obchodní Komunikaci",
+                cert4_issuer: "GreatLearning",
+                cert4_date: "Červenec 2025",
+                cert4_skill: "Obchodní Komunikace",
+                cert5_title: "Úvod do Machine Learning pro Trading",
+                cert5_issuer: "QuantInsti",
+                cert5_date: "Červenec 2025 - Červenec 2034",
+                cert5_skill1: "Trading",
+                cert5_skill2: "Machine Learning",
+                cert6_title: "AI Marketing",
+                cert6_issuer: "Alison",
+                cert6_date: "Červen 2025",
+                cert6_skill: "AI pro Marketing",
+                cert7_title: "Investice",
+                cert7_issuer: "Golden Academy",
+                cert7_date: "Květen 2025",
+                cert7_skill: "Investice",
+                cert8_title: "Školení",
+                cert8_issuer: "United Latino Students Association",
+                cert8_date: "Květen 2025",
+                cert8_skill: "Školení",
+                cert9_title: "Google Web Designer",
+                cert9_issuer: "European IT Certification Institute",
+                cert9_date: "Září 2024",
+                cert9_skill: "Google Web Designer",
+                cert10_title: "Základy HTML/CSS",
+                cert10_issuer: "European IT Certification Institute",
+                cert10_date: "Září 2024",
+                cert10_skill: "HTML/CSS",
+                cert11_title: "Základy JavaScriptu",
+                cert11_issuer: "European IT Certification Institute",
+                cert11_date: "Září 2024",
+                cert11_skill: "JavaScript",
+                cert12_title: "Základy Webového Programování",
+                cert12_issuer: "European IT Certification Institute",
+                cert12_date: "Září 2024",
+                cert12_skill: "Webové Programování",
+                cert13_title: "Google Cloud Platform",
+                cert13_issuer: "European IT Certification Institute",
+                cert13_date: "Červenec 2024",
+                cert13_skill: "Google Cloud Platform",
+                cert14_title: "Coaching & Mentoring",
+                cert14_issuer: "Femme Palette",
+                cert14_date: "Červen 2024 - Červen 2034",
+                cert14_skill: "Coaching & Mentoring",
+                cert15_title: "Uživatelská Zkušenost (UX)",
+                cert15_issuer: "ITnetwork s.r.o.",
+                cert15_date: "Leden 2023",
+                cert15_skill1: "Uživatelská Zkušenost (UX)",
+                cert15_skill2: "HTML",
+                cert15_skill3: "CSS",
+                cert16_title: "Front-end Vývoj",
+                cert16_issuer: "Johns Hopkins University via Coursera",
+                cert16_date: "Listopad 2022",
+                cert16_skill1: "Front-end Vývoj",
+                cert16_skill2: "Vývoj Webu",
+                experience_title: "Pracovní Zkušenosti",
+                experience_subtitle: "Moje profesionální cesta",
+                exp1_title: "EXPEDICE",
+                exp1_company: "ViaPharma",
+                exp1_date: "Červenec 2025 - Současnost",
+                exp1_task1: "Zodpovědná za expedici a logistické operace",
+                exp1_task2: "Koordinace zásilek a dokumentace",
+                exp1_task3: "Zajištění včasného dodání a spokojenosti zákazníků",
+                exp2_title: "Podnikatel",
+                exp2_company: "OSVČ",
+                exp2_date: "Duben 2025 - Červen 2025",
+                exp2_task1: "Řízení nezávislých obchodních operací",
+                exp2_task2: "Vývoj obchodních strategií a vztahů se zákazníky",
+                exp2_task3: "Řízení finančního plánování a administrativy",
+                exp3_title: "Pracovník Výroby",
+                exp3_company: "Nová Mosilana, a.s.",
+                exp3_date: "Březen 2018 - Březen 2025",
+                exp3_task1: "Obsluha a údržba textilních strojů a zařízení",
+                exp3_task2: "Školení a instruktáž nových zaměstnanců",
+                exp3_task3: "Prokázání fyzické vytrvalosti a odolnosti při řešení problémů",
+                exp3_task4: "Projevila silné plánovací a organizační schopnosti",
+                exp4_title: "Specialista Elektromontáží",
+                exp4_company: "TOV \"UKR THECH\"",
+                exp4_date: "Leden 2017 - Prosinec 2018",
+                exp4_task1: "Provádění pájecích operací a montáž stabilizátorů napětí",
+                exp4_task2: "Školení a instruktáž nových zaměstnanců",
+                exp4_task3: "Vedení a motivace týmů zaměstnanců",
+                exp4_task4: "Poskytování služeb údržby automobilů",
+                exp5_title: "Asistent Prodeje",
+                exp5_company: "DELIKAT",
+                exp5_date: "Říjen 2016 - Květen 2017",
+                exp5_task1: "Vítání a asistence zákazníkům",
+                exp5_task2: "Školení a instruktáž nových zaměstnanců",
+                exp5_task3: "Příprava dokumentů a zpráv",
+                exp5_task4: "Obsluha kancelářského vybavení",
+                education_title: "Vzdělání",
+                education_subtitle: "Moje vzdělávací pozadí",
+                edu1_title: "Junior Specialista v Informačních Technologiích",
+                edu1_institution: "Čerkaská Státní Obchodní Škola",
+                edu1_date: "2013 - 2017",
+                edu1_text: "Specializace na údržbu počítačových systémů a sítí",
+                edu1_major: "Kvalifikace: Technik Počítačových Systémů",
+                edu1_additional: "Doplňkové: Vedoucí Skupiny (nostrifikace v České Republice)",
+                projects_title: "Mé Projekty",
+                projects_subtitle: "Práce, na které jsem hrdá",
+                project1_category: "Cestovní Kancelář",
+                project1_title: "King House Travel",
+                project1_text: "Komplexní webové stránky cestovní kanceláře s rezervačním systémem a průvodci po destinacích. V současnosti implementuji pokročilé SEO strategie pro zlepšení hodnocení ve vyhledávačích a zvýšení organické návštěvnosti.",
+                project2_category: "Portfolio",
+                project2_title: "Profesionální Portfolio",
+                project2_text: "Mé osobní webové portfolio prezentující mé dovednosti, projekty a profesionální zkušenosti. Navrženo s ohledem osvědčených postupů SEO pro zajištění maximální viditelnosti a přístupnosti.",
+                contact_title: "Kontaktujte Mě",
+                contact_subtitle: "Vždy jsem otevřená novým příležitostem a spolupráci",
+                contact_heading: "Spojme Se!",
+                contact_text: "Máte projekt, který chcete probrat, nebo jen chcete pozdravit? Neváhejte mě kontaktovat prostřednictvím kontaktního formuláře nebo přímo pomocí níže uvedených informací.",
+                contact_location: "Brno, Česká republika",
+                contact_ef: "Certifikát EF SET English",
+                form_name: "Vaše Jméno",
+                form_email: "Váš Email",
+                form_subject: "Předmět",
+                form_message: "Vaše Zpráva",
+                form_submit: "Odeslat Zprávu",
+                footer: "&copy; 2023 Tetiana Kotolup. Všechna práva vyhrazena.",
+                music_title: "Ambientní Pozadí",
+                music_artist: "Soundtrack Portfolia"
+            },
+            uk: {
+                nav_home: "Головна",
+                nav_about: "Про мене",
+                nav_skills: "Навички",
+                nav_certificates: "Сертифікати",
+                nav_experience: "Досвід",
+                nav_education: "Освіта",
+                nav_projects: "Проєкти",
+                nav_contact: "Контакти",
+                hero_title: "Тетяна Котолуп",
+                hero_subtitle: "Frontend Розробник | SEO Спеціаліст | IT Експерт",
+                hero_btn1: "Переглянути Проєкти",
+                hero_btn2: "Зв'язатися",
+                about_title: "Про Мене",
+                about_subtitle: "Дізнайтеся більше про мене, мій досвід та кваліфікацію",
+                about_heading: "IT Професіонал з України",
+                about_text1: "Я - віддана та універсальна IT-професіоналка з міцним досвідом у фронтенд-розробці, SEO-оптимізації та цифровому маркетингу. Моя пристрасть полягає у створенні ефективних технологічних рішень та постійному розширенні знань у сфері нових технологій.",
+                about_text2: "Наразі я глибоко вивчаю SEO для покращення видимості веб-сайтів та їх рейтингу. Маючи багато сертифікатів з веб-розробки, CRM та застосувань ШІ, я володію комплексним набором навичок, який поєднує технічні знання з діловими навичками.",
+                about_location: "Брно, Чеська Республіка",
+                skills_title: "Мої Навички",
+                skills_subtitle: "Технічні та професійні навички",
+                skill1_title: "SEO Оптимізація",
+                skill1_text: "Глибоке вивчення SEO технік, дослідження ключових слів, on-page та off-page оптимізації",
+                skill2_title: "Розробка Веб-сайтів",
+                skill2_text: "HTML, CSS, JavaScript, Google Web Designer",
+                skill3_title: "Бекенд Технології",
+                skill3_text: "Node.js, Google Cloud Platform",
+                skill4_title: "CRM Системи",
+                skill4_text: "Управління Відносинами з Клієнтами",
+                skill5_title: "Застосування ШІ",
+                skill5_text: "ChatGPT для Бізнесу, Маркетинг зі ШІ, Машинне Навчання",
+                skill6_title: "Фінанси & Трейдинг",
+                skill6_text: "Інвестиції, Машинне Навчання для Трейдингу",
+                certificates_title: "Сертифікати та Ліцензії",
+                certificates_subtitle: "Професійні сертифікати, які я отримала",
+                cert1_title: "Оптимізація для Пошукових Систем (SEO)",
+                cert1_issuer: "Coursera",
+                cert1_date: "Січень 2023",
+                cert1_skill: "SEO",
+                cert2_title: "Управління Відносинами з Клієнтами",
+                cert2_issuer: "Simplilearn",
+                cert2_date: "Вересень 2025",
+                cert2_skill: "CRM",
+                cert3_title: "NodeJS",
+                cert3_issuer: "Simplilearn",
+                cert3_date: "Вересень 2025",
+                cert3_skill: "Node.js",
+                cert4_title: "ChatGPT для Бізнес Комунікації",
+                cert4_issuer: "GreatLearning",
+                cert4_date: "Липень 2025",
+                cert4_skill: "Бізнес Комунікація",
+                cert5_title: "Вступ до Машинного Навчання для Трейдингу",
+                cert5_issuer: "QuantInsti",
+                cert5_date: "Липень 2025 - Липень 2034",
+                cert5_skill1: "Трейдинг",
+                cert5_skill2: "Машинне Навчання",
+                cert6_title: "Маркетинг зі ШІ",
+                cert6_issuer: "Alison",
+                cert6_date: "Червень 2025",
+                cert6_skill: "ШІ для Маркетингу",
+                cert7_title: "Інвестиції",
+                cert7_issuer: "Golden Academy",
+                cert7_date: "Травень 2025",
+                cert7_skill: "Інвестиції",
+                cert8_title: "Тренінг",
+                cert8_issuer: "United Latino Students Association",
+                cert8_date: "Травень 2025",
+                cert8_skill: "Тренінг",
+                cert9_title: "Google Web Designer",
+                cert9_issuer: "European IT Certification Institute",
+                cert9_date: "Вересень 2024",
+                cert9_skill: "Google Web Designer",
+                cert10_title: "Основи HTML/CSS",
+                cert10_issuer: "European IT Certification Institute",
+                cert10_date: "Вересень 2024",
+                cert10_skill: "HTML/CSS",
+                cert11_title: "Основи JavaScript",
+                cert11_issuer: "European IT Certification Institute",
+                cert11_date: "Вересень 2024",
+                cert11_skill: "JavaScript",
+                cert12_title: "Основи Веб-програмування",
+                cert12_issuer: "European IT Certification Institute",
+                cert12_date: "Вересень 2024",
+                cert12_skill: "Веб-програмування",
+                cert13_title: "Google Cloud Platform",
+                cert13_issuer: "European IT Certification Institute",
+                cert13_date: "Липень 2024",
+                cert13_skill: "Google Cloud Platform",
+                cert14_title: "Коучинг та Менторство",
+                cert14_issuer: "Femme Palette",
+                cert14_date: "Червень 2024 - Червень 2034",
+                cert14_skill: "Коучинг та Менторство",
+                cert15_title: "Користувацький Досвід (UX)",
+                cert15_issuer: "ITnetwork s.r.o.",
+                cert15_date: "Січень 2023",
+                cert15_skill1: "Користувацький Досвід (UX)",
+                cert15_skill2: "HTML",
+                cert15_skill3: "CSS",
+                cert16_title: "Фронтенд-розробка",
+                cert16_issuer: "Johns Hopkins University через Coursera",
+                cert16_date: "Листопад 2022",
+                cert16_skill1: "Фронтенд-розробка",
+                cert16_skill2: "Розробка Веб-сайтів",
+                experience_title: "Досвід Роботи",
+                experience_subtitle: "Мій професійний шлях",
+                exp1_title: "ЕКСПЕДИЦІЯ",
+                exp1_company: "ViaPharma",
+                exp1_date: "Липень 2025 - По теперішній час",
+                exp1_task1: "Відповідальна за експедицію та логістичні операції",
+                exp1_task2: "Координація відправлень та документації",
+                exp1_task3: "Забезпечення своєчасної доставки та задоволеності клієнтів",
+                exp2_title: "Підприємець",
+                exp2_company: "Самозайнята особа",
+                exp2_date: "Квітень 2025 - Червень 2025",
+                exp2_task1: "Управління незалежними бізнес-операціями",
+                exp2_task2: "Розробка бізнес-стратегій та відносин з клієнтами",
+                exp2_task3: "Управління фінансовим плануванням та адмініструванням",
+                exp3_title: "Виробничий Працівник",
+                exp3_company: "Nová Mosilana, a.s.",
+                exp3_date: "Березень 2018 - Березень 2025",
+                exp3_task1: "Обслуговування та утримання текстильного обладнання",
+                exp3_task2: "Навчання та інструктаж нових працівників",
+                exp3_task3: "Демонстрація фізичної витривалості та стійкості у вирішенні проблем",
+                exp3_task4: "Виявлення сильних планувальних та організаційних навичок",
+                exp4_title: "Спеціаліст з Електромонтажу",
+                exp4_company: "ТОВ \"UKR THECH\"",
+                exp4_date: "Січень 2017 - Грудень 2018",
+                exp4_task1: "Виконання паяльних робіт та складання стабілізаторів напруги",
+                exp4_task2: "Навчання та інструктаж нових працівників",
+                exp4_task3: "Керівництво та мотивація команд працівників",
+                exp4_task4: "Надання послуг з обслуговування автомобілів",
+                exp5_title: "Помічник з Продажів",
+                exp5_company: "DELIKAT",
+                exp5_date: "Жовтень 2016 - Травень 2017",
+                exp5_task1: "Вітання та допомога клієнтам",
+                exp5_task2: "Навчання та інструктаж нових працівників",
+                exp5_task3: "Підготовка документів та звітів",
+                exp5_task4: "Обслуговування офісного обладнання",
+                education_title: "Освіта",
+                education_subtitle: "Моє освітнє походження",
+                edu1_title: "Молодший Спеціаліст з Інформаційних Технологій",
+                edu1_institution: "Черкаська Державна Торговельна Школа",
+                edu1_date: "2013 - 2017",
+                edu1_text: "Спеціалізація на обслуговування комп'ютерних систем та мереж",
+                edu1_major: "Кваліфікація: Технік Комп'ютерних Систем",
+                edu1_additional: "Додатково: Керівник Групи (нострифікація в Чеській Республіці)",
+                projects_title: "Мої Проєкти",
+                projects_subtitle: "Останні роботи, якими я пишаюся",
+                project1_category: "Туристична Агентія",
+                project1_title: "King House Travel",
+                project1_text: "Комплексний веб-сайт туристичної агенції з функціональністю бронювання та путівниками по напрямках. В даний час впроваджую передові SEO стратегії для покращення позицій у пошукових системах та збільшення органічного трафіку.",
+                project2_category: "Портфоліо",
+                project2_title: "Професійне Портфоліо",
+                project2_text: "Мій особистий веб-сайт портфоліо, що демонструє мої навички, проєкти та професійний досвід. Розроблено з урахуванням найкращих практик SEO для забезпечення максимальної видимості та доступності.",
+                contact_title: "Зв'яжіться Зі Мною",
+                contact_subtitle: "Я завжди відкрита до нових можливостей та співпраці",
+                contact_heading: "Давайте З'єднаємось!",
+                contact_text: "Якщо у вас є проєкт, який ви хочете обговорити, або ви просто хочете сказати привіт, не соромтеся звертатися через контактну форму або безпосередньо за наведеною нижче інформацією.",
+                contact_location: "Брно, Чеська Республіка",
+                contact_ef: "Сертифікат EF SET English",
+                form_name: "Ваше Ім'я",
+                form_email: "Ваш Email",
+                form_subject: "Тема",
+                form_message: "Ваше Повідомлення",
+                form_submit: "Надіслати Повідомлення",
+                footer: "&copy; 2023 Тетяна Котолуп. Всі права захищені.",
+                music_title: "Фонове Аудіо",
+                music_artist: "Саундтрек Портфоліо"
+            }
+        };
+
+        // Перемикання мов
+        const langSelector = document.getElementById('lang-selector');
+        const elementsWithLang = document.querySelectorAll('[data-lang]');
+        
+        function updateLanguage(lang) {
+            elementsWithLang.forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Оновлення placeholder'ів
+            const placeholders = document.querySelectorAll('[data-lang-placeholder]');
+            placeholders.forEach(element => {
+                const key = element.getAttribute('data-lang-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    element.placeholder = translations[lang][key];
+                }
+            });
+        }
+        
+        langSelector.addEventListener('change', (e) => {
+            updateLanguage(e.target.value);
+        });
+
+        // Перемикання теми
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const themeIcon = themeToggle.querySelector('i');
+        
+        themeToggle.addEventListener('click', () => {
+            body.setAttribute('data-theme', 
+                body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+            
+            if (body.getAttribute('data-theme') === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+
+        // Цифровий фон
+        function createDigitalRain() {
+            const digitalBg = document.getElementById('digital-bg');
+            const characters = '01';
+            const fontSize = 18;
+            const columns = Math.floor(window.innerWidth / fontSize);
+            
+            // Створення крапок
+            for (let i = 0; i < columns; i++) {
+                const digit = document.createElement('div');
+                digit.classList.add('digit');
+                digit.style.left = `${i * fontSize}px`;
+                digit.style.animationDuration = `${Math.random() * 5 + 5}s`;
+                digit.style.animationDelay = `${Math.random() * 5}s`;
+                digit.textContent = characters.charAt(Math.floor(Math.random() * characters.length));
+                digitalBg.appendChild(digit);
+                
+                // Оновлення символів
+                setInterval(() => {
+                    digit.textContent = characters.charAt(Math.floor(Math.random() * characters.length));
+                }, Math.random() * 1000 + 500);
+            }
+        }
+        
+        createDigitalRain();
+        
+        // Оновлення при зміні розміру вікна
+        window.addEventListener('resize', () => {
+            document.getElementById('digital-bg').innerHTML = '';
+            createDigitalRain();
+        });
+
+        // Музичний плеєр
+        const playBtn = document.getElementById('play-btn');
+        const playIcon = playBtn.querySelector('i');
+        let isPlaying = false;
+        
+        // Створення аудіо контексту (для демонстрації)
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.type = 'sine';
+        oscillator.frequency.setValueAtTime(440, audioContext.currentTime);
+        gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        playBtn.addEventListener('click', () => {
+            if (!isPlaying) {
+                // В реальному додатку тут би відтворювався аудіофайл
+                // Для демонстрації використовуємо Web Audio API
+                oscillator.start();
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
+                isPlaying = true;
+            } else {
+                oscillator.stop();
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+                isPlaying = false;
+                
+                // Створення нового осцилятора для наступного відтворення
+                const newOscillator = audioContext.createOscillator();
+                newOscillator.type = 'sine';
+                newOscillator.frequency.setValueAtTime(440, audioContext.currentTime);
+                newOscillator.connect(gainNode);
+                oscillator.disconnect();
+                oscillator = newOscillator;
+            }
+        });
+
+        // Анімація при скролі
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+
+        // Плавна прокрутка до секцій
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Анімація для елементів часового ряду
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        const animateTimeline = () => {
+            timelineItems.forEach((item, index) => {
+                const itemTop = item.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (itemTop < windowHeight - 100) {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                    }, index * 200);
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateTimeline);
+        window.addEventListener('load', animateTimeline);
+
+        // Форма контакту
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // В реальному додатку тут би відправлявся запит на сервер
+            // Для демонстрації просто покажемо повідомлення
+            const formData = new FormData(contactForm);
+            const formValues = Object.fromEntries(formData.entries());
+            
+            // Створення повідомлення про успіх
+            const successMessage = document.createElement('div');
+            successMessage.style.position = 'fixed';
+            successMessage.style.top = '50%';
+            successMessage.style.left = '50%';
+            successMessage.style.transform = 'translate(-50%, -50%)';
+            successMessage.style.background = 'var(--secondary)';
+            successMessage.style.color = 'white';
+            successMessage.style.padding = '20px 40px';
+            successMessage.style.borderRadius = '10px';
+            successMessage.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+            successMessage.style.zIndex = '10000';
+            successMessage.style.fontSize = '1.1rem';
+            successMessage.style.fontWeight = '500';
+            successMessage.textContent = 'Thank you for your message! I will contact you soon.';
+            
+            document.body.appendChild(successMessage);
+            
+            // Видалення повідомлення через 3 секунди
+            setTimeout(() => {
+                successMessage.style.opacity = '0';
+                successMessage.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    document.body.removeChild(successMessage);
+                }, 500);
+            }, 3000);
+            
+            // Очищення форми
+            contactForm.reset();
+        });
+
+        // Увімкнути "плаваючий" золотий курсор (варіант Б):
+        document.documentElement.classList.add('has-gold-cursor');
+
+        (function goldCursor(){
+            const dot = document.getElementById('gold-cursor');
+            let x = window.innerWidth/2, y = window.innerHeight/2;
+            let tx = x, ty = y; // target pos
+            const ease = 0.18;
+
+            window.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; }, {passive:true});
+            function raf(){
+                x += (tx - x) * ease;
+                y += (ty - y) * ease;
+                dot.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+                requestAnimationFrame(raf);
+            }
+            raf();
+
+            // невеликий "клік-імпульс"
+            window.addEventListener('mousedown', ()=>{ dot.style.opacity = '0.7'; dot.style.width='10px'; dot.style.height='10px'; });
+            window.addEventListener('mouseup',   ()=>{ dot.style.opacity = '0.95'; dot.style.width='14px'; dot.style.height='14px'; });
+        })();
+    </script>
+</body>
+</html>
