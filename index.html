@@ -1383,6 +1383,17 @@
         }
         /* невеликий ефект при кліку/ховері */
         a:hover ~ #gold-cursor, button:hover ~ #gold-cursor{ width:18px; height:18px; }
+
+        /* Додатково: анімація для музичного плеєра */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .music-player.playing {
+            animation: pulse 2s infinite;
+        }
     </style>
 </head>
 <body>
@@ -1396,6 +1407,12 @@
 
     <!-- Gold cursor follower -->
     <div id="gold-cursor" aria-hidden="true"></div>
+
+    <!-- Аудіо елемент для фонової музики -->
+    <audio id="background-music" loop>
+        <source src="m.i.a.-amp-zayn-freedun.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
     <!-- Цифровий фон з кругами -->
     <div id="digital-bg">
@@ -1463,7 +1480,7 @@
             </div>
             <div class="about-content fade-in">
                 <div class="about-img">
-                    <img src="https://via.placeholder.com/400" alt="Tetiana Kotolup">
+                    <img src="img0.jpg" alt="Tetiana Kotolup">
                 </div>
                 <div class="about-text">
                     <h3 data-lang="about_heading">IT Professional from Ukraine</h3>
@@ -1925,7 +1942,7 @@
             <div class="projects-container">
                 <div class="project-card fade-in">
                     <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400" alt="King House Travel">
+                        <img src="downloaded-image.png" alt="King House Travel">
                         <div class="project-overlay">
                             <span class="project-category" data-lang="project1_category">Travel Agency</span>
                         </div>
@@ -1947,7 +1964,8 @@
                 </div>
                 <div class="project-card fade-in">
                     <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400" alt="Portfolio">
+                        <img src="Gen4 Trailer Script – English Version [deep bass beat begins, slowly rising] (voice of T 1546701947.png
+" alt="Portfolio">
                         <div class="project-overlay">
                             <span class="project-category" data-lang="project2_category">Portfolio</span>
                         </div>
@@ -2627,43 +2645,64 @@
         // Музичний плеєр
         const playBtn = document.getElementById('play-btn');
         const playIcon = playBtn.querySelector('i');
+        const backgroundMusic = document.getElementById('background-music');
         let isPlaying = false;
-        
-        // Створення аудіо контексту (для демонстрації)
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const oscillator = audioContext.createOscillator();
-        const gainNode = audioContext.createGain();
-        
-        oscillator.type = 'sine';
-        oscillator.frequency.setValueAtTime(440, audioContext.currentTime);
-        gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-        
-        oscillator.connect(gainNode);
-        gainNode.connect(audioContext.destination);
-        
+
         playBtn.addEventListener('click', () => {
             if (!isPlaying) {
-                // В реальному додатку тут би відтворювався аудіофайл
-                // Для демонстрації використовуємо Web Audio API
-                oscillator.start();
-                playIcon.classList.remove('fa-play');
-                playIcon.classList.add('fa-pause');
-                isPlaying = true;
+                backgroundMusic.play().then(() => {
+                    playIcon.classList.remove('fa-play');
+                    playIcon.classList.add('fa-pause');
+                    isPlaying = true;
+                    document.querySelector('.music-player').classList.add('playing');
+                }).catch(error => {
+                    console.error('Error playing audio:', error);
+                    // Показуємо повідомлення про помилку
+                    const errorMessage = document.createElement('div');
+                    errorMessage.style.position = 'fixed';
+                    errorMessage.style.bottom = '100px';
+                    errorMessage.style.right = '30px';
+                    errorMessage.style.background = '#ff4757';
+                    errorMessage.style.color = 'white';
+                    errorMessage.style.padding = '15px 25px';
+                    errorMessage.style.borderRadius = '10px';
+                    errorMessage.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+                    errorMessage.style.zIndex = '10000';
+                    errorMessage.style.fontSize = '1rem';
+                    errorMessage.textContent = 'Please interact with the page first to enable audio.';
+                    document.body.appendChild(errorMessage);
+                    
+                    setTimeout(() => {
+                        errorMessage.style.opacity = '0';
+                        errorMessage.style.transition = 'opacity 0.5s ease';
+                        setTimeout(() => {
+                            document.body.removeChild(errorMessage);
+                        }, 500);
+                    }, 3000);
+                });
             } else {
-                oscillator.stop();
+                backgroundMusic.pause();
                 playIcon.classList.remove('fa-pause');
                 playIcon.classList.add('fa-play');
                 isPlaying = false;
-                
-                // Створення нового осцилятора для наступного відтворення
-                const newOscillator = audioContext.createOscillator();
-                newOscillator.type = 'sine';
-                newOscillator.frequency.setValueAtTime(440, audioContext.currentTime);
-                newOscillator.connect(gainNode);
-                oscillator.disconnect();
-                oscillator = newOscillator;
+                document.querySelector('.music-player').classList.remove('playing');
             }
         });
+
+        // Автоматичне відтворення музики при першій взаємодії з сторінкою
+        document.addEventListener('click', function initAudio() {
+            if (!isPlaying) {
+                backgroundMusic.play().then(() => {
+                    playIcon.classList.remove('fa-play');
+                    playIcon.classList.add('fa-pause');
+                    isPlaying = true;
+                    document.querySelector('.music-player').classList.add('playing');
+                }).catch(error => {
+                    console.log('Autoplay prevented:', error);
+                });
+                document.removeEventListener('click', initAudio);
+            }
+        }, { once: true });
 
         // Анімація при скролі
         const fadeElements = document.querySelectorAll('.fade-in');
