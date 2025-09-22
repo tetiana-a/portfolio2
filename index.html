@@ -36,7 +36,9 @@
                         'float-slow': 'float 8s ease-in-out infinite',
                         'float-slower': 'float 12s ease-in-out infinite',
                         pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        gradient: 'gradient 15s ease infinite',
+                        move: 'move 25s linear infinite',
+                        move-slow: 'move 35s linear infinite',
+                        move-slower: 'move 45s linear infinite',
                     },
                     keyframes: {
                         float: {
@@ -47,10 +49,12 @@
                             '0%, 100%': { opacity: '1' },
                             '50%': { opacity: '.5' },
                         },
-                        gradient: {
-                            '0%': { backgroundPosition: '0% 50%' },
-                            '50%': { backgroundPosition: '100% 50%' },
-                            '100%': { backgroundPosition: '0% 50%' },
+                        move: {
+                            '0%': { transform: 'translate(0, 0) rotate(0deg)' },
+                            '25%': { transform: 'translate(100px, 50px) rotate(90deg)' },
+                            '50%': { transform: 'translate(50px, 100px) rotate(180deg)' },
+                            '75%': { transform: 'translate(-50px, 50px) rotate(270deg)' },
+                            '100%': { transform: 'translate(0, 0) rotate(360deg)' },
                         }
                     },
                 },
@@ -75,11 +79,106 @@
             font-family: 'Montserrat', 'sans-serif';
         }
 
-        /* Animated gradient background */
-        .animated-gradient {
-            background: linear-gradient(-45deg, #1a237e, #0d47a1, #01579b, #006064, #1a237e);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
+        /* Animated colorful circles background */
+        #colorful-circles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .color-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(1px);
+            opacity: 0.4;
+        }
+
+        /* Different colored circles with animations */
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 99, 132, 0.6), rgba(255, 99, 132, 0.1));
+            top: 10%;
+            left: 5%;
+            animation: move 25s linear infinite;
+        }
+
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(54, 162, 235, 0.6), rgba(54, 162, 235, 0.1));
+            top: 60%;
+            left: 80%;
+            animation: move-slow 35s linear infinite reverse;
+        }
+
+        .circle-3 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255, 206, 86, 0.6), rgba(255, 206, 86, 0.1));
+            top: 30%;
+            left: 60%;
+            animation: move-slower 45s linear infinite;
+        }
+
+        .circle-4 {
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(75, 192, 192, 0.6), rgba(75, 192, 192, 0.1));
+            top: 70%;
+            left: 20%;
+            animation: move 30s linear infinite reverse;
+        }
+
+        .circle-5 {
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, rgba(153, 102, 255, 0.6), rgba(153, 102, 255, 0.1));
+            top: 15%;
+            left: 40%;
+            animation: move-slow 40s linear infinite;
+        }
+
+        .circle-6 {
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle, rgba(255, 159, 64, 0.6), rgba(255, 159, 64, 0.1));
+            top: 50%;
+            left: 70%;
+            animation: move-slower 50s linear infinite reverse;
+        }
+
+        /* Dark theme adjustments for circles */
+        [data-theme="dark"] .color-circle {
+            opacity: 0.3;
+        }
+
+        [data-theme="dark"] .circle-1 {
+            background: radial-gradient(circle, rgba(255, 99, 132, 0.8), rgba(255, 99, 132, 0.2));
+        }
+
+        [data-theme="dark"] .circle-2 {
+            background: radial-gradient(circle, rgba(54, 162, 235, 0.8), rgba(54, 162, 235, 0.2));
+        }
+
+        [data-theme="dark"] .circle-3 {
+            background: radial-gradient(circle, rgba(255, 206, 86, 0.8), rgba(255, 206, 86, 0.2));
+        }
+
+        [data-theme="dark"] .circle-4 {
+            background: radial-gradient(circle, rgba(75, 192, 192, 0.8), rgba(75, 192, 192, 0.2));
+        }
+
+        [data-theme="dark"] .circle-5 {
+            background: radial-gradient(circle, rgba(153, 102, 255, 0.8), rgba(153, 102, 255, 0.2));
+        }
+
+        [data-theme="dark"] .circle-6 {
+            background: radial-gradient(circle, rgba(255, 159, 64, 0.8), rgba(255, 159, 64, 0.2));
         }
 
         /* Background circles */
@@ -271,12 +370,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(26, 35, 126, 0.1), rgba(13, 71, 161, 0.1), rgba(1, 87, 155, 0.1), rgba(0, 96, 100, 0.1));
+            background: linear-gradient(45deg, rgba(26, 35, 126, 0.05), rgba(13, 71, 161, 0.05), rgba(1, 87, 155, 0.05), rgba(0, 96, 100, 0.05));
             z-index: -1;
         }
         
         [data-theme="dark"] .elite-section::before {
-            background: linear-gradient(45deg, rgba(135, 206, 235, 0.1), rgba(100, 181, 246, 0.1), rgba(66, 165, 245, 0.1), rgba(30, 136, 229, 0.1));
+            background: linear-gradient(45deg, rgba(135, 206, 235, 0.05), rgba(100, 181, 246, 0.05), rgba(66, 165, 245, 0.05), rgba(30, 136, 229, 0.05));
         }
         
         /* Animated gradient overlay for hero section */
@@ -286,15 +385,21 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(26, 35, 126, 0.8), rgba(13, 71, 161, 0.7), rgba(1, 87, 155, 0.6));
+            background: linear-gradient(135deg, rgba(26, 35, 126, 0.7), rgba(13, 71, 161, 0.6), rgba(1, 87, 155, 0.5));
             z-index: -1;
-            animation: gradient 20s ease infinite;
         }
     </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
-    <!-- Animated gradient background -->
-    <div class="animated-gradient fixed inset-0 z-[-2]"></div>
+    <!-- Animated colorful circles background -->
+    <div id="colorful-circles">
+        <div class="color-circle circle-1"></div>
+        <div class="color-circle circle-2"></div>
+        <div class="color-circle circle-3"></div>
+        <div class="color-circle circle-4"></div>
+        <div class="color-circle circle-5"></div>
+        <div class="color-circle circle-6"></div>
+    </div>
     
     <!-- Background circles -->
     <div id="bg-circles" aria-hidden="true">
