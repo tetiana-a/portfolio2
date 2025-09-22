@@ -4,65 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tetiana Kotolup - Professional Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#000000',
+                        secondary: '#4a148c',
+                        accent: '#87ceeb',
+                        dark: '#1a1a1a',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    },
+                    animation: {
+                        float: 'float 6s ease-in-out infinite',
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        'float-slower': 'float 12s ease-in-out infinite',
+                        pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        pulse: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '.5' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    
     <style>
+        /* Custom styles for animations and effects */
         :root {
-            --primary: #000000;
-            --secondary: #4a148c;
-            --accent: #87ceeb;
-            --light: #ffffff;
-            --dark: #1a1a1a;
-            --text: #000000;
-            --light-bg: #ffffff;
-            --dark-bg: #000000;
-            --card-bg: #ffffff;
-            --nav-bg: rgba(255, 255, 255, 0.95);
-            --shadow: rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            /* Додано нові змінні для ефектів */
-            --purple: #4a148c;            /* темно-фіолетовий */
-            --gold: #f2d27a;              /* світло-золотий */
-            /* Змінені змінні для прозорості кругів */
-            --circle-opacity-light: 0.5;  /* збільшена прозорість для світлої теми */
-            --circle-opacity-dark: 0.6;   /* збільшена прозорість для темної теми */
-        }
-
-        [data-theme="dark"] {
-            --primary: #ffffff;
-            --secondary: #87ceeb;
-            --accent: #4a148c;
-            --light: #000000;
-            --dark: #ffffff;
-            --text: #ffffff;
-            --light-bg: #000000;
-            --dark-bg: #1a1a1a;
-            --card-bg: #1a1a1a;
-            --nav-bg: rgba(0, 0, 0, 0.95);
-            --shadow: rgba(0, 0, 0, 0.5);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --purple: #4a148c;
+            --gold: #f2d27a;
+            --circle-opacity-light: 0.5;
+            --circle-opacity-dark: 0.6;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--light-bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-            transition: var(--transition);
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
         }
 
-        /* Напівпрозорі кола на фоні - виправлено */
+        /* Background circles */
         #bg-circles {
             position: fixed;
             inset: 0;
@@ -79,9 +84,8 @@
                         color-mix(in srgb, var(--purple) 10%, transparent) 60%,
                         transparent 100%);
             filter: blur(0.2px);
-            animation: float 24s ease-in-out infinite;
             opacity: var(--circle-opacity-light);
-            transition: var(--transition);
+            transition: all 0.3s ease;
         }
 
         [data-theme="dark"] .circle {
@@ -92,12 +96,12 @@
                         transparent 100%);
         }
 
-        .c1 { width: 42vmax; height: 42vmax; top: 8%; left: 6%; animation-delay: 0s; }
-        .c2 { width: 28vmax; height: 28vmax; bottom: 12%; right: 8%; animation-delay: 3s; }
-        .c3 { width: 22vmax; height: 22vmax; top: 28%; right: 28%; animation-delay: 6s; }
-        .c4 { width: 34vmax; height: 34vmax; bottom: 22%; left: 18%; animation-delay: 9s; }
+        .c1 { width: 42vmax; height: 42vmax; top: 8%; left: 6%; animation: float 24s ease-in-out infinite; }
+        .c2 { width: 28vmax; height: 28vmax; bottom: 12%; right: 8%; animation: float 20s ease-in-out infinite reverse; }
+        .c3 { width: 22vmax; height: 22vmax; top: 28%; right: 28%; animation: float 16s ease-in-out infinite; }
+        .c4 { width: 34vmax; height: 34vmax; bottom: 22%; left: 18%; animation: float 22s ease-in-out infinite reverse; }
 
-        /* Цифровий фон з кругами */
+        /* Digital rain effect */
         #digital-bg {
             position: fixed;
             top: 0;
@@ -106,7 +110,7 @@
             height: 100%;
             z-index: 0;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--light-bg) 0%, var(--dark-bg) 100%);
+            background: linear-gradient(135deg, var(--tw-bg-opacity) 0%, var(--tw-bg-opacity) 100%);
         }
 
         .digit {
@@ -119,23 +123,13 @@
         }
 
         @keyframes fall {
-            0% {
-                transform: translateY(-100px);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
+            0% { transform: translateY(-100px); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
         }
 
-        /* Фіолетові круги - виправлена прозорість */
+        /* Purple circles */
         .purple-circle {
             position: absolute;
             border-radius: 50%;
@@ -145,7 +139,7 @@
                 transparent 100%);
             z-index: 0;
             pointer-events: none;
-            transition: var(--transition);
+            transition: all 0.3s ease;
         }
 
         [data-theme="dark"] .purple-circle {
@@ -155,1288 +149,77 @@
                 transparent 100%);
         }
 
-        .circle-1 {
-            width: 400px;
-            height: 400px;
-            top: 10%;
-            left: 5%;
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .circle-2 {
-            width: 300px;
-            height: 300px;
-            top: 60%;
-            right: 10%;
-            animation: float 25s infinite ease-in-out reverse;
-        }
-
-        .circle-3 {
-            width: 200px;
-            height: 200px;
-            bottom: 20%;
-            left: 20%;
-            animation: float 30s infinite ease-in-out;
-        }
-
-        .circle-4 {
-            width: 350px;
-            height: 350px;
-            top: 30%;
-            right: 30%;
-            animation: float 22s infinite ease-in-out reverse;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) translateX(0) rotate(0deg);
-            }
-            25% {
-                transform: translateY(-20px) translateX(10px) rotate(5deg);
-            }
-            50% {
-                transform: translateY(10px) translateX(-10px) rotate(-5deg);
-            }
-            75% {
-                transform: translateY(-15px) translateX(5px) rotate(3deg);
-            }
-        }
-
-        /* Навігація */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
+        /* Custom cursor */
+        #gold-cursor {
             position: fixed;
-            width: 100%;
             top: 0;
-            z-index: 1000;
-            background-color: var(--nav-bg);
-            backdrop-filter: blur(10px);
-            transition: var(--transition);
-            box-shadow: 0 2px 20px var(--shadow);
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--secondary);
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
             left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-controls {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .lang-selector {
-            background: transparent;
-            border: 1px solid var(--secondary);
-            color: var(--text);
-            padding: 5px 10px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .lang-selector:hover {
-            background: var(--secondary);
-            color: white;
-        }
-
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: var(--text);
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 14px;
+            height: 14px;
+            margin: -7px 0 0 -7px;
             border-radius: 50%;
+            background: var(--gold);
+            mix-blend-mode: screen;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.95;
+            transform: translate3d(0,0,0);
+            transition: width 0.12s ease, height 0.12s ease, opacity 0.2s ease;
         }
 
-        .theme-toggle:hover {
-            background: var(--secondary);
-            color: white;
+        /* Theme transitions */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
-        /* Музичний плеєр */
-        .music-player {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            background: var(--card-bg);
-            border-radius: 50px;
-            padding: 15px;
-            box-shadow: 0 10px 30px var(--shadow);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            transition: var(--transition);
-        }
-
-        .music-player:hover {
-            transform: translateY(-5px);
-        }
-
-        .play-btn {
-            background: var(--secondary);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .play-btn:hover {
-            background: var(--accent);
-            transform: scale(1.1);
-        }
-
-        .music-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .music-title {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--text);
-        }
-
-        .music-artist {
-            font-size: 0.8rem;
-            color: var(--dark);
-        }
-
-        /* Hero секція */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            padding-top: 80px;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(74, 20, 140, 0.9)), url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3') center/cover no-repeat;
-            z-index: -1;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 0 20px;
-            z-index: 2;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            letter-spacing: 1px;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            color: white;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 300;
-        }
-
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: -1;
-            transition: var(--transition);
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #6bb6ff;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--secondary);
-        }
-
-        /* Секції - виправлено прозорість фону */
-        section {
-            padding: 100px 0;
-            position: relative;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.9); /* напівпрозорий фон для світлої теми */
-        }
-
-        [data-theme="dark"] section {
-            background: rgba(0, 0, 0, 0.9); /* напівпрозорий фон для темної теми */
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        .section-title h2 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            color: var(--secondary);
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            color: var(--dark);
-            max-width: 600px;
-            margin: 20px auto 0;
-            font-size: 1.1rem;
-        }
-
-        /* Про мене */
-        .about {
-            background-color: var(--card-bg);
-        }
-
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .about-img {
-            flex: 1;
-            position: relative;
-        }
-
-        .about-img::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            width: 100%;
-            height: 100%;
-            background: var(--secondary);
-            border-radius: 10px;
-            z-index: -1;
-            opacity: 0.7;
-        }
-
-        .about-img img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 15px 30px var(--shadow);
-            border: 5px solid var(--card-bg);
-            transition: var(--transition);
-        }
-
-        .about-img:hover img {
-            transform: scale(1.03);
-        }
-
-        .about-text {
-            flex: 2;
-        }
-
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-            position: relative;
-        }
-
-        .about-text h3::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--accent);
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-            color: var(--text);
-            font-size: 1.1rem;
-        }
-
-        .about-info {
-            margin-top: 30px;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .info-item i {
-            color: var(--secondary);
-            margin-right: 15px;
-            font-size: 1.2rem;
-            width: 24px;
-            text-align: center;
-        }
-
-        .info-item span {
-            color: var(--text);
-            font-weight: 500;
-        }
-
-        /* Навички */
-        .skills {
-            background-color: var(--light-bg);
-        }
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .skill-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 10px 30px var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-        }
-
-        .skill-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 15px 40px var(--shadow);
-        }
-
-        .skill-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 2rem;
-            color: white;
-        }
-
-        .skill-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        .skill-card p {
-            color: var(--text);
-            margin-bottom: 20px;
-        }
-
-        .skill-level {
-            height: 8px;
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 4px;
-            overflow: hidden;
-            margin-top: 15px;
-        }
-
+        /* Skill progress animation */
         .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            border-radius: 4px;
-            width: 90%;
+            width: 0;
             transition: width 1.5s ease;
         }
 
-        /* Сертифікати */
-        .certificates {
-            background-color: var(--card-bg);
+        .skill-card:hover .skill-progress {
+            width: var(--progress);
         }
 
-        .certificates-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .certificate-card {
-            background: var(--light-bg);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 10px 30px var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .certificate-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--secondary), var(--accent));
-        }
-
-        .certificate-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px var(--shadow);
-        }
-
-        .certificate-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            gap: 15px;
-        }
-
-        .certificate-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .certificate-info h3 {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-
-        .certificate-issuer {
-            color: var(--dark);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .certificate-date {
-            display: inline-block;
-            background: rgba(74, 20, 140, 0.1);
-            color: var(--secondary);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-top: 15px;
-        }
-
-        .certificate-skills {
-            margin-top: 15px;
-        }
-
-        .certificate-skills span {
-            display: inline-block;
-            background: rgba(135, 206, 235, 0.1);
-            color: var(--accent);
-            padding: 3px 10px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            margin-right: 8px;
-            margin-bottom: 8px;
-        }
-
-        /* Досвід роботи */
-        .experience {
-            background-color: var(--light-bg);
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--secondary), var(--accent));
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-        }
-
+        /* Timeline animation */
         .timeline-item {
-            padding: 20px 40px;
-            position: relative;
-            width: 50%;
             opacity: 0;
-            animation: fadeIn 0.8s ease forwards;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
         }
 
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: var(--accent);
-            border-radius: 50%;
-            top: 25px;
-            z-index: 1;
-            box-shadow: 0 0 0 4px rgba(135, 206, 235, 0.2);
-        }
-
-        .timeline-item:nth-child(odd)::after {
-            right: -10px;
-        }
-
-        .timeline-item:nth-child(even)::after {
-            left: -10px;
-        }
-
-        .timeline-content {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px var(--shadow);
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px var(--shadow);
-        }
-
-        .timeline-content h3 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
-
-        .timeline-content .company {
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 5px;
-            font-size: 1.1rem;
-        }
-
-        .timeline-content .date {
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 15px;
-            display: inline-block;
-            padding: 5px 15px;
-            background: rgba(135, 206, 235, 0.1);
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-
-        .timeline-content p {
-            color: var(--text);
-            line-height: 1.8;
-        }
-
-        .timeline-content ul {
-            margin-top: 15px;
-            padding-left: 20px;
-        }
-
-        .timeline-content li {
-            color: var(--text);
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-
-        /* Освіта */
-        .education {
-            background-color: var(--card-bg);
-        }
-
-        .education-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .edu-card {
-            background: var(--light-bg);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .edu-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--secondary), var(--accent));
-        }
-
-        .edu-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px var(--shadow);
-        }
-
-        .edu-card h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .edu-card .institution {
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        .edu-card .date {
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 20px;
-            display: inline-block;
-            padding: 5px 15px;
-            background: rgba(135, 206, 235, 0.1);
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-
-        .edu-card p {
-            color: var(--text);
-            line-height: 1.8;
-        }
-
-        .edu-card .major {
-            font-weight: 600;
-            margin-top: 10px;
-            color: var(--primary);
-        }
-
-        /* Проєкти */
-        .projects {
-            background-color: var(--light-bg);
-        }
-
-        .projects-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px var(--shadow);
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .project-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px var(--shadow);
-        }
-
-        .project-img {
-            height: 250px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .project-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-        }
-
-        .project-card:hover .project-img img {
-            transform: scale(1.1);
-        }
-
-        .project-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            display: flex;
-            align-items: flex-end;
-            padding: 20px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .project-card:hover .project-overlay {
+        .timeline-item.visible {
             opacity: 1;
+            transform: translateY(0);
         }
 
-        .project-category {
-            background: var(--accent);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .project-info {
-            padding: 30px;
-        }
-
-        .project-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        .project-info p {
-            color: var(--text);
-            margin-bottom: 25px;
-            font-size: 1rem;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-
-        .tech-tag {
-            background: rgba(52, 152, 219, 0.1);
-            color: var(--secondary);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .project-links a {
-            color: var(--secondary);
-            font-size: 1.2rem;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(52, 152, 219, 0.1);
-        }
-
-        .project-links a:hover {
-            color: white;
-            background: var(--secondary);
-            transform: translateY(-3px);
-        }
-
-        /* Контакти */
-        .contact {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(74, 20, 140, 0.9)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3') center/cover no-repeat;
-            color: white;
-            position: relative;
-        }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 0;
-        }
-
-        .contact-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 60px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-info {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .contact-form {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .contact-info h3 {
-            font-size: 2.2rem;
-            margin-bottom: 25px;
-            position: relative;
-        }
-
-        .contact-info h3::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--accent);
-        }
-
-        .contact-info p {
-            margin-bottom: 30px;
-            opacity: 0.9;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .contact-item i {
-            font-size: 1.5rem;
-            margin-right: 20px;
-            color: var(--accent);
-            background: rgba(255, 255, 255, 0.1);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-
-        .contact-item:hover i {
-            background: var(--accent);
-            transform: scale(1.1);
-        }
-
-        .contact-form .form-group {
-            margin-bottom: 25px;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-            backdrop-filter: blur(10px);
-            transition: var(--transition);
-        }
-
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 0 2px var(--accent);
-        }
-
-        .contact-form textarea {
-            height: 150px;
-            resize: none;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border-radius: 50%;
-            font-size: 1.3rem;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background: var(--accent);
-            transform: translateY(-5px);
-        }
-
-        /* Header і Footer - виправлено прозорість */
-        header, footer {
-            position: relative;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.9); /* напівпрозорий фон для світлої теми */
-        }
-
-        [data-theme="dark"] header,
-        [data-theme="dark"] footer {
-            background: rgba(0, 0, 0, 0.9); /* напівпрозорий фон для темної теми */
-        }
-
-        footer {
-            background: var(--dark-bg);
-            color: white;
-            text-align: center;
-            padding: 40px 0;
-        }
-
-        footer p {
-            opacity: 0.8;
-            font-size: 1rem;
-        }
-
-        /* Анімації */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
+        /* Fade in animation */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.8s ease;
         }
 
-        .fade-in.active {
+        .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Адаптивність */
-        @media (max-width: 1200px) {
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2.5rem;
-            }
+        /* Glass morphism effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .hero p {
-                font-size: 1.3rem;
-            }
-            
-            .about-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .about-img {
-                margin-bottom: 40px;
-            }
-            
-            .timeline::after {
-                left: 30px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .timeline-item::after {
-                left: 20px;
-            }
-            
-            .timeline-item:nth-child(odd)::after {
-                right: auto;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                padding: 15px 20px;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .hero {
-                padding-top: 100px;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .certificates-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .projects-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-container {
-                flex-direction: column;
-            }
-            
-            .music-player {
-                bottom: 20px;
-                right: 20px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .skill-card,
-            .edu-card,
-            .certificate-card,
-            .project-card {
-                padding: 20px;
-            }
-            
-            .timeline-content {
-                padding: 20px;
-            }
-            
-            .timeline-content h3 {
-                font-size: 1.3rem;
-            }
-            
-            .contact-info h3 {
-                font-size: 1.8rem;
-            }
-        }
-
-        /* ВАРІАНТ А: легкий CSS-курсор — SVG data URI (без JS) */
-        body{
-            cursor: url("data:image/svg+xml;utf8,\
-            <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'>\
-                <circle cx='8' cy='8' r='6' fill='%23f2d27a'/>\
-            </svg>") 8 8, auto;
-        }
-
-        /* ВАРІАНТ Б: кастомний "золотий" курсор */
-        .has-gold-cursor{ cursor:none; }
-        #gold-cursor{
-            position:fixed; top:0; left:0; width:14px; height:14px; margin:-7px 0 0 -7px;
-            border-radius:50%;
-            background: var(--gold);
-            mix-blend-mode:screen;
-            pointer-events:none; z-index:9999;
-            opacity:.95; transform: translate3d(0,0,0);
-            transition: width .12s ease, height .12s ease, opacity .2s ease;
-        }
-        /* невеликий ефект при кліку/ховері */
-        a:hover ~ #gold-cursor, button:hover ~ #gold-cursor{ width:18px; height:18px; }
-
-        /* Додатково: анімація для музичного плеєра */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .music-player.playing {
-            animation: pulse 2s infinite;
+        [data-theme="dark"] .glass {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
-<body>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
     <!-- Background circles -->
     <div id="bg-circles" aria-hidden="true">
         <div class="circle c1"></div>
@@ -1448,13 +231,13 @@
     <!-- Gold cursor follower -->
     <div id="gold-cursor" aria-hidden="true"></div>
 
-    <!-- Аудіо елемент для фонової музики -->
+    <!-- Audio element -->
     <audio id="background-music" loop>
         <source src="m.i.a.-amp-zayn-freedun.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
-    <!-- Цифровий фон з кругами -->
+    <!-- Digital background -->
     <div id="digital-bg">
         <div class="purple-circle circle-1"></div>
         <div class="purple-circle circle-2"></div>
@@ -1462,85 +245,120 @@
         <div class="purple-circle circle-4"></div>
     </div>
 
-    <!-- Навігація -->
-    <nav>
-        <a href="#" class="logo">Tetiana Kotolup</a>
-        <ul class="nav-links">
-            <li><a href="#home" data-lang="nav_home">Home</a></li>
-            <li><a href="#about" data-lang="nav_about">About</a></li>
-            <li><a href="#skills" data-lang="nav_skills">Skills</a></li>
-            <li><a href="#certificates" data-lang="nav_certificates">Certificates</a></li>
-            <li><a href="#experience" data-lang="nav_experience">Experience</a></li>
-            <li><a href="#education" data-lang="nav_education">Education</a></li>
-            <li><a href="#projects" data-lang="nav_projects">Projects</a></li>
-            <li><a href="#contact" data-lang="nav_contact">Contact</a></li>
-        </ul>
-        <div class="nav-controls">
-            <select class="lang-selector" id="lang-selector">
-                <option value="en">English</option>
-                <option value="cs">Čeština</option>
-                <option value="uk">Українська</option>
-            </select>
-            <button class="theme-toggle" id="theme-toggle">
-                <i class="fas fa-moon"></i>
-            </button>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass px-6 py-4 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-secondary">Tetiana Kotolup</a>
+            
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link hover:text-accent transition-colors" data-lang="nav_home">Home</a>
+                <a href="#about" class="nav-link hover:text-accent transition-colors" data-lang="nav_about">About</a>
+                <a href="#skills" class="nav-link hover:text-accent transition-colors" data-lang="nav_skills">Skills</a>
+                <a href="#certificates" class="nav-link hover:text-accent transition-colors" data-lang="nav_certificates">Certificates</a>
+                <a href="#experience" class="nav-link hover:text-accent transition-colors" data-lang="nav_experience">Experience</a>
+                <a href="#education" class="nav-link hover:text-accent transition-colors" data-lang="nav_education">Education</a>
+                <a href="#projects" class="nav-link hover:text-accent transition-colors" data-lang="nav_projects">Projects</a>
+                <a href="#contact" class="nav-link hover:text-accent transition-colors" data-lang="nav_contact">Contact</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <select class="lang-selector bg-transparent border border-secondary text-current px-3 py-1 rounded-full hover:bg-secondary hover:text-white transition-all" id="lang-selector">
+                    <option value="en">English</option>
+                    <option value="cs">Čeština</option>
+                    <option value="uk">Українська</option>
+                </select>
+                
+                <button class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center hover:bg-secondary hover:text-white transition-all" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <button class="md:hidden text-xl" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden mt-4 glass rounded-lg p-4" id="mobile-menu">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="nav-link hover:text-accent transition-colors" data-lang="nav_home">Home</a>
+                <a href="#about" class="nav-link hover:text-accent transition-colors" data-lang="nav_about">About</a>
+                <a href="#skills" class="nav-link hover:text-accent transition-colors" data-lang="nav_skills">Skills</a>
+                <a href="#certificates" class="nav-link hover:text-accent transition-colors" data-lang="nav_certificates">Certificates</a>
+                <a href="#experience" class="nav-link hover:text-accent transition-colors" data-lang="nav_experience">Experience</a>
+                <a href="#education" class="nav-link hover:text-accent transition-colors" data-lang="nav_education">Education</a>
+                <a href="#projects" class="nav-link hover:text-accent transition-colors" data-lang="nav_projects">Projects</a>
+                <a href="#contact" class="nav-link hover:text-accent transition-colors" data-lang="nav_contact">Contact</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Музичний плеєр -->
-    <div class="music-player">
-        <button class="play-btn" id="play-btn">
+    <!-- Music Player -->
+    <div class="fixed bottom-6 right-6 z-40 glass rounded-full px-4 py-3 flex items-center space-x-3 shadow-lg transition-all hover:scale-105">
+        <button class="play-btn w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-accent transition-all" id="play-btn">
             <i class="fas fa-play"></i>
         </button>
         <div class="music-info">
-            <div class="music-title" data-lang="music_title">Ambient Background</div>
-            <div class="music-artist" data-lang="music_artist">Portfolio Soundtrack</div>
+            <div class="music-title font-semibold text-sm" data-lang="music_title">Ambient Background</div>
+            <div class="music-artist text-xs opacity-75" data-lang="music_artist">Portfolio Soundtrack</div>
         </div>
     </div>
 
-    <!-- Hero секція -->
-    <section id="home" class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <h1 data-lang="hero_title">Tetiana Kotolup</h1>
-            <p data-lang="hero_subtitle">Frontend Developer | SEO Specialist | IT Expert</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary" data-lang="hero_btn1">View My Projects</a>
-                <a href="#contact" class="btn btn-secondary" data-lang="hero_btn2">Contact Me</a>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="hero-bg absolute inset-0 bg-gradient-to-br from-black/90 to-secondary/90 z-[-1]"></div>
+        
+        <div class="container mx-auto px-6 text-center z-10">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in" data-lang="hero_title">Tetiana Kotolup</h1>
+            <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto animate-fade-in" data-lang="hero_subtitle">Frontend Developer | SEO Specialist | IT Expert</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
+                <a href="#projects" class="btn-primary bg-accent hover:bg-blue-400 text-white px-8 py-3 rounded-full font-semibold transition-all hover:scale-105 hover:shadow-lg" data-lang="hero_btn1">View My Projects</a>
+                <a href="#contact" class="btn-secondary border-2 border-white text-white hover:bg-white hover:text-secondary px-8 py-3 rounded-full font-semibold transition-all" data-lang="hero_btn2">Contact Me</a>
             </div>
         </div>
     </section>
 
-    <!-- Про мене -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2 data-lang="about_title">About Me</h2>
-                <p data-lang="about_subtitle">Get to know me, my background and expertise</p>
+    <!-- About Section -->
+    <section id="about" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-secondary mb-4" data-lang="about_title">About Me</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="about_subtitle">Get to know me, my background and expertise</p>
             </div>
-            <div class="about-content fade-in">
-                <div class="about-img">
-                    <img src="img0.jpg" alt="Tetiana Kotolup">
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative fade-in">
+                    <div class="absolute -top-5 -left-5 w-full h-full bg-secondary rounded-lg opacity-20 -z-10"></div>
+                    <img src="img0.jpg" alt="Tetiana Kotolup" class="rounded-lg shadow-xl border-4 border-white dark:border-gray-800 transition-transform hover:scale-105">
                 </div>
-                <div class="about-text">
-                    <h3 data-lang="about_heading">IT Professional from Ukraine</h3>
-                    <p data-lang="about_text1">I am a dedicated and versatile IT professional with a strong background in frontend development, SEO optimization, and digital marketing. My passion lies in creating efficient technological solutions and continuously expanding my knowledge in emerging technologies.</p>
-                    <p data-lang="about_text2">Currently, I'm deeply studying SEO to enhance website visibility and ranking. With multiple certifications in web development, CRM, and AI applications, I bring a comprehensive skill set that combines technical expertise with business acumen.</p>
-                    <div class="about-info">
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
+                
+                <div class="fade-in">
+                    <h3 class="text-3xl font-bold mb-6 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-accent" data-lang="about_heading">IT Professional from Ukraine</h3>
+                    
+                    <p class="text-gray-700 dark:text-gray-300 mb-4" data-lang="about_text1">
+                        I am a dedicated and versatile IT professional with a strong background in frontend development, SEO optimization, and digital marketing. My passion lies in creating efficient technological solutions and continuously expanding my knowledge in emerging technologies.
+                    </p>
+                    
+                    <p class="text-gray-700 dark:text-gray-300 mb-6" data-lang="about_text2">
+                        Currently, I'm deeply studying SEO to enhance website visibility and ranking. With multiple certifications in web development, CRM, and AI applications, I bring a comprehensive skill set that combines technical expertise with business acumen.
+                    </p>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-secondary mr-4 w-5"></i>
                             <span data-lang="about_location">Brno, Czech Republic</span>
                         </div>
-                        <div class="info-item">
-                            <i class="fas fa-envelope"></i>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-secondary mr-4 w-5"></i>
                             <span>kotolup24@gmail.com</span>
                         </div>
-                        <div class="info-item">
-                            <i class="fas fa-phone"></i>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-secondary mr-4 w-5"></i>
                             <span>+420 608 317 700</span>
                         </div>
-                        <div class="info-item">
-                            <i class="fas fa-globe"></i>
+                        <div class="flex items-center">
+                            <i class="fas fa-globe text-secondary mr-4 w-5"></i>
                             <span>https://tetiana-a.github.io/portfolio1/</span>
                         </div>
                     </div>
@@ -1549,538 +367,468 @@
         </div>
     </section>
 
-    <!-- Навички -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2 data-lang="skills_title">My Skills</h2>
-                <p data-lang="skills_subtitle">Technical and professional expertise</p>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-secondary mb-4" data-lang="skills_title">My Skills</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="skills_subtitle">Technical and professional expertise</p>
             </div>
-            <div class="skills-container">
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fas fa-search"></i>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 95%">
+                    <div class="w-20 h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-search text-white text-3xl"></i>
                     </div>
-                    <h3 data-lang="skill1_title">SEO Optimization</h3>
-                    <p data-lang="skill1_text">Deeply studying SEO techniques, keyword research, on-page and off-page optimization</p>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 95%;"></div>
-                    </div>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 data-lang="skill2_title">Web Development</h3>
-                    <p data-lang="skill2_text">HTML, CSS, JavaScript, Google Web Designer</p>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 90%;"></div>
+                    <h3 class="text-xl font-bold mb-3" data-lang="skill1_title">SEO Optimization</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang="skill1_text">Deeply studying SEO techniques, keyword research, on-page and off-page optimization</p>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent h-2 rounded-full"></div>
                     </div>
                 </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fas fa-server"></i>
+                
+                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 90%">
+                    <div class="w-20 h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-code text-white text-3xl"></i>
                     </div>
-                    <h3 data-lang="skill3_title">Backend Technologies</h3>
-                    <p data-lang="skill3_text">Node.js, Google Cloud Platform</p>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 75%;"></div>
-                    </div>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 data-lang="skill4_title">CRM Systems</h3>
-                    <p data-lang="skill4_text">Customer Relationship Management</p>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 85%;"></div>
+                    <h3 class="text-xl font-bold mb-3" data-lang="skill2_title">Web Development</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang="skill2_text">HTML, CSS, JavaScript, Google Web Designer</p>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent h-2 rounded-full"></div>
                     </div>
                 </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fas fa-robot"></i>
+                
+                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 75%">
+                    <div class="w-20 h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-server text-white text-3xl"></i>
                     </div>
-                    <h3 data-lang="skill5_title">AI Applications</h3>
-                    <p data-lang="skill5_text">ChatGPT for Business, AI Marketing, Machine Learning</p>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 80%;"></div>
+                    <h3 class="text-xl font-bold mb-3" data-lang="skill3_title">Backend Technologies</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang="skill3_text">Node.js, Google Cloud Platform</p>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent h-2 rounded-full"></div>
                     </div>
                 </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fas fa-chart-line"></i>
+                
+                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 85%">
+                    <div class="w-20 h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-users text-white text-3xl"></i>
                     </div>
-                    <h3 data-lang="skill6_title">Finance & Trading</h3>
-                    <p data-lang="skill6_text">Investments, Machine Learning for Trading</p>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 70%;"></div>
+                    <h3 class="text-xl font-bold mb-3" data-lang="skill4_title">CRM Systems</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang="skill4_text">Customer Relationship Management</p>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent h-2 rounded-full"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 80%">
+                    <div class="w-20 h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-robot text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-lang="skill5_title">AI Applications</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang="skill5_text">ChatGPT for Business, AI Marketing, Machine Learning</p>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent h-2 rounded-full"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 70%">
+                    <div class="w-20 h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-chart-line text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-lang="skill6_title">Finance & Trading</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang="skill6_text">Investments, Machine Learning for Trading</p>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent h-2 rounded-full"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Сертифікати -->
-    <section id="certificates" class="certificates">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2 data-lang="certificates_title">Certificates & Licenses</h2>
-                <p data-lang="certificates_subtitle">Professional certifications I've earned</p>
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-secondary mb-4" data-lang="certificates_title">Certificates & Licenses</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="certificates_subtitle">Professional certifications I've earned</p>
             </div>
-            <div class="certificates-container">
-                <div class="certificate-card fade-in">
-                    <div class="certificate-header">
-                        <div class="certificate-icon">
-                            <i class="fas fa-search"></i>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Certificate 1 -->
+                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-search text-white"></i>
                         </div>
-                        <div class="certificate-info">
-                            <h3 data-lang="cert1_title">Search Engine Optimization (SEO)</h3>
-                            <div class="certificate-issuer" data-lang="cert1_issuer">Coursera</div>
+                        <div>
+                            <h3 class="text-lg font-bold" data-lang="cert1_title">Search Engine Optimization (SEO)</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400" data-lang="cert1_issuer">Coursera</p>
                         </div>
                     </div>
-                    <div class="certificate-date" data-lang="cert1_date">Jan 2023</div>
-                    <div class="certificate-skills">
-                        <span data-lang="cert1_skill">SEO</span>
+                    <div class="text-sm bg-secondary/10 text-secondary px-3 py-1 rounded-full inline-block mb-4" data-lang="cert1_date">Jan 2023</div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert1_skill">SEO</span>
                     </div>
                 </div>
-                <div class="certificate-card fade-in">
-                    <div class="certificate-header">
-                        <div class="certificate-icon">
+                
+                <!-- Certificate 2 -->
+                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-certificate text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold" data-lang="cert2_title">Customer Relationship Management</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400" data-lang="cert2_issuer">Simplilearn</p>
+                        </div>
+                    </div>
+                    <div class="text-sm bg-secondary/10 text-secondary px-3 py-1 rounded-full inline-block mb-4" data-lang="cert2_date">Sep 2025</div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert2_skill">CRM</span>
+                    </div>
+                </div>
+                
+                <!-- Certificate 3 -->
+                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-node-js text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold" data-lang="cert3_title">NodeJS</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400" data-lang="cert3_issuer">Simplilearn</p>
+                        </div>
+                    </div>
+                    <div class="text-sm bg-secondary/10 text-secondary px-3 py-1 rounded-full inline-block mb-4" data-lang="cert3_date">Sep 2025</div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert3_skill">Node.js</span>
+                    </div>
+                </div>
+                
+                <!-- Certificate 4 -->
+                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-comments text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold" data-lang="cert4_title">ChatGPT for Business Communication</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400" data-lang="cert4_issuer">GreatLearning</p>
+                        </div>
+                    </div>
+                    <div class="text-sm bg-secondary/10 text-secondary px-3 py-1 rounded-full inline-block mb-4" data-lang="cert4_date">Jul 2025</div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert4_skill">Business Communication</span>
+                    </div>
+                </div>
+                
+                <!-- Certificate 5 -->
+                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-brain text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold" data-lang="cert5_title">Introduction to Machine Learning for Trading</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400" data-lang="cert5_issuer">QuantInsti</p>
+                        </div>
+                    </div>
+                    <div class="text-sm bg-secondary/10 text-secondary px-3 py-1 rounded-full inline-block mb-4" data-lang="cert5_date">Jul 2025 - Jul 2034</div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert5_skill1">Trading</span>
+                        <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert5_skill2">Machine Learning</span>
+                    </div>
+                </div>
+                
+                <!-- Certificate 6 -->
+                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-bullhorn text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold" data-lang="cert6_title">AI Marketing</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400" data-lang="cert6_issuer">Alison</p>
+                        </div>
+                    </div>
+                    <div class="text-sm bg-secondary/10 text-secondary px-3 py-1 rounded-full inline-block mb-4" data-lang="cert6_date">Jun 2025</div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert6_skill">AI for Marketing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-secondary mb-4" data-lang="experience_title">Work Experience</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="experience_subtitle">My professional journey</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <!-- Timeline line -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-secondary to-accent"></div>
+                    
+                    <!-- Timeline items -->
+                    <div class="timeline-item mb-12">
+                        <div class="flex items-center">
+                            <div class="w-1/2 pr-8 text-right">
+                                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+                                    <h3 class="text-xl font-bold mb-2" data-lang="exp1_title">EXPEDICE</h3>
+                                    <p class="text-secondary font-medium mb-2" data-lang="exp1_company">ViaPharma</p>
+                                    <span class="text-sm bg-accent/10 text-accent px-3 py-1 rounded-full" data-lang="exp1_date">Jul 2025 - Present</span>
+                                    <ul class="mt-4 text-left space-y-2">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                            <span data-lang="exp1_task1">Responsible for expedition and logistics operations</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                            <span data-lang="exp1_task2">Coordinating shipments and documentation</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                            <span data-lang="exp1_task3">Ensuring timely delivery and customer satisfaction</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="w-1/2 pl-8"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item mb-12">
+                        <div class="flex items-center">
+                            <div class="w-1/2 pr-8"></div>
+                            <div class="w-1/2 pl-8">
+                                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+                                    <h3 class="text-xl font-bold mb-2" data-lang="exp2_title">Entrepreneur</h3>
+                                    <p class="text-secondary font-medium mb-2" data-lang="exp2_company">Self-Employed</p>
+                                    <span class="text-sm bg-accent/10 text-accent px-3 py-1 rounded-full" data-lang="exp2_date">Apr 2025 - Jun 2025</span>
+                                    <ul class="mt-4 space-y-2">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                            <span data-lang="exp2_task1">Managed independent business operations</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                            <span data-lang="exp2_task2">Developed business strategies and client relationships</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                            <span data-lang="exp2_task3">Handled financial planning and administration</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item mb-12">
+                        <div class="flex items-center">
+                            <div class="w-1/2 pr-8 text-right">
+                                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+                                    <h3 class="text-xl font-bold mb-2" data-lang="exp3_title">Production Associate</h3>
+                                    <p class="text-secondary font-medium mb-2" data-lang="exp3_company">Nová Mosilana, a.s.</p>
+                                    <span class="text-sm bg-accent/10 text-accent px-3 py-1 rounded-full" data-lang="exp3_date">Mar 2018 - Mar 2025</span>
+                                    <ul class="mt-4 text-left space-y-2">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                            <span data-lang="exp3_task1">Operated and maintained textile machinery and equipment</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                            <span data-lang="exp3_task2">Trained and instructed new employees</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                            <span data-lang="exp3_task3">Demonstrated physical stamina and resilience in solving problems</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                            <span data-lang="exp3_task4">Exhibited strong planning and organizational skills</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="w-1/2 pl-8"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-secondary mb-4" data-lang="education_title">Education</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="education_subtitle">My educational background</p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg fade-in">
+                    <h3 class="text-2xl font-bold mb-4" data-lang="edu1_title">Junior Specialist in Information Technology</h3>
+                    <p class="text-secondary font-medium mb-2" data-lang="edu1_institution">Čerkasy State Trade School</p>
+                    <span class="text-sm bg-accent/10 text-accent px-3 py-1 rounded-full" data-lang="edu1_date">2013 - 2017</span>
+                    <p class="mt-4 text-gray-700 dark:text-gray-300" data-lang="edu1_text">Specialized in Computer Systems and Network Maintenance</p>
+                    <div class="mt-4 space-y-2">
+                        <p class="font-medium" data-lang="edu1_major">Qualification: Computer Systems Technician</p>
+                        <p class="font-medium" data-lang="edu1_additional">Additional: Group Leader (nostrification in the Czech Republic)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-secondary mb-4" data-lang="projects_title">My Projects</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="projects_subtitle">Recent work I'm proud of</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all fade-in">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="Lucid_Origin_Elegant_logo_Eduard_King_Traveland_professional_t_1.jpg" alt="King House Travel" class="w-full h-full object-cover transition-transform hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-6">
+                            <span class="bg-accent text-white px-3 py-1 rounded-full text-sm font-medium" data-lang="project1_category">Travel Agency</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3" data-lang="project1_title">King House Travel</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4" data-lang="project1_text">A comprehensive travel agency website with booking functionality and destination guides. Currently implementing advanced SEO strategies to improve search engine rankings and increase organic traffic.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">HTML</span>
+                            <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">CSS</span>
+                            <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">JavaScript</span>
+                            <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">SEO</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://kinghousetravel.github.io/0/" target="_blank" class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="https://github.com/kinghousetravel/kinghousetravel.github.io" target="_blank" class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all fade-in">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="Gen4 Trailer Script – English Version [deep bass beat begins, slowly rising] (voice of T 1546701947.png" alt="Portfolio" class="w-full h-full object-cover transition-transform hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-6">
+                            <span class="bg-accent text-white px-3 py-1 rounded-full text-sm font-medium" data-lang="project2_category">Portfolio</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3" data-lang="project2_title">Professional Portfolio</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4" data-lang="project2_text">My personal portfolio website showcasing my skills, projects, and professional experience. Designed with SEO best practices in mind to ensure maximum visibility and accessibility.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">HTML</span>
+                            <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">CSS</span>
+                            <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">JavaScript</span>
+                            <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">SEO</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://tetiana-a.github.io/portfolio1/" target="_blank" class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="https://github.com/tetiana-a/portfolio1" target="_blank" class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-black/90 to-secondary/90 z-[-1]"></div>
+        <div class="absolute inset-0 bg-black/30 z-[-1]"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-white mb-4" data-lang="contact_title">Get In Touch</h2>
+                <p class="text-lg text-white/90 max-w-2xl mx-auto" data-lang="contact_subtitle">I'm always open to new opportunities and collaborations</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="fade-in">
+                    <h3 class="text-3xl font-bold text-white mb-6 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-accent" data-lang="contact_heading">Let's Connect!</h3>
+                    <p class="text-white/90 mb-8" data-lang="contact_text">If you have a project you'd like to discuss, or just want to say hello, feel free to reach out through the contact form or directly via the information below.</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-accent"></i>
+                            </div>
+                            <span>kotolup24@gmail.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-accent"></i>
+                            </div>
+                            <span>+420 608 317 700</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-accent"></i>
+                            </div>
+                            <span data-lang="contact_location">Brno, Czech Republic</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4">
+                                <i class="fas fa-globe text-accent"></i>
+                            </div>
+                            <span>https://tetiana-a.github.io/portfolio1/</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4">
+                                <i class="fas fa-certificate text-accent"></i>
+                            </div>
+                            <span data-lang="contact_ef">EF SET English Certificate</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4">
+                        <a href="https://www.linkedin.com/in/tetiana-kotolup-1685892a1/" target="_blank" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-all">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://tetiana-a.github.io/portfolio1/" target="_blank" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-all">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                        <a href="https://cert.efset.org/spKGNG" target="_blank" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-all">
                             <i class="fas fa-certificate"></i>
-                        </div>
-                        <div class="certificate-info">
-                            <h3 data-lang="cert2_title">Customer Relationship Management</h3>
-                            <div class="certificate-issuer" data-lang="cert2_issuer">Simplilearn</div>
-                        </div>
-                    </div>
-                    <div class="certificate-date" data-lang="cert2_date">Sep 2025</div>
-                    <div class="certificate-skills">
-                        <span data-lang="cert2_skill">CRM</span>
+                        </a>
                     </div>
                 </div>
-                <div class="certificate-card fade-in">
-                    <div class="certificate-header">
-                        <div class="certificate-icon">
-                            <i class="fab fa-node-js"></i>
+                
+                <div class="fade-in">
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <input type="text" placeholder="Your Name" data-lang-placeholder="form_name" required class="w-full px-4 py-3 rounded-lg bg-white/10 backdrop-blur border border-white/20 text-white placeholder-white/70 focus:outline-none focus:border-accent">
                         </div>
-                        <div class="certificate-info">
-                            <h3 data-lang="cert3_title">NodeJS</h3>
-                            <div class="certificate-issuer" data-lang="cert3_issuer">Simplilearn</div>
+                        <div>
+                            <input type="email" placeholder="Your Email" data-lang-placeholder="form_email" required class="w-full px-4 py-3 rounded-lg bg-white/10 backdrop-blur border border-white/20 text-white placeholder-white/70 focus:outline-none focus:border-accent">
                         </div>
-                    </div>
-                    <div class="certificate-date" data-lang="cert3_date">Sep 2025</div>
-                    <div class="certificate-skills">
-                        <span data-lang="cert3_skill">Node.js</span>
-                    </div>
-                </div>
-                <div class="certificate-card fade-in">
-                    <div class="certificate-header">
-                        <div class="certificate-icon">
-                            <i class="fas fa-comments"></i>
+                        <div>
+                            <input type="text" placeholder="Subject" data-lang-placeholder="form_subject" class="w-full px-4 py-3 rounded-lg bg-white/10 backdrop-blur border border-white/20 text-white placeholder-white/70 focus:outline-none focus:border-accent">
                         </div>
-                        <div class="certificate-info">
-                            <h3 data-lang="cert4_title">ChatGPT for Business Communication</h3>
-                            <div class="certificate-issuer" data-lang="cert4_issuer">GreatLearning</div>
+                        <div>
+                            <textarea placeholder="Your Message" data-lang-placeholder="form_message" required rows="5" class="w-full px-4 py-3 rounded-lg bg-white/10 backdrop-blur border border-white/20 text-white placeholder-white/70 focus:outline-none focus:border-accent resize-none"></textarea>
                         </div>
-                    </div>
-                    <div class="certificate-date" data-lang="cert4_date">Jul 2025</div>
-                    <div class="certificate-skills">
-                        <span data-lang="cert4_skill">Business Communication</span>
-                    </div>
-                </div>
-                <div class="certificate-card fade-in">
-                    <div class="certificate-header">
-                        <div class="certificate-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <div class="certificate-info">
-                            <h3 data-lang="cert5_title">Introduction to Machine Learning for Trading</h3>
-                            <div class="certificate-issuer" data-lang="cert5_issuer">QuantInsti</div>
-                        </div>
-                    </div>
-                    <div class="certificate-date" data-lang="cert5_date">Jul 2025 - Jul 2034</div>
-                    <div class="certificate-skills">
-                        <span data-lang="cert5_skill1">Trading</span>
-                        <span data-lang="cert5_skill2">Machine Learning</span>
-                    </div>
-                </div>
-                <div class="certificate-card fade-in">
-                    <div class="certificate-header">
-                        <div class="certificate-icon">
-                            <i class="fas fa-bullhorn"></i>
-                        </div>
-                        <div class="certificate-info">
-                            <h3 data-lang="cert6_title">AI Marketing</h3>
-                            <div class="certificate-issuer" data-lang="cert6_issuer">Alison</div>
-                        </div>
-                    </div>
-                    <div class="certificate-date" data-lang="cert6_date">Jun 2025</div>
-                    <div class="certificate-skills">
-                        <span data-lang="cert6_skill">AI for Marketing</span>
-                    </div>
-                </div>
-                <div class="certificate-card fade-in">
-                    <div class="certificate-header">
-                        <div class="certificate-icon">
-                            <i class="fas fa-chart-pie"></i>
-                        </div>
-                        <div class="certificate-info">
-                            <h3 data-lang="cert7_title">Investments</h3>
-                            <div class="certificate-issuer" data-lang="cert7_issuer">Golden Academy</div>
-                        </div>
-                    </div>
-                    <div class="certificate-date" data-lang="cert7_date">May 2025</div>
-                    <div class="certificate-skills">
-                        <span data-lang="cert7_skill">Investments</span>
-                    </div>
-                </div>
-                <div class="certificate-card fade-in">
-                    <div class="certificate-header">
-                        <div class="certificate-icon">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                        </div>
-                        <div class="certificate-info">
-                            <h3 data-lang="cert8_title">Training</h3>
-                            <div class="certificate-issuer" data-lang="cert8_issuer">United Latino Students Association</div>
-                        </div>
-                    </div>
-                    <div class="certificate-date" data-lang="cert8_date">May 2025</div>
-                    <div class="certificate-skills">
-                        <span data-lang="cert8_skill">Training</span>
-                    </div>
-                </div>
-                <div class="certificate-card fade-in">
-                    <div class="certificate-header">
-                        <div class="certificate-icon">
-                            <i class="fab fa-google"></i>
-                        </div>
-                        <div class="certificate-info">
-                            <h3 data-lang="cert9_title">Google Web Designer</h3>
-                            <div class="certificate-issuer" data-lang="cert9_issuer">European IT Certification Institute</div>
-                        </div>
-                    </div>
-                    <div class="certificate-date" data-lang="cert9_date">Sep 2024</div>
-                    <div class="certificate-skills">
-                        <span data-lang="cert9_skill">Google Web Designer</span>
-                    </div>
-                </div>
-                <div class="certificate-card fade-in">
-                    <div class="certificate-header">
-                        <div class="certificate-icon">
-                            <i class="fab fa-html5"></i>
-                        </div>
-                        <div class="certificate-info">
-                            <h3 data-lang="cert10_title">HTML/CSS Fundamentals</h3>
-                            <div class="certificate-issuer" data-lang="cert10_issuer">European IT Certification Institute</div>
-                        </div>
-                    </div>
-                    <div class="certificate-date" data-lang="cert10_date">Sep 2024</div>
-                    <div class="certificate-skills">
-                        <span data-lang="cert10_skill">HTML/CSS</span>
-                    </div>
-                </div>
-                <div class="certificate-card fade-in">
-                    <div class="certificate-header">
-                        <div class="certificate-icon">
-                            <i class="fab fa-js-square"></i>
-                        </div>
-                        <div class="certificate-info">
-                            <h3 data-lang="cert11_title">JavaScript Fundamentals</h3>
-                            <div class="certificate-issuer" data-lang="cert11_issuer">European IT Certification Institute</div>
-                        </div>
-                    </div>
-                    <div class="certificate-date" data-lang="cert11_date">Sep 2024</div>
-                    <div class="certificate-skills">
-                        <span data-lang="cert11_skill">JavaScript</span>
-                    </div>
-                </div>
-                <div class="certificate-card fade-in">
-                    <div class="certificate-header">
-                        <div class="certificate-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="certificate-info">
-                            <h3 data-lang="cert12_title">Web Programming Fundamentals</h3>
-                            <div class="certificate-issuer" data-lang="cert12_issuer">European IT Certification Institute</div>
-                        </div>
-                    </div>
-                    <div class="certificate-date" data-lang="cert12_date">Sep 2024</div>
-                    <div class="certificate-skills">
-                        <span data-lang="cert12_skill">Web Programming</span>
-                    </div>
-                </div>
-                <div class="certificate-card fade-in">
-                    <div class="certificate-header">
-                        <div class="certificate-icon">
-                            <i class="fab fa-google-cloud"></i>
-                        </div>
-                        <div class="certificate-info">
-                            <h3 data-lang="cert13_title">Google Cloud Platform</h3>
-                            <div class="certificate-issuer" data-lang="cert13_issuer">European IT Certification Institute</div>
-                        </div>
-                    </div>
-                    <div class="certificate-date" data-lang="cert13_date">Jul 2024</div>
-                    <div class="certificate-skills">
-                        <span data-lang="cert13_skill">Google Cloud Platform</span>
-                    </div>
-                </div>
-                <div class="certificate-card fade-in">
-                    <div class="certificate-header">
-                        <div class="certificate-icon">
-                            <i class="fas fa-hands-helping"></i>
-                        </div>
-                        <div class="certificate-info">
-                            <h3 data-lang="cert14_title">Coaching & Mentoring</h3>
-                            <div class="certificate-issuer" data-lang="cert14_issuer">Femme Palette</div>
-                        </div>
-                    </div>
-                    <div class="certificate-date" data-lang="cert14_date">Jun 2024 - Jun 2034</div>
-                    <div class="certificate-skills">
-                        <span data-lang="cert14_skill">Coaching & Mentoring</span>
-                    </div>
-                </div>
-                <div class="certificate-card fade-in">
-                    <div class="certificate-header">
-                        <div class="certificate-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <div class="certificate-info">
-                            <h3 data-lang="cert15_title">User Experience (UX)</h3>
-                            <div class="certificate-issuer" data-lang="cert15_issuer">ITnetwork s.r.o.</div>
-                        </div>
-                    </div>
-                    <div class="certificate-date" data-lang="cert15_date">Jan 2023</div>
-                    <div class="certificate-skills">
-                        <span data-lang="cert15_skill1">User Experience (UX)</span>
-                        <span data-lang="cert15_skill2">HTML</span>
-                        <span data-lang="cert15_skill3">CSS</span>
-                    </div>
-                </div>
-                <div class="certificate-card fade-in">
-                    <div class="certificate-header">
-                        <div class="certificate-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <div class="certificate-info">
-                            <h3 data-lang="cert16_title">Front-end Development</h3>
-                            <div class="certificate-issuer" data-lang="cert16_issuer">Johns Hopkins University via Coursera</div>
-                        </div>
-                    </div>
-                    <div class="certificate-date" data-lang="cert16_date">Nov 2022</div>
-                    <div class="certificate-skills">
-                        <span data-lang="cert16_skill1">Front-end Development</span>
-                        <span data-lang="cert16_skill2">Web Development</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Досвід роботи -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2 data-lang="experience_title">Work Experience</h2>
-                <p data-lang="experience_subtitle">My professional journey</p>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3 data-lang="exp1_title">EXPEDICE</h3>
-                        <div class="company" data-lang="exp1_company">ViaPharma</div>
-                        <div class="date" data-lang="exp1_date">Jul 2025 - Present</div>
-                        <ul>
-                            <li data-lang="exp1_task1">Responsible for expedition and logistics operations</li>
-                            <li data-lang="exp1_task2">Coordinating shipments and documentation</li>
-                            <li data-lang="exp1_task3">Ensuring timely delivery and customer satisfaction</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3 data-lang="exp2_title">Entrepreneur</h3>
-                        <div class="company" data-lang="exp2_company">Self-Employed</div>
-                        <div class="date" data-lang="exp2_date">Apr 2025 - Jun 2025</div>
-                        <ul>
-                            <li data-lang="exp2_task1">Managed independent business operations</li>
-                            <li data-lang="exp2_task2">Developed business strategies and client relationships</li>
-                            <li data-lang="exp2_task3">Handled financial planning and administration</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3 data-lang="exp3_title">Production Associate</h3>
-                        <div class="company" data-lang="exp3_company">Nová Mosilana, a.s.</div>
-                        <div class="date" data-lang="exp3_date">Mar 2018 - Mar 2025</div>
-                        <ul>
-                            <li data-lang="exp3_task1">Operated and maintained textile machinery and equipment</li>
-                            <li data-lang="exp3_task2">Trained and instructed new employees</li>
-                            <li data-lang="exp3_task3">Demonstrated physical stamina and resilience in solving problems</li>
-                            <li data-lang="exp3_task4">Exhibited strong planning and organizational skills</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3 data-lang="exp4_title">Electrical Assembly Specialist</h3>
-                        <div class="company" data-lang="exp4_company">TOV "UKR THECH"</div>
-                        <div class="date" data-lang="exp4_date">Jan 2017 - Dec 2018</div>
-                        <ul>
-                            <li data-lang="exp4_task1">Performed soldering operations and assembled voltage stabilizers</li>
-                            <li data-lang="exp4_task2">Trained and instructed new employees</li>
-                            <li data-lang="exp4_task3">Led and motivated teams of employees</li>
-                            <li data-lang="exp4_task4">Provided car maintenance services</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3 data-lang="exp5_title">Sales Assistant</h3>
-                        <div class="company" data-lang="exp5_company">DELIKAT</div>
-                        <div class="date" data-lang="exp5_date">Oct 2016 - May 2017</div>
-                        <ul>
-                            <li data-lang="exp5_task1">Greeted and assisted customers</li>
-                            <li data-lang="exp5_task2">Trained and instructed new employees</li>
-                            <li data-lang="exp5_task3">Prepared documents and reports</li>
-                            <li data-lang="exp5_task4">Operated office equipment</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Освіта -->
-    <section id="education" class="education">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2 data-lang="education_title">Education</h2>
-                <p data-lang="education_subtitle">My educational background</p>
-            </div>
-            <div class="education-container">
-                <div class="edu-card fade-in">
-                    <h3 data-lang="edu1_title">Junior Specialist in Information Technology</h3>
-                    <div class="institution" data-lang="edu1_institution">Čerkasy State Trade School</div>
-                    <div class="date" data-lang="edu1_date">2013 - 2017</div>
-                    <p data-lang="edu1_text">Specialized in Computer Systems and Network Maintenance</p>
-                    <div class="major" data-lang="edu1_major">Qualification: Computer Systems Technician</div>
-                    <div class="major" data-lang="edu1_additional">Additional: Group Leader (nostrification in the Czech Republic)</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Проєкти -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2 data-lang="projects_title">My Projects</h2>
-                <p data-lang="projects_subtitle">Recent work I'm proud of</p>
-            </div>
-            <div class="projects-container">
-                <div class="project-card fade-in">
-                    <div class="project-img">
-                        <img src="Lucid_Origin_Elegant_logo_Eduard_King_Traveland_professional_t_1.jpg" alt="King House Travel">
-                        <div class="project-overlay">
-                            <span class="project-category" data-lang="project1_category">Travel Agency</span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 data-lang="project1_title">King House Travel</h3>
-                        <p data-lang="project1_text">A comprehensive travel agency website with booking functionality and destination guides. Currently implementing advanced SEO strategies to improve search engine rankings and increase organic traffic.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">SEO</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://kinghousetravel.github.io/0/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="https://github.com/kinghousetravel/kinghousetravel.github.io" target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card fade-in">
-                    <div class="project-img">
-                        <img src="Gen4 Trailer Script – English Version [deep bass beat begins, slowly rising] (voice of T 1546701947.png
-" alt="Portfolio">
-                        <div class="project-overlay">
-                            <span class="project-category" data-lang="project2_category">Portfolio</span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 data-lang="project2_title">Professional Portfolio</h3>
-                        <p data-lang="project2_text">My personal portfolio website showcasing my skills, projects, and professional experience. Designed with SEO best practices in mind to ensure maximum visibility and accessibility.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">SEO</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://tetiana-a.github.io/portfolio1/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="https://github.com/tetiana-a/portfolio1" target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Контакти -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2 data-lang="contact_title">Get In Touch</h2>
-                <p data-lang="contact_subtitle">I'm always open to new opportunities and collaborations</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info fade-in">
-                    <h3 data-lang="contact_heading">Let's Connect!</h3>
-                    <p data-lang="contact_text">If you have a project you'd like to discuss, or just want to say hello, feel free to reach out through the contact form or directly via the information below.</p>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>kotolup24@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+420 608 317 700</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span data-lang="contact_location">Brno, Czech Republic</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-globe"></i>
-                        <span>https://tetiana-a.github.io/portfolio1/</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-certificate"></i>
-                        <span data-lang="contact_ef">EF SET English Certificate</span>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/tetiana-kotolup-1685892a1/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://tetiana-a.github.io/portfolio1/" target="_blank"><i class="fas fa-globe"></i></a>
-                        <a href="https://cert.efset.org/spKGNG" target="_blank"><i class="fas fa-certificate"></i></a>
-                    </div>
-                </div>
-                <div class="contact-form fade-in">
-                    <form id="contact-form">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" data-lang-placeholder="form_name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" data-lang-placeholder="form_email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Subject" data-lang-placeholder="form_subject">
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Your Message" data-lang-placeholder="form_message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" data-lang="form_submit">Send Message</button>
+                        <button type="submit" class="w-full bg-accent hover:bg-blue-400 text-white font-semibold py-3 rounded-lg transition-all hover:scale-[1.02]" data-lang="form_submit">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -2088,14 +836,14 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
             <p data-lang="footer">&copy; 2025 Tetiana Kotolup. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Локалізація
+        // Localization
         const translations = {
             en: {
                 nav_home: "Home",
@@ -2606,9 +1354,10 @@
             }
         };
 
-        // Перемикання мов
+        // Language switching
         const langSelector = document.getElementById('lang-selector');
         const elementsWithLang = document.querySelectorAll('[data-lang]');
+        const elementsWithPlaceholder = document.querySelectorAll('[data-lang-placeholder]');
         
         function updateLanguage(lang) {
             elementsWithLang.forEach(element => {
@@ -2618,9 +1367,7 @@
                 }
             });
             
-            // Оновлення placeholder'ів
-            const placeholders = document.querySelectorAll('[data-lang-placeholder]');
-            placeholders.forEach(element => {
+            elementsWithPlaceholder.forEach(element => {
                 const key = element.getAttribute('data-lang-placeholder');
                 if (translations[lang] && translations[lang][key]) {
                     element.placeholder = translations[lang][key];
@@ -2632,16 +1379,27 @@
             updateLanguage(e.target.value);
         });
 
-        // Перемикання теми
+        // Theme switching
         const themeToggle = document.getElementById('theme-toggle');
-        const body = document.body;
         const themeIcon = themeToggle.querySelector('i');
+        const html = document.documentElement;
+        
+        // Check for saved theme preference or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            html.setAttribute('data-theme', 'dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
         
         themeToggle.addEventListener('click', () => {
-            body.setAttribute('data-theme', 
-                body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+            const theme = html.getAttribute('data-theme');
+            const newTheme = theme === 'dark' ? 'light' : 'dark';
             
-            if (body.getAttribute('data-theme') === 'dark') {
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            if (newTheme === 'dark') {
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
             } else {
@@ -2650,14 +1408,21 @@
             }
         });
 
-        // Цифровий фон
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Digital rain effect
         function createDigitalRain() {
             const digitalBg = document.getElementById('digital-bg');
             const characters = '01';
             const fontSize = 18;
             const columns = Math.floor(window.innerWidth / fontSize);
             
-            // Створення крапок
             for (let i = 0; i < columns; i++) {
                 const digit = document.createElement('div');
                 digit.classList.add('digit');
@@ -2667,7 +1432,6 @@
                 digit.textContent = characters.charAt(Math.floor(Math.random() * characters.length));
                 digitalBg.appendChild(digit);
                 
-                // Оновлення символів
                 setInterval(() => {
                     digit.textContent = characters.charAt(Math.floor(Math.random() * characters.length));
                 }, Math.random() * 1000 + 500);
@@ -2676,16 +1440,16 @@
         
         createDigitalRain();
         
-        // Оновлення при зміні розміру вікна
         window.addEventListener('resize', () => {
             document.getElementById('digital-bg').innerHTML = '';
             createDigitalRain();
         });
 
-        // Музичний плеєр
+        // Music player
         const playBtn = document.getElementById('play-btn');
         const playIcon = playBtn.querySelector('i');
         const backgroundMusic = document.getElementById('background-music');
+        const musicPlayer = document.querySelector('.music-player');
         let isPlaying = false;
 
         playBtn.addEventListener('click', () => {
@@ -2694,49 +1458,28 @@
                     playIcon.classList.remove('fa-play');
                     playIcon.classList.add('fa-pause');
                     isPlaying = true;
-                    document.querySelector('.music-player').classList.add('playing');
+                    musicPlayer.classList.add('animate-pulse');
                 }).catch(error => {
                     console.error('Error playing audio:', error);
-                    // Показуємо повідомлення про помилку
-                    const errorMessage = document.createElement('div');
-                    errorMessage.style.position = 'fixed';
-                    errorMessage.style.bottom = '100px';
-                    errorMessage.style.right = '30px';
-                    errorMessage.style.background = '#ff4757';
-                    errorMessage.style.color = 'white';
-                    errorMessage.style.padding = '15px 25px';
-                    errorMessage.style.borderRadius = '10px';
-                    errorMessage.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
-                    errorMessage.style.zIndex = '10000';
-                    errorMessage.style.fontSize = '1rem';
-                    errorMessage.textContent = 'Please interact with the page first to enable audio.';
-                    document.body.appendChild(errorMessage);
-                    
-                    setTimeout(() => {
-                        errorMessage.style.opacity = '0';
-                        errorMessage.style.transition = 'opacity 0.5s ease';
-                        setTimeout(() => {
-                            document.body.removeChild(errorMessage);
-                        }, 500);
-                    }, 3000);
+                    showNotification('Please interact with the page first to enable audio.', 'error');
                 });
             } else {
                 backgroundMusic.pause();
                 playIcon.classList.remove('fa-pause');
                 playIcon.classList.add('fa-play');
                 isPlaying = false;
-                document.querySelector('.music-player').classList.remove('playing');
+                musicPlayer.classList.remove('animate-pulse');
             }
         });
 
-        // Автоматичне відтворення музики при першій взаємодії з сторінкою
+        // Auto-play on first interaction
         document.addEventListener('click', function initAudio() {
             if (!isPlaying) {
                 backgroundMusic.play().then(() => {
                     playIcon.classList.remove('fa-play');
                     playIcon.classList.add('fa-pause');
                     isPlaying = true;
-                    document.querySelector('.music-player').classList.add('playing');
+                    musicPlayer.classList.add('animate-pulse');
                 }).catch(error => {
                     console.log('Autoplay prevented:', error);
                 });
@@ -2744,28 +1487,10 @@
             }
         }, { once: true });
 
-        // Анімація при скролі
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const fadeInOnScroll = () => {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('active');
-                }
-            });
-        };
-        
-        window.addEventListener('scroll', fadeInOnScroll);
-        window.addEventListener('load', fadeInOnScroll);
-
-        // Плавна прокрутка до секцій
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     window.scrollTo({
@@ -2773,81 +1498,83 @@
                         behavior: 'smooth'
                     });
                 }
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
             });
         });
 
-        // Анімація для елементів часового ряду
-        const timelineItems = document.querySelectorAll('.timeline-item');
-        
-        const animateTimeline = () => {
-            timelineItems.forEach((item, index) => {
-                const itemTop = item.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (itemTop < windowHeight - 100) {
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                    }, index * 200);
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
             });
-        };
-        
-        window.addEventListener('scroll', animateTimeline);
-        window.addEventListener('load', animateTimeline);
+        }, observerOptions);
 
-        // Форма контакту
+        // Observe elements
+        document.querySelectorAll('.fade-in, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Contact form
         const contactForm = document.getElementById('contact-form');
         
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // В реальному додатку тут би відправлявся запит на сервер
-            // Для демонстрації просто покажемо повідомлення
-            const formData = new FormData(contactForm);
-            const formValues = Object.fromEntries(formData.entries());
+            // Show success message
+            showNotification('Thank you for your message! I will contact you soon.', 'success');
             
-            // Створення повідомлення про успіх
-            const successMessage = document.createElement('div');
-            successMessage.style.position = 'fixed';
-            successMessage.style.top = '50%';
-            successMessage.style.left = '50%';
-            successMessage.style.transform = 'translate(-50%, -50%)';
-            successMessage.style.background = 'var(--secondary)';
-            successMessage.style.color = 'white';
-            successMessage.style.padding = '20px 40px';
-            successMessage.style.borderRadius = '10px';
-            successMessage.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
-            successMessage.style.zIndex = '10000';
-            successMessage.style.fontSize = '1.1rem';
-            successMessage.style.fontWeight = '500';
-            successMessage.textContent = 'Thank you for your message! I will contact you soon.';
-            
-            document.body.appendChild(successMessage);
-            
-            // Видалення повідомлення через 3 секунди
-            setTimeout(() => {
-                successMessage.style.opacity = '0';
-                successMessage.style.transition = 'opacity 0.5s ease';
-                setTimeout(() => {
-                    document.body.removeChild(successMessage);
-                }, 500);
-            }, 3000);
-            
-            // Очищення форми
+            // Reset form
             contactForm.reset();
         });
 
-        // Увімкнути "плаваючий" золотий курсор (варіант Б):
-        document.documentElement.classList.add('has-gold-cursor');
+        // Notification system
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-20 right-6 z-50 px-6 py-4 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 ${
+                type === 'success' ? 'bg-green-500' : 'bg-red-500'
+            } text-white`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
 
-        (function goldCursor(){
+        // Custom cursor
+        (function goldCursor() {
             const dot = document.getElementById('gold-cursor');
-            let x = window.innerWidth/2, y = window.innerHeight/2;
-            let tx = x, ty = y; // target pos
+            let x = window.innerWidth / 2, y = window.innerHeight / 2;
+            let tx = x, ty = y;
             const ease = 0.18;
 
-            window.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; }, {passive:true});
-            function raf(){
+            window.addEventListener('mousemove', e => { 
+                tx = e.clientX; 
+                ty = e.clientY; 
+            }, { passive: true });
+            
+            function raf() {
                 x += (tx - x) * ease;
                 y += (ty - y) * ease;
                 dot.style.transform = `translate3d(${x}px, ${y}px, 0)`;
@@ -2855,10 +1582,30 @@
             }
             raf();
 
-            // невеликий "клік-імпульс"
-            window.addEventListener('mousedown', ()=>{ dot.style.opacity = '0.7'; dot.style.width='10px'; dot.style.height='10px'; });
-            window.addEventListener('mouseup',   ()=>{ dot.style.opacity = '0.95'; dot.style.width='14px'; dot.style.height='14px'; });
+            // Click effect
+            window.addEventListener('mousedown', () => { 
+                dot.style.opacity = '0.7'; 
+                dot.style.width = '10px'; 
+                dot.style.height = '10px'; 
+            });
+            window.addEventListener('mouseup', () => { 
+                dot.style.opacity = '0.95'; 
+                dot.style.width = '14px'; 
+                dot.style.height = '14px'; 
+            });
         })();
+
+        // Add hover effect to links
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                document.getElementById('gold-cursor').style.width = '18px';
+                document.getElementById('gold-cursor').style.height = '18px';
+            });
+            el.addEventListener('mouseleave', () => {
+                document.getElementById('gold-cursor').style.width = '14px';
+                document.getElementById('gold-cursor').style.height = '14px';
+            });
+        });
     </script>
 </body>
 </html>
