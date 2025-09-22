@@ -24,6 +24,8 @@
                         secondary: '#4a148c',
                         accent: '#87ceeb',
                         dark: '#1a1a1a',
+                        'text-light': '#f8f9fa',
+                        'text-dark': '#212529',
                     },
                     fontFamily: {
                         poppins: ['Poppins', 'sans-serif'],
@@ -217,6 +219,31 @@
             background: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+        
+        /* Improved text visibility */
+        .text-improved {
+            color: var(--text-dark);
+        }
+        
+        [data-theme="dark"] .text-improved {
+            color: var(--text-light);
+        }
+        
+        .bg-improved {
+            background-color: #ffffff;
+        }
+        
+        [data-theme="dark"] .bg-improved {
+            background-color: #1e293b;
+        }
+        
+        .border-improved {
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        [data-theme="dark"] .border-improved {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
     </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
@@ -248,17 +275,17 @@
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass px-6 py-4 transition-all duration-300">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-secondary">Tetiana Kotolup</a>
+            <a href="#" class="text-2xl font-bold text-secondary dark:text-accent">Tetiana Kotolup</a>
             
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="nav-link hover:text-accent transition-colors" data-lang="nav_home">Home</a>
-                <a href="#about" class="nav-link hover:text-accent transition-colors" data-lang="nav_about">About</a>
-                <a href="#skills" class="nav-link hover:text-accent transition-colors" data-lang="nav_skills">Skills</a>
-                <a href="#certificates" class="nav-link hover:text-accent transition-colors" data-lang="nav_certificates">Certificates</a>
-                <a href="#experience" class="nav-link hover:text-accent transition-colors" data-lang="nav_experience">Experience</a>
-                <a href="#education" class="nav-link hover:text-accent transition-colors" data-lang="nav_education">Education</a>
-                <a href="#projects" class="nav-link hover:text-accent transition-colors" data-lang="nav_projects">Projects</a>
-                <a href="#contact" class="nav-link hover:text-accent transition-colors" data-lang="nav_contact">Contact</a>
+                <a href="#home" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_home">Home</a>
+                <a href="#about" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_about">About</a>
+                <a href="#skills" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_skills">Skills</a>
+                <a href="#certificates" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_certificates">Certificates</a>
+                <a href="#experience" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_experience">Experience</a>
+                <a href="#education" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_education">Education</a>
+                <a href="#projects" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_projects">Projects</a>
+                <a href="#contact" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_contact">Contact</a>
             </div>
             
             <div class="flex items-center space-x-4">
@@ -281,14 +308,14 @@
         <!-- Mobile menu -->
         <div class="hidden md:hidden mt-4 glass rounded-lg p-4" id="mobile-menu">
             <div class="flex flex-col space-y-3">
-                <a href="#home" class="nav-link hover:text-accent transition-colors" data-lang="nav_home">Home</a>
-                <a href="#about" class="nav-link hover:text-accent transition-colors" data-lang="nav_about">About</a>
-                <a href="#skills" class="nav-link hover:text-accent transition-colors" data-lang="nav_skills">Skills</a>
-                <a href="#certificates" class="nav-link hover:text-accent transition-colors" data-lang="nav_certificates">Certificates</a>
-                <a href="#experience" class="nav-link hover:text-accent transition-colors" data-lang="nav_experience">Experience</a>
-                <a href="#education" class="nav-link hover:text-accent transition-colors" data-lang="nav_education">Education</a>
-                <a href="#projects" class="nav-link hover:text-accent transition-colors" data-lang="nav_projects">Projects</a>
-                <a href="#contact" class="nav-link hover:text-accent transition-colors" data-lang="nav_contact">Contact</a>
+                <a href="#home" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_home">Home</a>
+                <a href="#about" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_about">About</a>
+                <a href="#skills" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_skills">Skills</a>
+                <a href="#certificates" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_certificates">Certificates</a>
+                <a href="#experience" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_experience">Experience</a>
+                <a href="#education" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_education">Education</a>
+                <a href="#projects" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_projects">Projects</a>
+                <a href="#contact" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_contact">Contact</a>
             </div>
         </div>
     </nav>
@@ -320,10 +347,10 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 relative">
+    <section id="about" class="py-20 relative bg-improved">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold text-secondary mb-4" data-lang="about_title">About Me</h2>
+                <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="about_title">About Me</h2>
                 <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="about_subtitle">Get to know me, my background and expertise</p>
             </div>
             
@@ -334,7 +361,7 @@
                 </div>
                 
                 <div class="fade-in">
-                    <h3 class="text-3xl font-bold mb-6 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-accent" data-lang="about_heading">IT Professional from Ukraine</h3>
+                    <h3 class="text-3xl font-bold mb-6 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-accent text-secondary dark:text-accent" data-lang="about_heading">IT Professional from Ukraine</h3>
                     
                     <p class="text-gray-700 dark:text-gray-300 mb-4" data-lang="about_text1">
                         I am a dedicated and versatile IT professional with a strong background in frontend development, SEO optimization, and digital marketing. My passion lies in creating efficient technological solutions and continuously expanding my knowledge in emerging technologies.
@@ -346,19 +373,19 @@
                     
                     <div class="space-y-3">
                         <div class="flex items-center">
-                            <i class="fas fa-map-marker-alt text-secondary mr-4 w-5"></i>
+                            <i class="fas fa-map-marker-alt text-secondary dark:text-accent mr-4 w-5"></i>
                             <span data-lang="about_location">Brno, Czech Republic</span>
                         </div>
                         <div class="flex items-center">
-                            <i class="fas fa-envelope text-secondary mr-4 w-5"></i>
+                            <i class="fas fa-envelope text-secondary dark:text-accent mr-4 w-5"></i>
                             <span>kotolup24@gmail.com</span>
                         </div>
                         <div class="flex items-center">
-                            <i class="fas fa-phone text-secondary mr-4 w-5"></i>
+                            <i class="fas fa-phone text-secondary dark:text-accent mr-4 w-5"></i>
                             <span>+420 608 317 700</span>
                         </div>
                         <div class="flex items-center">
-                            <i class="fas fa-globe text-secondary mr-4 w-5"></i>
+                            <i class="fas fa-globe text-secondary dark:text-accent mr-4 w-5"></i>
                             <span>https://tetiana-a.github.io/portfolio1/</span>
                         </div>
                     </div>
@@ -371,7 +398,7 @@
     <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800/50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold text-secondary mb-4" data-lang="skills_title">My Skills</h2>
+                <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="skills_title">My Skills</h2>
                 <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="skills_subtitle">Technical and professional expertise</p>
             </div>
             
@@ -383,7 +410,7 @@
                     <h3 class="text-xl font-bold mb-3" data-lang="skill1_title">SEO Optimization</h3>
                     <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang="skill1_text">Deeply studying SEO techniques, keyword research, on-page and off-page optimization</p>
                     <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent h-2 rounded-full"></div>
+                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
                     </div>
                 </div>
                 
@@ -394,7 +421,7 @@
                     <h3 class="text-xl font-bold mb-3" data-lang="skill2_title">Web Development</h3>
                     <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang="skill2_text">HTML, CSS, JavaScript, Google Web Designer</p>
                     <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent h-2 rounded-full"></div>
+                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
                     </div>
                 </div>
                 
@@ -405,7 +432,7 @@
                     <h3 class="text-xl font-bold mb-3" data-lang="skill3_title">Backend Technologies</h3>
                     <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang="skill3_text">Node.js, Google Cloud Platform</p>
                     <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent h-2 rounded-full"></div>
+                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
                     </div>
                 </div>
                 
@@ -416,7 +443,7 @@
                     <h3 class="text-xl font-bold mb-3" data-lang="skill4_title">CRM Systems</h3>
                     <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang="skill4_text">Customer Relationship Management</p>
                     <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent h-2 rounded-full"></div>
+                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
                     </div>
                 </div>
                 
@@ -427,7 +454,7 @@
                     <h3 class="text-xl font-bold mb-3" data-lang="skill5_title">AI Applications</h3>
                     <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang="skill5_text">ChatGPT for Business, AI Marketing, Machine Learning</p>
                     <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent h-2 rounded-full"></div>
+                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
                     </div>
                 </div>
                 
@@ -438,7 +465,7 @@
                     <h3 class="text-xl font-bold mb-3" data-lang="skill6_title">Finance & Trading</h3>
                     <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang="skill6_text">Investments, Machine Learning for Trading</p>
                     <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent h-2 rounded-full"></div>
+                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
                     </div>
                 </div>
             </div>
@@ -446,10 +473,10 @@
     </section>
 
     <!-- Certificates Section -->
-    <section id="certificates" class="py-20">
+    <section id="certificates" class="py-20 bg-improved">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold text-secondary mb-4" data-lang="certificates_title">Certificates & Licenses</h2>
+                <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="certificates_title">Certificates & Licenses</h2>
                 <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="certificates_subtitle">Professional certifications I've earned</p>
             </div>
             
@@ -458,14 +485,14 @@
                 <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
                     <div class="flex items-start gap-4 mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-search text-white"></i>
+                            <i class="fas fa-search text-white dark:text-gray-900"></i>
                         </div>
                         <div>
                             <h3 class="text-lg font-bold" data-lang="cert1_title">Search Engine Optimization (SEO)</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-400" data-lang="cert1_issuer">Coursera</p>
                         </div>
                     </div>
-                    <div class="text-sm bg-secondary/10 text-secondary px-3 py-1 rounded-full inline-block mb-4" data-lang="cert1_date">Jan 2023</div>
+                    <div class="text-sm bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-3 py-1 rounded-full inline-block mb-4" data-lang="cert1_date">Jan 2023</div>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert1_skill">SEO</span>
                     </div>
@@ -475,14 +502,14 @@
                 <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
                     <div class="flex items-start gap-4 mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-certificate text-white"></i>
+                            <i class="fas fa-certificate text-white dark:text-gray-900"></i>
                         </div>
                         <div>
                             <h3 class="text-lg font-bold" data-lang="cert2_title">Customer Relationship Management</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-400" data-lang="cert2_issuer">Simplilearn</p>
                         </div>
                     </div>
-                    <div class="text-sm bg-secondary/10 text-secondary px-3 py-1 rounded-full inline-block mb-4" data-lang="cert2_date">Sep 2025</div>
+                    <div class="text-sm bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-3 py-1 rounded-full inline-block mb-4" data-lang="cert2_date">Sep 2025</div>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert2_skill">CRM</span>
                     </div>
@@ -492,14 +519,14 @@
                 <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
                     <div class="flex items-start gap-4 mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fab fa-node-js text-white"></i>
+                            <i class="fab fa-node-js text-white dark:text-gray-900"></i>
                         </div>
                         <div>
                             <h3 class="text-lg font-bold" data-lang="cert3_title">NodeJS</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-400" data-lang="cert3_issuer">Simplilearn</p>
                         </div>
                     </div>
-                    <div class="text-sm bg-secondary/10 text-secondary px-3 py-1 rounded-full inline-block mb-4" data-lang="cert3_date">Sep 2025</div>
+                    <div class="text-sm bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-3 py-1 rounded-full inline-block mb-4" data-lang="cert3_date">Sep 2025</div>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert3_skill">Node.js</span>
                     </div>
@@ -509,14 +536,14 @@
                 <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
                     <div class="flex items-start gap-4 mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-comments text-white"></i>
+                            <i class="fas fa-comments text-white dark:text-gray-900"></i>
                         </div>
                         <div>
                             <h3 class="text-lg font-bold" data-lang="cert4_title">ChatGPT for Business Communication</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-400" data-lang="cert4_issuer">GreatLearning</p>
                         </div>
                     </div>
-                    <div class="text-sm bg-secondary/10 text-secondary px-3 py-1 rounded-full inline-block mb-4" data-lang="cert4_date">Jul 2025</div>
+                    <div class="text-sm bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-3 py-1 rounded-full inline-block mb-4" data-lang="cert4_date">Jul 2025</div>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert4_skill">Business Communication</span>
                     </div>
@@ -526,14 +553,14 @@
                 <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
                     <div class="flex items-start gap-4 mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-brain text-white"></i>
+                            <i class="fas fa-brain text-white dark:text-gray-900"></i>
                         </div>
                         <div>
                             <h3 class="text-lg font-bold" data-lang="cert5_title">Introduction to Machine Learning for Trading</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-400" data-lang="cert5_issuer">QuantInsti</p>
                         </div>
                     </div>
-                    <div class="text-sm bg-secondary/10 text-secondary px-3 py-1 rounded-full inline-block mb-4" data-lang="cert5_date">Jul 2025 - Jul 2034</div>
+                    <div class="text-sm bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-3 py-1 rounded-full inline-block mb-4" data-lang="cert5_date">Jul 2025 - Jul 2034</div>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert5_skill1">Trading</span>
                         <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert5_skill2">Machine Learning</span>
@@ -544,14 +571,14 @@
                 <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
                     <div class="flex items-start gap-4 mb-4">
                         <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-bullhorn text-white"></i>
+                            <i class="fas fa-bullhorn text-white dark:text-gray-900"></i>
                         </div>
                         <div>
                             <h3 class="text-lg font-bold" data-lang="cert6_title">AI Marketing</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-400" data-lang="cert6_issuer">Alison</p>
                         </div>
                     </div>
-                    <div class="text-sm bg-secondary/10 text-secondary px-3 py-1 rounded-full inline-block mb-4" data-lang="cert6_date">Jun 2025</div>
+                    <div class="text-sm bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-3 py-1 rounded-full inline-block mb-4" data-lang="cert6_date">Jun 2025</div>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert6_skill">AI for Marketing</span>
                     </div>
@@ -564,7 +591,7 @@
     <section id="experience" class="py-20 bg-gray-50 dark:bg-gray-800/50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold text-secondary mb-4" data-lang="experience_title">Work Experience</h2>
+                <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="experience_title">Work Experience</h2>
                 <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="experience_subtitle">My professional journey</p>
             </div>
             
@@ -578,8 +605,8 @@
                         <div class="flex items-center">
                             <div class="w-1/2 pr-8 text-right">
                                 <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-                                    <h3 class="text-xl font-bold mb-2" data-lang="exp1_title">EXPEDICE</h3>
-                                    <p class="text-secondary font-medium mb-2" data-lang="exp1_company">ViaPharma</p>
+                                    <h3 class="text-xl font-bold mb-2 text-secondary dark:text-accent" data-lang="exp1_title">EXPEDICE</h3>
+                                    <p class="text-secondary dark:text-accent font-medium mb-2" data-lang="exp1_company">ViaPharma</p>
                                     <span class="text-sm bg-accent/10 text-accent px-3 py-1 rounded-full" data-lang="exp1_date">Jul 2025 - Present</span>
                                     <ul class="mt-4 text-left space-y-2">
                                         <li class="flex items-start">
@@ -606,8 +633,8 @@
                             <div class="w-1/2 pr-8"></div>
                             <div class="w-1/2 pl-8">
                                 <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-                                    <h3 class="text-xl font-bold mb-2" data-lang="exp2_title">Entrepreneur</h3>
-                                    <p class="text-secondary font-medium mb-2" data-lang="exp2_company">Self-Employed</p>
+                                    <h3 class="text-xl font-bold mb-2 text-secondary dark:text-accent" data-lang="exp2_title">Entrepreneur</h3>
+                                    <p class="text-secondary dark:text-accent font-medium mb-2" data-lang="exp2_company">Self-Employed</p>
                                     <span class="text-sm bg-accent/10 text-accent px-3 py-1 rounded-full" data-lang="exp2_date">Apr 2025 - Jun 2025</span>
                                     <ul class="mt-4 space-y-2">
                                         <li class="flex items-start">
@@ -632,8 +659,8 @@
                         <div class="flex items-center">
                             <div class="w-1/2 pr-8 text-right">
                                 <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-                                    <h3 class="text-xl font-bold mb-2" data-lang="exp3_title">Production Associate</h3>
-                                    <p class="text-secondary font-medium mb-2" data-lang="exp3_company">Nová Mosilana, a.s.</p>
+                                    <h3 class="text-xl font-bold mb-2 text-secondary dark:text-accent" data-lang="exp3_title">Production Associate</h3>
+                                    <p class="text-secondary dark:text-accent font-medium mb-2" data-lang="exp3_company">Nová Mosilana, a.s.</p>
                                     <span class="text-sm bg-accent/10 text-accent px-3 py-1 rounded-full" data-lang="exp3_date">Mar 2018 - Mar 2025</span>
                                     <ul class="mt-4 text-left space-y-2">
                                         <li class="flex items-start">
@@ -664,17 +691,17 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="py-20">
+    <section id="education" class="py-20 bg-improved">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold text-secondary mb-4" data-lang="education_title">Education</h2>
+                <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="education_title">Education</h2>
                 <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="education_subtitle">My educational background</p>
             </div>
             
             <div class="max-w-2xl mx-auto">
                 <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg fade-in">
-                    <h3 class="text-2xl font-bold mb-4" data-lang="edu1_title">Junior Specialist in Information Technology</h3>
-                    <p class="text-secondary font-medium mb-2" data-lang="edu1_institution">Čerkasy State Trade School</p>
+                    <h3 class="text-2xl font-bold mb-4 text-secondary dark:text-accent" data-lang="edu1_title">Junior Specialist in Information Technology</h3>
+                    <p class="text-secondary dark:text-accent font-medium mb-2" data-lang="edu1_institution">Čerkasy State Trade School</p>
                     <span class="text-sm bg-accent/10 text-accent px-3 py-1 rounded-full" data-lang="edu1_date">2013 - 2017</span>
                     <p class="mt-4 text-gray-700 dark:text-gray-300" data-lang="edu1_text">Specialized in Computer Systems and Network Maintenance</p>
                     <div class="mt-4 space-y-2">
@@ -690,7 +717,7 @@
     <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800/50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold text-secondary mb-4" data-lang="projects_title">My Projects</h2>
+                <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="projects_title">My Projects</h2>
                 <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="projects_subtitle">Recent work I'm proud of</p>
             </div>
             
@@ -703,13 +730,13 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-3" data-lang="project1_title">King House Travel</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-secondary dark:text-accent" data-lang="project1_title">King House Travel</h3>
                         <p class="text-gray-700 dark:text-gray-300 mb-4" data-lang="project1_text">A comprehensive travel agency website with booking functionality and destination guides. Currently implementing advanced SEO strategies to improve search engine rankings and increase organic traffic.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">HTML</span>
-                            <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">CSS</span>
-                            <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">JavaScript</span>
-                            <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">SEO</span>
+                            <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">HTML</span>
+                            <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">CSS</span>
+                            <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">JavaScript</span>
+                            <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">SEO</span>
                         </div>
                         <div class="flex gap-3">
                             <a href="https://kinghousetravel.github.io/0/" target="_blank" class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
@@ -730,13 +757,13 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-3" data-lang="project2_title">Professional Portfolio</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-secondary dark:text-accent" data-lang="project2_title">Professional Portfolio</h3>
                         <p class="text-gray-700 dark:text-gray-300 mb-4" data-lang="project2_text">My personal portfolio website showcasing my skills, projects, and professional experience. Designed with SEO best practices in mind to ensure maximum visibility and accessibility.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">HTML</span>
-                            <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">CSS</span>
-                            <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">JavaScript</span>
-                            <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">SEO</span>
+                            <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">HTML</span>
+                            <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">CSS</span>
+                            <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">JavaScript</span>
+                            <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">SEO</span>
                         </div>
                         <div class="flex gap-3">
                             <a href="https://tetiana-a.github.io/portfolio1/" target="_blank" class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
@@ -817,16 +844,16 @@
                 <div class="fade-in">
                     <form id="contact-form" class="space-y-4">
                         <div>
-                            <input type="text" placeholder="Your Name" data-lang-placeholder="form_name" required class="w-full px-4 py-3 rounded-lg bg-white/10 backdrop-blur border border-white/20 text-white placeholder-white/70 focus:outline-none focus:border-accent">
+                            <input type="text" placeholder="Your Name" data-lang-placeholder="form_name" required class="w-full px-4 py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent">
                         </div>
                         <div>
-                            <input type="email" placeholder="Your Email" data-lang-placeholder="form_email" required class="w-full px-4 py-3 rounded-lg bg-white/10 backdrop-blur border border-white/20 text-white placeholder-white/70 focus:outline-none focus:border-accent">
+                            <input type="email" placeholder="Your Email" data-lang-placeholder="form_email" required class="w-full px-4 py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent">
                         </div>
                         <div>
-                            <input type="text" placeholder="Subject" data-lang-placeholder="form_subject" class="w-full px-4 py-3 rounded-lg bg-white/10 backdrop-blur border border-white/20 text-white placeholder-white/70 focus:outline-none focus:border-accent">
+                            <input type="text" placeholder="Subject" data-lang-placeholder="form_subject" class="w-full px-4 py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent">
                         </div>
                         <div>
-                            <textarea placeholder="Your Message" data-lang-placeholder="form_message" required rows="5" class="w-full px-4 py-3 rounded-lg bg-white/10 backdrop-blur border border-white/20 text-white placeholder-white/70 focus:outline-none focus:border-accent resize-none"></textarea>
+                            <textarea placeholder="Your Message" data-lang-placeholder="form_message" required rows="5" class="w-full px-4 py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent resize-none"></textarea>
                         </div>
                         <button type="submit" class="w-full bg-accent hover:bg-blue-400 text-white font-semibold py-3 rounded-lg transition-all hover:scale-[1.02]" data-lang="form_submit">Send Message</button>
                     </form>
@@ -905,49 +932,6 @@
                 cert6_issuer: "Alison",
                 cert6_date: "Jun 2025",
                 cert6_skill: "AI for Marketing",
-                cert7_title: "Investments",
-                cert7_issuer: "Golden Academy",
-                cert7_date: "May 2025",
-                cert7_skill: "Investments",
-                cert8_title: "Training",
-                cert8_issuer: "United Latino Students Association",
-                cert8_date: "May 2025",
-                cert8_skill: "Training",
-                cert9_title: "Google Web Designer",
-                cert9_issuer: "European IT Certification Institute",
-                cert9_date: "Sep 2024",
-                cert9_skill: "Google Web Designer",
-                cert10_title: "HTML/CSS Fundamentals",
-                cert10_issuer: "European IT Certification Institute",
-                cert10_date: "Sep 2024",
-                cert10_skill: "HTML/CSS",
-                cert11_title: "JavaScript Fundamentals",
-                cert11_issuer: "European IT Certification Institute",
-                cert11_date: "Sep 2024",
-                cert11_skill: "JavaScript",
-                cert12_title: "Web Programming Fundamentals",
-                cert12_issuer: "European IT Certification Institute",
-                cert12_date: "Sep 2024",
-                cert12_skill: "Web Programming",
-                cert13_title: "Google Cloud Platform",
-                cert13_issuer: "European IT Certification Institute",
-                cert13_date: "Jul 2024",
-                cert13_skill: "Google Cloud Platform",
-                cert14_title: "Coaching & Mentoring",
-                cert14_issuer: "Femme Palette",
-                cert14_date: "Jun 2024 - Jun 2034",
-                cert14_skill: "Coaching & Mentoring",
-                cert15_title: "User Experience (UX)",
-                cert15_issuer: "ITnetwork s.r.o.",
-                cert15_date: "Jan 2023",
-                cert15_skill1: "User Experience (UX)",
-                cert15_skill2: "HTML",
-                cert15_skill3: "CSS",
-                cert16_title: "Front-end Development",
-                cert16_issuer: "Johns Hopkins University via Coursera",
-                cert16_date: "Nov 2022",
-                cert16_skill1: "Front-end Development",
-                cert16_skill2: "Web Development",
                 experience_title: "Work Experience",
                 experience_subtitle: "My professional journey",
                 exp1_title: "EXPEDICE",
@@ -969,20 +953,6 @@
                 exp3_task2: "Trained and instructed new employees",
                 exp3_task3: "Demonstrated physical stamina and resilience in solving problems",
                 exp3_task4: "Exhibited strong planning and organizational skills",
-                exp4_title: "Electrical Assembly Specialist",
-                exp4_company: "TOV \"UKR THECH\"",
-                exp4_date: "Jan 2017 - Dec 2018",
-                exp4_task1: "Performed soldering operations and assembled voltage stabilizers",
-                exp4_task2: "Trained and instructed new employees",
-                exp4_task3: "Led and motivated teams of employees",
-                exp4_task4: "Provided car maintenance services",
-                exp5_title: "Sales Assistant",
-                exp5_company: "DELIKAT",
-                exp5_date: "Oct 2016 - May 2017",
-                exp5_task1: "Greeted and assisted customers",
-                exp5_task2: "Trained and instructed new employees",
-                exp5_task3: "Prepared documents and reports",
-                exp5_task4: "Operated office equipment",
                 education_title: "Education",
                 education_subtitle: "My educational background",
                 edu1_title: "Junior Specialist in Information Technology",
@@ -1074,49 +1044,6 @@
                 cert6_issuer: "Alison",
                 cert6_date: "Červen 2025",
                 cert6_skill: "AI pro Marketing",
-                cert7_title: "Investice",
-                cert7_issuer: "Golden Academy",
-                cert7_date: "Květen 2025",
-                cert7_skill: "Investice",
-                cert8_title: "Školení",
-                cert8_issuer: "United Latino Students Association",
-                cert8_date: "Květen 2025",
-                cert8_skill: "Školení",
-                cert9_title: "Google Web Designer",
-                cert9_issuer: "European IT Certification Institute",
-                cert9_date: "Září 2024",
-                cert9_skill: "Google Web Designer",
-                cert10_title: "Základy HTML/CSS",
-                cert10_issuer: "European IT Certification Institute",
-                cert10_date: "Září 2024",
-                cert10_skill: "HTML/CSS",
-                cert11_title: "Základy JavaScriptu",
-                cert11_issuer: "European IT Certification Institute",
-                cert11_date: "Září 2024",
-                cert11_skill: "JavaScript",
-                cert12_title: "Základy Webového Programování",
-                cert12_issuer: "European IT Certification Institute",
-                cert12_date: "Září 2024",
-                cert12_skill: "Webové Programování",
-                cert13_title: "Google Cloud Platform",
-                cert13_issuer: "European IT Certification Institute",
-                cert13_date: "Červenec 2024",
-                cert13_skill: "Google Cloud Platform",
-                cert14_title: "Coaching & Mentoring",
-                cert14_issuer: "Femme Palette",
-                cert14_date: "Červen 2024 - Červen 2034",
-                cert14_skill: "Coaching & Mentoring",
-                cert15_title: "Uživatelská Zkušenost (UX)",
-                cert15_issuer: "ITnetwork s.r.o.",
-                cert15_date: "Leden 2023",
-                cert15_skill1: "Uživatelská Zkušenost (UX)",
-                cert15_skill2: "HTML",
-                cert15_skill3: "CSS",
-                cert16_title: "Front-end Vývoj",
-                cert16_issuer: "Johns Hopkins University via Coursera",
-                cert16_date: "Listopad 2022",
-                cert16_skill1: "Front-end Vývoj",
-                cert16_skill2: "Vývoj Webu",
                 experience_title: "Pracovní Zkušenosti",
                 experience_subtitle: "Moje profesionální cesta",
                 exp1_title: "EXPEDICE",
@@ -1138,20 +1065,6 @@
                 exp3_task2: "Školení a instruktáž nových zaměstnanců",
                 exp3_task3: "Prokázání fyzické vytrvalosti a odolnosti při řešení problémů",
                 exp3_task4: "Projevila silné plánovací a organizační schopnosti",
-                exp4_title: "Specialista Elektromontáží",
-                exp4_company: "TOV \"UKR THECH\"",
-                exp4_date: "Leden 2017 - Prosinec 2018",
-                exp4_task1: "Provádění pájecích operací a montáž stabilizátorů napětí",
-                exp4_task2: "Školení a instruktáž nových zaměstnanců",
-                exp4_task3: "Vedení a motivace týmů zaměstnanců",
-                exp4_task4: "Poskytování služeb údržby automobilů",
-                exp5_title: "Asistent Prodeje",
-                exp5_company: "DELIKAT",
-                exp5_date: "Říjen 2016 - Květen 2017",
-                exp5_task1: "Vítání a asistence zákazníkům",
-                exp5_task2: "Školení a instruktáž nových zaměstnanců",
-                exp5_task3: "Příprava dokumentů a zpráv",
-                exp5_task4: "Obsluha kancelářského vybavení",
                 education_title: "Vzdělání",
                 education_subtitle: "Moje vzdělávací pozadí",
                 edu1_title: "Junior Specialista v Informačních Technologiích",
@@ -1243,49 +1156,6 @@
                 cert6_issuer: "Alison",
                 cert6_date: "Червень 2025",
                 cert6_skill: "ШІ для Маркетингу",
-                cert7_title: "Інвестиції",
-                cert7_issuer: "Golden Academy",
-                cert7_date: "Травень 2025",
-                cert7_skill: "Інвестиції",
-                cert8_title: "Тренінг",
-                cert8_issuer: "United Latino Students Association",
-                cert8_date: "Травень 2025",
-                cert8_skill: "Тренінг",
-                cert9_title: "Google Web Designer",
-                cert9_issuer: "European IT Certification Institute",
-                cert9_date: "Вересень 2024",
-                cert9_skill: "Google Web Designer",
-                cert10_title: "Основи HTML/CSS",
-                cert10_issuer: "European IT Certification Institute",
-                cert10_date: "Вересень 2024",
-                cert10_skill: "HTML/CSS",
-                cert11_title: "Основи JavaScript",
-                cert11_issuer: "European IT Certification Institute",
-                cert11_date: "Вересень 2024",
-                cert11_skill: "JavaScript",
-                cert12_title: "Основи Веб-програмування",
-                cert12_issuer: "European IT Certification Institute",
-                cert12_date: "Вересень 2024",
-                cert12_skill: "Веб-програмування",
-                cert13_title: "Google Cloud Platform",
-                cert13_issuer: "European IT Certification Institute",
-                cert13_date: "Липень 2024",
-                cert13_skill: "Google Cloud Platform",
-                cert14_title: "Коучинг та Менторство",
-                cert14_issuer: "Femme Palette",
-                cert14_date: "Червень 2024 - Червень 2034",
-                cert14_skill: "Коучинг та Менторство",
-                cert15_title: "Користувацький Досвід (UX)",
-                cert15_issuer: "ITnetwork s.r.o.",
-                cert15_date: "Січень 2023",
-                cert15_skill1: "Користувацький Досвід (UX)",
-                cert15_skill2: "HTML",
-                cert15_skill3: "CSS",
-                cert16_title: "Фронтенд-розробка",
-                cert16_issuer: "Johns Hopkins University через Coursera",
-                cert16_date: "Листопад 2022",
-                cert16_skill1: "Фронтенд-розробка",
-                cert16_skill2: "Розробка Веб-сайтів",
                 experience_title: "Досвід Роботи",
                 experience_subtitle: "Мій професійний шлях",
                 exp1_title: "ЕКСПЕДИЦІЯ",
@@ -1307,20 +1177,6 @@
                 exp3_task2: "Навчання та інструктаж нових працівників",
                 exp3_task3: "Демонстрація фізичної витривалості та стійкості у вирішенні проблем",
                 exp3_task4: "Виявлення сильних планувальних та організаційних навичок",
-                exp4_title: "Спеціаліст з Електромонтажу",
-                exp4_company: "ТОВ \"UKR THECH\"",
-                exp4_date: "Січень 2017 - Грудень 2018",
-                exp4_task1: "Виконання паяльних робіт та складання стабілізаторів напруги",
-                exp4_task2: "Навчання та інструктаж нових працівників",
-                exp4_task3: "Керівництво та мотивація команд працівників",
-                exp4_task4: "Надання послуг з обслуговування автомобілів",
-                exp5_title: "Помічник з Продажів",
-                exp5_company: "DELIKAT",
-                exp5_date: "Жовтень 2016 - Травень 2017",
-                exp5_task1: "Вітання та допомога клієнтам",
-                exp5_task2: "Навчання та інструктаж нових працівників",
-                exp5_task3: "Підготовка документів та звітів",
-                exp5_task4: "Обслуговування офісного обладнання",
                 education_title: "Освіта",
                 education_subtitle: "Моє освітнє походження",
                 edu1_title: "Молодший Спеціаліст з Інформаційних Технологій",
