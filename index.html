@@ -79,17 +79,21 @@
         .circle {
             position: absolute;
             border-radius: 50%;
-            filter: blur(24px);
-            opacity: .35;
             background: radial-gradient(circle at 35% 35%,
-                        rgba(74,20,140,.18) 0%, rgba(74,20,140,.10) 60%, transparent 100%);
-            transition: all .3s ease;
+                        color-mix(in srgb, var(--purple) 18%, transparent) 0%,
+                        color-mix(in srgb, var(--purple) 10%, transparent) 60%,
+                        transparent 100%);
+            filter: blur(0.2px);
+            opacity: var(--circle-opacity-light);
+            transition: all 0.3s ease;
         }
 
-        .dark .circle {
-            opacity: .45;
+        [data-theme="dark"] .circle {
+            opacity: var(--circle-opacity-dark);
             background: radial-gradient(circle at 35% 35%,
-                        rgba(135,206,235,.18) 0%, rgba(135,206,235,.10) 60%, transparent 100%);
+                        color-mix(in srgb, var(--accent) 18%, transparent) 0%,
+                        color-mix(in srgb, var(--accent) 10%, transparent) 60%,
+                        transparent 100%);
         }
 
         .c1 { width: 42vmax; height: 42vmax; top: 8%; left: 6%; animation: float 24s ease-in-out infinite; }
@@ -100,12 +104,13 @@
         /* Digital rain effect */
         #digital-bg {
             position: fixed;
-            inset: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: 0;
             overflow: hidden;
-            background:
-                radial-gradient(1200px 800px at 10% 10%, rgba(74,20,140,0.10), transparent 60%),
-                linear-gradient(135deg, rgba(0,0,0,0.85), rgba(74,20,140,0.65));
+            background: linear-gradient(135deg, var(--tw-bg-opacity) 0%, var(--tw-bg-opacity) 100%);
         }
 
         .digit {
@@ -114,8 +119,7 @@
             font-family: 'Courier New', monospace;
             font-size: 18px;
             animation: fall linear infinite;
-            z-index: 0;
-            pointer-events: none;
+            z-index: 1;
         }
 
         @keyframes fall {
@@ -204,47 +208,14 @@
 
         /* Glass morphism effect */
         .glass {
-            background: rgba(255,255,255,0.28);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.35);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .dark .glass {
-            background: rgba(0,0,0,0.36);
-            border: 1px solid rgba(255,255,255,0.18);
-        }
-
-        /* Z-index layers */
-        #bg-circles, #digital-bg { z-index: 0; }
-        section, nav, footer { position: relative; z-index: 10; }
-
-        /* Projects text readability */
-        .project-card .relative::after {
-            content:""; 
-            position:absolute; 
-            inset:0;
-            background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0));
-            pointer-events:none;
-        }
-
-        /* Text shadows for dark backgrounds */
-        .hero h1, .hero p,
-        #contact h2, #contact p {
-            text-shadow: 0 1px 2px rgba(0,0,0,.45);
-        }
-
-        /* Better contrast for dark text */
-        .dark .text-gray-300{ color:#e5e7eb; }
-        .dark .text-gray-400{ color:#d1d5db; }
-
-        /* Focus styles for accessibility */
-        a,button,select,input,textarea{ outline:none; }
-        a:focus-visible, button:focus-visible, select:focus-visible,
-        input:focus-visible, textarea:focus-visible{
-            outline: 2px solid #87ceeb;
-            outline-offset: 2px;
-            border-radius: 8px;
+        [data-theme="dark"] .glass {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
@@ -334,8 +305,8 @@
     </div>
 
     <!-- Hero Section -->
-    <section id="home" class="hero min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div class="hero-bg absolute inset-0 bg-gradient-to-br from-black/80 to-secondary/70 -z-10"></div>
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="hero-bg absolute inset-0 bg-gradient-to-br from-black/90 to-secondary/90 z-[-1]"></div>
         
         <div class="container mx-auto px-6 text-center z-10">
             <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in" data-lang="hero_title">Tetiana Kotolup</h1>
@@ -783,7 +754,8 @@
 
     <!-- Contact Section -->
     <section id="contact" class="py-20 relative">
-        <div class="absolute inset-0 bg-gradient-to-br from-black/80 to-secondary/70 -z-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-black/90 to-secondary/90 z-[-1]"></div>
+        <div class="absolute inset-0 bg-black/30 z-[-1]"></div>
         
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16 fade-in">
@@ -1407,23 +1379,33 @@
             updateLanguage(e.target.value);
         });
 
-        // THEME SWITCH
+        // Theme switching
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = themeToggle.querySelector('i');
         const html = document.documentElement;
-
-        // init
-        const saved = localStorage.getItem('theme') || 'light';
-        if (saved === 'dark') html.classList.add('dark');
-        themeIcon.classList.toggle('fa-sun', html.classList.contains('dark'));
-        themeIcon.classList.toggle('fa-moon', !html.classList.contains('dark'));
-
+        
+        // Check for saved theme preference or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            html.setAttribute('data-theme', 'dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+        
         themeToggle.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            const now = html.classList.contains('dark') ? 'dark' : 'light';
-            localStorage.setItem('theme', now);
-            themeIcon.classList.toggle('fa-sun', now === 'dark');
-            themeIcon.classList.toggle('fa-moon', now !== 'dark');
+            const theme = html.getAttribute('data-theme');
+            const newTheme = theme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            if (newTheme === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
         });
 
         // Mobile menu toggle
