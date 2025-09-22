@@ -440,6 +440,85 @@
                 max-width: calc(33.333% - 1rem);
             }
         }
+        
+        /* Animated blue lines */
+        .blue-lines-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .blue-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                rgba(30, 144, 255, 0) 0%, 
+                rgba(30, 144, 255, 0.7) 50%, 
+                rgba(30, 144, 255, 0) 100%);
+            animation: colorShift 8s infinite ease-in-out;
+        }
+        
+        .line-1 {
+            width: 100%;
+            top: 15%;
+            animation-delay: 0s;
+        }
+        
+        .line-2 {
+            width: 100%;
+            top: 35%;
+            animation-delay: 1.5s;
+        }
+        
+        .line-3 {
+            width: 100%;
+            top: 55%;
+            animation-delay: 3s;
+        }
+        
+        .line-4 {
+            width: 100%;
+            top: 75%;
+            animation-delay: 4.5s;
+        }
+        
+        .line-5 {
+            width: 100%;
+            top: 90%;
+            animation-delay: 6s;
+        }
+        
+        @keyframes colorShift {
+            0%, 100% {
+                background: linear-gradient(90deg, 
+                    rgba(30, 144, 255, 0) 0%, 
+                    rgba(30, 144, 255, 0.7) 50%, 
+                    rgba(30, 144, 255, 0) 100%);
+            }
+            25% {
+                background: linear-gradient(90deg, 
+                    rgba(0, 191, 255, 0) 0%, 
+                    rgba(0, 191, 255, 0.7) 50%, 
+                    rgba(0, 191, 255, 0) 100%);
+            }
+            50% {
+                background: linear-gradient(90deg, 
+                    rgba(135, 206, 250, 0) 0%, 
+                    rgba(135, 206, 250, 0.7) 50%, 
+                    rgba(135, 206, 250, 0) 100%);
+            }
+            75% {
+                background: linear-gradient(90deg, 
+                    rgba(70, 130, 180, 0) 0%, 
+                    rgba(70, 130, 180, 0.7) 50%, 
+                    rgba(70, 130, 180, 0) 100%);
+            }
+        }
     </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
@@ -451,6 +530,15 @@
         <div class="color-circle circle-4"></div>
         <div class="color-circle circle-5"></div>
         <div class="color-circle circle-6"></div>
+    </div>
+    
+    <!-- Animated blue lines -->
+    <div class="blue-lines-container">
+        <div class="blue-line line-1"></div>
+        <div class="blue-line line-2"></div>
+        <div class="blue-line line-3"></div>
+        <div class="blue-line line-4"></div>
+        <div class="blue-line line-5"></div>
     </div>
     
     <!-- Background circles -->
@@ -891,6 +979,68 @@
                             <div class="w-1/2 pl-4 sm:pl-8"></div>
                         </div>
                     </div>
+                    
+                    <div class="timeline-item mb-8 sm:mb-12">
+                        <div class="flex items-center">
+                            <div class="w-1/2 pr-4 sm:pr-8"></div>
+                            <div class="w-1/2 pl-4 sm:pl-8">
+                                <div class="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
+                                    <h3 class="text-base sm:text-xl font-bold mb-1 sm:mb-2 text-secondary dark:text-accent" data-lang="exp4_title">Electrical Assembly Specialist</h3>
+                                    <p class="text-secondary dark:text-accent font-medium mb-1 sm:mb-2 text-sm" data-lang="exp4_company">TOV "UKR TECH"</p>
+                                    <span class="text-xs bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full" data-lang="exp4_date">Jan 2017 - Dec 2018</span>
+                                    <ul class="mt-3 sm:mt-4 space-y-1 sm:space-y-2">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
+                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp4_task1">Performed soldering operations and assembled voltage stabilizers</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
+                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp4_task2">Trained and instructed new employees</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
+                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp4_task3">Led and motivated teams of employees</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
+                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp4_task4">Provided car maintenance services</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item mb-8 sm:mb-12">
+                        <div class="flex items-center">
+                            <div class="w-1/2 pr-4 sm:pr-8 text-right">
+                                <div class="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
+                                    <h3 class="text-base sm:text-xl font-bold mb-1 sm:mb-2 text-secondary dark:text-accent" data-lang="exp5_title">Sales Assistant</h3>
+                                    <p class="text-secondary dark:text-accent font-medium mb-1 sm:mb-2 text-sm" data-lang="exp5_company">DELIKAT</p>
+                                    <span class="text-xs bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full" data-lang="exp5_date">Oct 2016 - May 2017</span>
+                                    <ul class="mt-3 sm:mt-4 text-left space-y-1 sm:space-y-2">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
+                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp5_task1">Greeted and assisted customers</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
+                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp5_task2">Trained and instructed new employees</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
+                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp5_task3">Prepared documents and reports</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
+                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp5_task4">Operated office equipment</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="w-1/2 pl-4 sm:pl-8"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1158,6 +1308,20 @@
                 exp3_task2: "Trained and instructed new employees",
                 exp3_task3: "Demonstrated physical stamina and resilience in solving problems",
                 exp3_task4: "Exhibited strong planning and organizational skills",
+                exp4_title: "Electrical Assembly Specialist",
+                exp4_company: "TOV \"UKR TECH\"",
+                exp4_date: "Jan 2017 - Dec 2018",
+                exp4_task1: "Performed soldering operations and assembled voltage stabilizers",
+                exp4_task2: "Trained and instructed new employees",
+                exp4_task3: "Led and motivated teams of employees",
+                exp4_task4: "Provided car maintenance services",
+                exp5_title: "Sales Assistant",
+                exp5_company: "DELIKAT",
+                exp5_date: "Oct 2016 - May 2017",
+                exp5_task1: "Greeted and assisted customers",
+                exp5_task2: "Trained and instructed new employees",
+                exp5_task3: "Prepared documents and reports",
+                exp5_task4: "Operated office equipment",
                 education_title: "Education",
                 education_subtitle: "My educational background",
                 edu1_title: "Junior Specialist in Information Technology",
@@ -1185,7 +1349,7 @@
                 form_subject: "Subject",
                 form_message: "Your Message",
                 form_submit: "Send Message",
-                footer: "&copy; 2023 Tetiana Kotolup. All Rights Reserved.",
+                footer: "&copy; 2025 Tetiana Kotolup. All Rights Reserved.",
                 music_title: "Ambient Background",
                 music_artist: "Portfolio Soundtrack"
             },
@@ -1205,8 +1369,8 @@
                 about_title: "O Mně",
                 about_subtitle: "Poznejte mě, mé zázemí a odborné znalosti",
                 about_heading: "IT Profesionálka z Ukrajiny",
-                about_text1: "Jsem oddaná a všestranná IT profesionálka se silným zázemím ve frontend vývoji, SEO optimalizaci a digitálním marketingu. Moje vášeň spočívá ve vytváření efektivních technologických řešení a neustálém rozšiřování znalostí v oblasti nových technologií.",
-                about_text2: "V současnosti se hluboce věnuji studiu SEO pro zlepšení viditelnosti webových stránek a jejich hodnocení. S mnoha certifikáty ve vývoji webu, CRM a AI aplikacích přináším komplexní sadu dovedností, která kombinuje technické znalosti s obchodními znalostmi.",
+                about_text1: "Jsem oddaná a všestranná IT-profesionálka se silným zázemím ve frontend vývoji, SEO optimalizaci a digitálním marketingu. Moje vášeň spočívá ve vytváření efektivních technologických řešení a neustálém rozšiřování znalostí v oblasti nových technologií.",
+                about_text2: "Načas jsem hluboce věnuji studiu SEO pro zlepšení viditelnosti webových stránek a jejich hodnocení. Mnoha certifikáty z vývoje webu, CRM a AI aplikací přináším komplexní sadu dovedností, která kombinuje technické znalosti s obchodními znalostmi.",
                 about_location: "Brno, Česká republika",
                 skills_title: "Mé Dovednosti",
                 skills_subtitle: "Technické a profesionální odborné znalosti",
@@ -1270,6 +1434,20 @@
                 exp3_task2: "Školení a instruktáž nových zaměstnanců",
                 exp3_task3: "Prokázání fyzické vytrvalosti a odolnosti při řešení problémů",
                 exp3_task4: "Projevila silné plánovací a organizační schopnosti",
+                exp4_title: "Specialista na Elektronickou Montáž",
+                exp4_company: "TOV \"UKR TECH\"",
+                exp4_date: "Leden 2017 - Prosinec 2018",
+                exp4_task1: "Prováděla pájecí operace a sestavovala stabilizátory napětí",
+                exp4_task2: "Školila a instruktážovala nové zaměstnance",
+                exp4_task3: "Vedla a motivovala týmy zaměstnanců",
+                exp4_task4: "Poskytovala služby údržby automobilů",
+                exp5_title: "Prodejní Asistentka",
+                exp5_company: "DELIKAT",
+                exp5_date: "Říjen 2016 - Květen 2017",
+                exp5_task1: "Vítala a asistovala zákazníkům",
+                exp5_task2: "Školila a instruktážovala nové zaměstnance",
+                exp5_task3: "Připravovala dokumenty a zprávy",
+                exp5_task4: "Obsluhovala kancelářské vybavení",
                 education_title: "Vzdělání",
                 education_subtitle: "Moje vzdělávací pozadí",
                 edu1_title: "Junior Specialista v Informačních Technologiích",
@@ -1382,6 +1560,20 @@
                 exp3_task2: "Навчання та інструктаж нових працівників",
                 exp3_task3: "Демонстрація фізичної витривалості та стійкості у вирішенні проблем",
                 exp3_task4: "Виявлення сильних планувальних та організаційних навичок",
+                exp4_title: "Спеціаліст з Електричного Монтажу",
+                exp4_company: "TOV \"UKR TECH\"",
+                exp4_date: "Січень 2017 - Грудень 2018",
+                exp4_task1: "Виконувала паяльні операції та збирала стабілізатори напруги",
+                exp4_task2: "Навчала та інструктувала нових співробітників",
+                exp4_task3: "Керувала та мотивувала команди співробітників",
+                exp4_task4: "Надавала послуги з обслуговування автомобілів",
+                exp5_title: "Продавець-консультант",
+                exp5_company: "DELIKAT",
+                exp5_date: "Жовтень 2016 - Травень 2017",
+                exp5_task1: "Зустрічала та допомагала клієнтам",
+                exp5_task2: "Навчала та інструктувала нових співробітників",
+                exp5_task3: "Готувала документи та звіти",
+                exp5_task4: "Обслуговувала офісне обладнання",
                 education_title: "Освіта",
                 education_subtitle: "Моє освітнє походження",
                 edu1_title: "Молодший Спеціаліст з Інформаційних Технологій",
