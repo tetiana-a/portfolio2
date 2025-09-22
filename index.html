@@ -36,6 +36,7 @@
                         'float-slow': 'float 8s ease-in-out infinite',
                         'float-slower': 'float 12s ease-in-out infinite',
                         pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        gradient: 'gradient 15s ease infinite',
                     },
                     keyframes: {
                         float: {
@@ -46,6 +47,11 @@
                             '0%, 100%': { opacity: '1' },
                             '50%': { opacity: '.5' },
                         },
+                        gradient: {
+                            '0%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                            '100%': { backgroundPosition: '0% 50%' },
+                        }
                     },
                 },
             },
@@ -66,7 +72,14 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Montserrat', 'sans-serif';
+        }
+
+        /* Animated gradient background */
+        .animated-gradient {
+            background: linear-gradient(-45deg, #1a237e, #0d47a1, #01579b, #006064, #1a237e);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
         }
 
         /* Background circles */
@@ -244,9 +257,45 @@
         [data-theme="dark"] .border-improved {
             border-color: rgba(255, 255, 255, 0.1);
         }
+        
+        /* Elite animated sections */
+        .elite-section {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .elite-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(26, 35, 126, 0.1), rgba(13, 71, 161, 0.1), rgba(1, 87, 155, 0.1), rgba(0, 96, 100, 0.1));
+            z-index: -1;
+        }
+        
+        [data-theme="dark"] .elite-section::before {
+            background: linear-gradient(45deg, rgba(135, 206, 235, 0.1), rgba(100, 181, 246, 0.1), rgba(66, 165, 245, 0.1), rgba(30, 136, 229, 0.1));
+        }
+        
+        /* Animated gradient overlay for hero section */
+        .hero-gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 35, 126, 0.8), rgba(13, 71, 161, 0.7), rgba(1, 87, 155, 0.6));
+            z-index: -1;
+            animation: gradient 20s ease infinite;
+        }
     </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <!-- Animated gradient background -->
+    <div class="animated-gradient fixed inset-0 z-[-2]"></div>
+    
     <!-- Background circles -->
     <div id="bg-circles" aria-hidden="true">
         <div class="circle c1"></div>
@@ -333,7 +382,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div class="hero-bg absolute inset-0 bg-gradient-to-br from-black/90 to-secondary/90 z-[-1]"></div>
+        <div class="hero-gradient-overlay"></div>
         
         <div class="container mx-auto px-6 text-center z-10">
             <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in" data-lang="hero_title">Tetiana Kotolup</h1>
@@ -347,7 +396,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 relative bg-improved">
+    <section id="about" class="py-20 relative bg-improved elite-section">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 fade-in">
                 <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="about_title">About Me</h2>
@@ -395,7 +444,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800/50 elite-section">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 fade-in">
                 <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="skills_title">My Skills</h2>
@@ -473,7 +522,7 @@
     </section>
 
     <!-- Certificates Section -->
-    <section id="certificates" class="py-20 bg-improved">
+    <section id="certificates" class="py-20 bg-improved elite-section">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 fade-in">
                 <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="certificates_title">Certificates & Licenses</h2>
@@ -588,7 +637,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+    <section id="experience" class="py-20 bg-gray-50 dark:bg-gray-800/50 elite-section">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 fade-in">
                 <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="experience_title">Work Experience</h2>
@@ -691,7 +740,7 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="py-20 bg-improved">
+    <section id="education" class="py-20 bg-improved elite-section">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 fade-in">
                 <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="education_title">Education</h2>
@@ -714,7 +763,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+    <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800/50 elite-section">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 fade-in">
                 <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="projects_title">My Projects</h2>
@@ -780,9 +829,8 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 relative">
-        <div class="absolute inset-0 bg-gradient-to-br from-black/90 to-secondary/90 z-[-1]"></div>
-        <div class="absolute inset-0 bg-black/30 z-[-1]"></div>
+    <section id="contact" class="py-20 relative elite-section">
+        <div class="hero-gradient-overlay"></div>
         
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16 fade-in">
