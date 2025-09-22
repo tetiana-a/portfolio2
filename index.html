@@ -23,9 +23,9 @@
             /* Додано нові змінні для ефектів */
             --purple: #4a148c;            /* темно-фіолетовий */
             --gold: #f2d27a;              /* світло-золотий */
-            /* Змінні для прозорості кругів */
-            --circle-opacity-light: 0.2;  /* прозорість для світлої теми */
-            --circle-opacity-dark: 0.3;   /* прозорість для темної теми */
+            /* Змінені змінні для прозорості кругів */
+            --circle-opacity-light: 0.5;  /* збільшена прозорість для світлої теми */
+            --circle-opacity-dark: 0.6;   /* збільшена прозорість для темної теми */
         }
 
         [data-theme="dark"] {
@@ -62,6 +62,41 @@
             font-weight: 600;
         }
 
+        /* Напівпрозорі кола на фоні - виправлено */
+        #bg-circles {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%,
+                        color-mix(in srgb, var(--purple) 18%, transparent) 0%,
+                        color-mix(in srgb, var(--purple) 10%, transparent) 60%,
+                        transparent 100%);
+            filter: blur(0.2px);
+            animation: float 24s ease-in-out infinite;
+            opacity: var(--circle-opacity-light);
+            transition: var(--transition);
+        }
+
+        [data-theme="dark"] .circle {
+            opacity: var(--circle-opacity-dark);
+            background: radial-gradient(circle at 35% 35%,
+                        color-mix(in srgb, var(--accent) 18%, transparent) 0%,
+                        color-mix(in srgb, var(--accent) 10%, transparent) 60%,
+                        transparent 100%);
+        }
+
+        .c1 { width: 42vmax; height: 42vmax; top: 8%; left: 6%; animation-delay: 0s; }
+        .c2 { width: 28vmax; height: 28vmax; bottom: 12%; right: 8%; animation-delay: 3s; }
+        .c3 { width: 22vmax; height: 22vmax; top: 28%; right: 28%; animation-delay: 6s; }
+        .c4 { width: 34vmax; height: 34vmax; bottom: 22%; left: 18%; animation-delay: 9s; }
+
         /* Цифровий фон з кругами */
         #digital-bg {
             position: fixed;
@@ -69,7 +104,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            z-index: 0;
             overflow: hidden;
             background: linear-gradient(135deg, var(--light-bg) 0%, var(--dark-bg) 100%);
         }
@@ -421,10 +456,16 @@
             color: var(--secondary);
         }
 
-        /* Секції */
+        /* Секції - виправлено прозорість фону */
         section {
             padding: 100px 0;
             position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.9); /* напівпрозорий фон для світлої теми */
+        }
+
+        [data-theme="dark"] section {
+            background: rgba(0, 0, 0, 0.9); /* напівпрозорий фон для темної теми */
         }
 
         .container {
@@ -1177,13 +1218,23 @@
             transform: translateY(-5px);
         }
 
-        /* Footer */
+        /* Header і Footer - виправлено прозорість */
+        header, footer {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.9); /* напівпрозорий фон для світлої теми */
+        }
+
+        [data-theme="dark"] header,
+        [data-theme="dark"] footer {
+            background: rgba(0, 0, 0, 0.9); /* напівпрозорий фон для темної теми */
+        }
+
         footer {
             background: var(--dark-bg);
             color: white;
             text-align: center;
             padding: 40px 0;
-            position: relative;
         }
 
         footer p {
@@ -1349,31 +1400,6 @@
             .contact-info h3 {
                 font-size: 1.8rem;
             }
-        }
-
-        /* НОВІ СТИЛІ ДЛЯ ПЛАВАЮЧИХ КІЛ ТА КУРСОРА */
-        /* напівпрозорі кола на фоні */
-        #bg-circles{
-            position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
-        }
-        .circle{
-            position:absolute; border-radius:50%;
-            background: radial-gradient(circle at 35% 35%,
-                        color-mix(in srgb, var(--purple) 18%, transparent) 0%,
-                        color-mix(in srgb, var(--purple) 10%, transparent) 60%,
-                        transparent 100%);
-            filter: blur(0.2px);
-            animation: float 24s ease-in-out infinite;
-        }
-        .c1{ width:42vmax; height:42vmax; top:8%; left:6%; animation-delay:0s; }
-        .c2{ width:28vmax; height:28vmax; bottom:12%; right:8%; animation-delay:3s; }
-        .c3{ width:22vmax; height:22vmax; top:28%; right:28%; animation-delay:6s; }
-        .c4{ width:34vmax; height:34vmax; bottom:22%; left:18%; animation-delay:9s; }
-
-        /* зроби секції трохи прозорими, щоб фон просвічував */
-        section, header, footer{
-            position:relative; z-index:1;
-            background: color-mix(in srgb, var(--light-bg, #ffffff) 92%, transparent);
         }
 
         /* ВАРІАНТ А: легкий CSS-курсор — SVG data URI (без JS) */
