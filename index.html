@@ -23,6 +23,9 @@
             /* Додано нові змінні для ефектів */
             --purple: #4a148c;            /* темно-фіолетовий */
             --gold: #f2d27a;              /* світло-золотий */
+            /* Змінні для прозорості кругів */
+            --circle-opacity-light: 0.2;  /* прозорість для світлої теми */
+            --circle-opacity-dark: 0.3;   /* прозорість для темної теми */
         }
 
         [data-theme="dark"] {
@@ -97,13 +100,24 @@
             }
         }
 
-        /* Фіолетові круги */
+        /* Фіолетові круги - виправлена прозорість */
         .purple-circle {
             position: absolute;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(74, 20, 140, 0.15) 0%, rgba(74, 20, 140, 0.05) 70%, transparent 100%);
+            background: radial-gradient(circle, 
+                rgba(74, 20, 140, var(--circle-opacity-light)) 0%, 
+                rgba(74, 20, 140, calc(var(--circle-opacity-light) * 0.5)) 70%, 
+                transparent 100%);
             z-index: 0;
             pointer-events: none;
+            transition: var(--transition);
+        }
+
+        [data-theme="dark"] .purple-circle {
+            background: radial-gradient(circle, 
+                rgba(135, 206, 235, var(--circle-opacity-dark)) 0%, 
+                rgba(135, 206, 235, calc(var(--circle-opacity-dark) * 0.5)) 70%, 
+                transparent 100%);
         }
 
         .circle-1 {
@@ -2822,5 +2836,3 @@
     </script>
 </body>
 </html>
-
-
