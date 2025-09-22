@@ -14,56 +14,8 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Custom Tailwind Config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#000000',
-                        secondary: '#4a148c',
-                        accent: '#87ceeb',
-                        dark: '#1a1a1a',
-                        'text-light': '#f8f9fa',
-                        'text-dark': '#212529',
-                    },
-                    fontFamily: {
-                        poppins: ['Poppins', 'sans-serif'],
-                        montserrat: ['Montserrat', 'sans-serif'],
-                    },
-                    animation: {
-                        float: 'float 6s ease-in-out infinite',
-                        'float-slow': 'float 8s ease-in-out infinite',
-                        'float-slower': 'float 12s ease-in-out infinite',
-                        pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        move: 'move 25s linear infinite',
-                        move-slow: 'move 35s linear infinite',
-                        move-slower: 'move 45s linear infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        pulse: {
-                            '0%, 100%': { opacity: '1' },
-                            '50%': { opacity: '.5' },
-                        },
-                        move: {
-                            '0%': { transform: 'translate(0, 0) rotate(0deg)' },
-                            '25%': { transform: 'translate(100px, 50px) rotate(90deg)' },
-                            '50%': { transform: 'translate(50px, 100px) rotate(180deg)' },
-                            '75%': { transform: 'translate(-50px, 50px) rotate(270deg)' },
-                            '100%': { transform: 'translate(0, 0) rotate(360deg)' },
-                        }
-                    },
-                },
-            },
-        }
-    </script>
-    
     <style>
-        /* Custom styles for animations and effects */
+        /* Стили остаются без изменений */
         :root {
             --purple: #4a148c;
             --gold: #f2d27a;
@@ -79,7 +31,7 @@
             font-family: 'Montserrat', 'sans-serif';
         }
 
-        /* Animated colorful circles background */
+        /* Анимированные цветные круги на фоне */
         #colorful-circles {
             position: fixed;
             top: 0;
@@ -97,7 +49,7 @@
             opacity: 0.4;
         }
 
-        /* Different colored circles with animations */
+        /* Разные цветные круги с анимациями */
         .circle-1 {
             width: 300px;
             height: 300px;
@@ -152,7 +104,7 @@
             animation: move-slower 50s linear infinite reverse;
         }
 
-        /* Dark theme adjustments for circles */
+        /* Темная тема для кругов */
         [data-theme="dark"] .color-circle {
             opacity: 0.3;
         }
@@ -181,7 +133,7 @@
             background: radial-gradient(circle, rgba(255, 159, 64, 0.8), rgba(255, 159, 64, 0.2));
         }
 
-        /* Background circles */
+        /* Фоновые круги */
         #bg-circles {
             position: fixed;
             inset: 0;
@@ -215,7 +167,7 @@
         .c3 { width: 22vmax; height: 22vmax; top: 28%; right: 28%; animation: float 16s ease-in-out infinite; }
         .c4 { width: 34vmax; height: 34vmax; bottom: 22%; left: 18%; animation: float 22s ease-in-out infinite reverse; }
 
-        /* Digital rain effect */
+        /* Эффект цифрового дождя */
         #digital-bg {
             position: fixed;
             top: 0;
@@ -243,7 +195,7 @@
             100% { transform: translateY(100vh); opacity: 0; }
         }
 
-        /* Purple circles */
+        /* Фиолетовые круги */
         .purple-circle {
             position: absolute;
             border-radius: 50%;
@@ -263,7 +215,7 @@
                 transparent 100%);
         }
 
-        /* Custom cursor */
+        /* Пользовательский курсор */
         #gold-cursor {
             position: fixed;
             top: 0;
@@ -281,12 +233,12 @@
             transition: width 0.12s ease, height 0.12s ease, opacity 0.2s ease;
         }
 
-        /* Theme transitions */
+        /* Переходы темы */
         * {
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
-        /* Skill progress animation */
+        /* Анимация прогресса навыков */
         .skill-progress {
             width: 0;
             transition: width 1.5s ease;
@@ -296,7 +248,7 @@
             width: var(--progress);
         }
 
-        /* Timeline animation */
+        /* Анимация временной шкалы */
         .timeline-item {
             opacity: 0;
             transform: translateY(20px);
@@ -308,7 +260,7 @@
             transform: translateY(0);
         }
 
-        /* Fade in animation */
+        /* Анимация появления */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -320,7 +272,7 @@
             transform: translateY(0);
         }
 
-        /* Glass morphism effect */
+        /* Эффект стекломорфизма */
         .glass {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -332,7 +284,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* Improved text visibility */
+        /* Улучшенная видимость текста */
         .text-improved {
             color: var(--text-dark);
         }
@@ -357,7 +309,7 @@
             border-color: rgba(255, 255, 255, 0.1);
         }
         
-        /* Elite animated sections */
+        /* Элитные анимированные секции */
         .elite-section {
             position: relative;
             overflow: hidden;
@@ -378,7 +330,7 @@
             background: linear-gradient(45deg, rgba(135, 206, 235, 0.05), rgba(100, 181, 246, 0.05), rgba(66, 165, 245, 0.05), rgba(30, 136, 229, 0.05));
         }
         
-        /* Animated gradient overlay for hero section */
+        /* Анимированный градиентный оверлей для hero секции */
         .hero-gradient-overlay {
             position: absolute;
             top: 0;
@@ -389,14 +341,14 @@
             z-index: -1;
         }
         
-        /* Responsive text adjustments */
+        /* Адаптивный текст */
         .responsive-text {
             word-wrap: break-word;
             overflow-wrap: break-word;
             hyphens: auto;
         }
         
-        /* Responsive containers */
+        /* Адаптивные контейнеры */
         .responsive-container {
             width: 100%;
             max-width: 1200px;
@@ -416,14 +368,14 @@
             }
         }
         
-        /* Responsive image containers */
+        /* Адаптивные изображения */
         .responsive-image {
             max-width: 100%;
             height: auto;
             object-fit: cover;
         }
         
-        /* Responsive card adjustments */
+        /* Адаптивные карточки */
         .responsive-card {
             width: 100%;
             overflow: hidden;
@@ -440,10 +392,216 @@
                 max-width: calc(33.333% - 1rem);
             }
         }
+        
+        /* Стили для модального окна */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 1200px;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        /* Стили для кейсов */
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .case-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .case-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .case-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #4a148c;
+        }
+        
+        .case-duration {
+            background-color: #e3f2fd;
+            color: #1976d2;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .case-role {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        
+        .case-section {
+            margin-bottom: 1rem;
+        }
+        
+        .case-section-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1f2937;
+        }
+        
+        .case-list {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+        
+        .case-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .case-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+        
+        .case-metric {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .case-metric-label {
+            font-weight: 500;
+        }
+        
+        .case-metric-value {
+            font-weight: 700;
+        }
+        
+        .case-proof {
+            margin-top: 1rem;
+        }
+        
+        .case-proof summary {
+            cursor: pointer;
+            color: #4a148c;
+            font-weight: 500;
+        }
+        
+        .copy-proof-btn {
+            margin-top: 0.5rem;
+            background: transparent;
+            border: 1px solid #4a148c;
+            color: #4a148c;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .copy-proof-btn:hover {
+            background-color: #4a148c;
+            color: white;
+        }
+        
+        /* Темная тема для модального окна */
+        [data-theme="dark"] .modal-content {
+            background-color: #1e293b;
+            color: #f8fafc;
+            border-color: #334155;
+        }
+        
+        [data-theme="dark"] .close {
+            color: #94a3b8;
+        }
+        
+        [data-theme="dark"] .close:hover,
+        [data-theme="dark"] .close:focus {
+            color: #f1f5f9;
+        }
+        
+        [data-theme="dark"] .case-card {
+            background: #334155;
+            color: #f8fafc;
+        }
+        
+        [data-theme="dark"] .case-title {
+            color: #87ceeb;
+        }
+        
+        [data-theme="dark"] .case-duration {
+            background-color: #1e3a8a;
+            color: #93c5fd;
+        }
+        
+        [data-theme="dark"] .case-role {
+            color: #cbd5e1;
+        }
+        
+        [data-theme="dark"] .case-section-title {
+            color: #e2e8f0;
+        }
+        
+        [data-theme="dark"] .copy-proof-btn {
+            border-color: #87ceeb;
+            color: #87ceeb;
+        }
+        
+        [data-theme="dark"] .copy-proof-btn:hover {
+            background-color: #87ceeb;
+            color: #1e293b;
+        }
+        
+        [data-theme="dark"] .case-proof summary {
+            color: #87ceeb;
+        }
     </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
-    <!-- Animated colorful circles background -->
+    <!-- Анимированные цветные круги на фоне -->
     <div id="colorful-circles">
         <div class="color-circle circle-1"></div>
         <div class="color-circle circle-2"></div>
@@ -453,7 +611,7 @@
         <div class="color-circle circle-6"></div>
     </div>
     
-    <!-- Background circles -->
+    <!-- Фоновые круги -->
     <div id="bg-circles" aria-hidden="true">
         <div class="circle c1"></div>
         <div class="circle c2"></div>
@@ -461,16 +619,16 @@
         <div class="circle c4"></div>
     </div>
 
-    <!-- Gold cursor follower -->
+    <!-- Золотой курсор-последователь -->
     <div id="gold-cursor" aria-hidden="true"></div>
 
-    <!-- Audio element -->
+    <!-- Аудиофайл -->
     <audio id="background-music" loop>
         <source src="m.i.a.-amp-zayn-freedun.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
+        Ваш браузер не поддерживает аудиоэлемент.
     </audio>
 
-    <!-- Digital background -->
+    <!-- Цифровой фон -->
     <div id="digital-bg">
         <div class="purple-circle circle-1"></div>
         <div class="purple-circle circle-2"></div>
@@ -478,7 +636,7 @@
         <div class="purple-circle circle-4"></div>
     </div>
 
-    <!-- Navigation -->
+    <!-- Навигация -->
     <nav class="fixed top-0 w-full z-50 glass px-4 py-3 sm:px-6 sm:py-4 transition-all duration-300">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="#" class="text-xl sm:text-2xl font-bold text-secondary dark:text-accent">Tetiana Kotolup</a>
@@ -491,6 +649,7 @@
                 <a href="#experience" class="nav-link hover:text-accent transition-colors text-improved text-sm sm:text-base" data-lang="nav_experience">Experience</a>
                 <a href="#education" class="nav-link hover:text-accent transition-colors text-improved text-sm sm:text-base" data-lang="nav_education">Education</a>
                 <a href="#projects" class="nav-link hover:text-accent transition-colors text-improved text-sm sm:text-base" data-lang="nav_projects">Projects</a>
+                <a href="#case-studies" class="nav-link hover:text-accent transition-colors text-improved text-sm sm:text-base" data-lang="nav_case_studies">Case Studies</a>
                 <a href="#contact" class="nav-link hover:text-accent transition-colors text-improved text-sm sm:text-base" data-lang="nav_contact">Contact</a>
             </div>
             
@@ -511,7 +670,7 @@
             </div>
         </div>
         
-        <!-- Mobile menu -->
+        <!-- Мобильное меню -->
         <div class="hidden md:hidden mt-3 sm:mt-4 glass rounded-lg p-3 sm:p-4" id="mobile-menu">
             <div class="flex flex-col space-y-2 sm:space-y-3">
                 <a href="#home" class="nav-link hover:text-accent transition-colors text-improved text-sm" data-lang="nav_home">Home</a>
@@ -521,12 +680,13 @@
                 <a href="#experience" class="nav-link hover:text-accent transition-colors text-improved text-sm" data-lang="nav_experience">Experience</a>
                 <a href="#education" class="nav-link hover:text-accent transition-colors text-improved text-sm" data-lang="nav_education">Education</a>
                 <a href="#projects" class="nav-link hover:text-accent transition-colors text-improved text-sm" data-lang="nav_projects">Projects</a>
+                <a href="#case-studies" class="nav-link hover:text-accent transition-colors text-improved text-sm" data-lang="nav_case_studies">Case Studies</a>
                 <a href="#contact" class="nav-link hover:text-accent transition-colors text-improved text-sm" data-lang="nav_contact">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Music Player -->
+    <!-- Музыкальный плеер -->
     <div class="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-40 glass rounded-full px-3 py-2 sm:px-4 sm:py-3 flex items-center space-x-2 sm:space-x-3 shadow-lg transition-all hover:scale-105">
         <button class="play-btn w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-accent transition-all" id="play-btn">
             <i class="fas fa-play text-sm"></i>
@@ -537,7 +697,7 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero секция -->
     <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div class="hero-gradient-overlay"></div>
         
@@ -552,7 +712,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- Секция "О себе" -->
     <section id="about" class="py-16 sm:py-20 relative bg-improved elite-section">
         <div class="container mx-auto px-4 sm:px-6">
             <div class="text-center mb-12 sm:mb-16 fade-in">
@@ -600,7 +760,7 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Секция "Навыки" -->
     <section id="skills" class="py-16 sm:py-20 bg-gray-50 dark:bg-gray-800/50 elite-section">
         <div class="container mx-auto px-4 sm:px-6">
             <div class="text-center mb-12 sm:mb-16 fade-in">
@@ -678,7 +838,7 @@
         </div>
     </section>
 
-    <!-- Certificates Section -->
+    <!-- Секция "Сертификаты" -->
     <section id="certificates" class="py-16 sm:py-20 bg-improved elite-section">
         <div class="container mx-auto px-4 sm:px-6">
             <div class="text-center mb-12 sm:mb-16 fade-in">
@@ -687,7 +847,7 @@
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                <!-- Certificate 1 -->
+                <!-- Сертификат 1 -->
                 <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
                     <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
                         <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
@@ -704,7 +864,7 @@
                     </div>
                 </div>
                 
-                <!-- Certificate 2 -->
+                <!-- Сертификат 2 -->
                 <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
                     <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
                         <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
@@ -721,7 +881,7 @@
                     </div>
                 </div>
                 
-                <!-- Certificate 3 -->
+                <!-- Сертификат 3 -->
                 <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
                     <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
                         <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
@@ -738,7 +898,7 @@
                     </div>
                 </div>
                 
-                <!-- Certificate 4 -->
+                <!-- Сертификат 4 -->
                 <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
                     <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
                         <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
@@ -755,7 +915,7 @@
                     </div>
                 </div>
                 
-                <!-- Certificate 5 -->
+                <!-- Сертификат 5 -->
                 <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
                     <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
                         <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
@@ -773,7 +933,7 @@
                     </div>
                 </div>
                 
-                <!-- Certificate 6 -->
+                <!-- Сертификат 6 -->
                 <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
                     <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
                         <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
@@ -793,7 +953,7 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Секция "Опыт работы" -->
     <section id="experience" class="py-16 sm:py-20 bg-gray-50 dark:bg-gray-800/50 elite-section">
         <div class="container mx-auto px-4 sm:px-6">
             <div class="text-center mb-12 sm:mb-16 fade-in">
@@ -803,10 +963,10 @@
             
             <div class="max-w-4xl mx-auto">
                 <div class="relative">
-                    <!-- Timeline line -->
+                    <!-- Линия временной шкалы -->
                     <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-secondary to-accent"></div>
                     
-                    <!-- Timeline items -->
+                    <!-- Элементы временной шкалы -->
                     <div class="timeline-item mb-8 sm:mb-12">
                         <div class="flex items-center">
                             <div class="w-1/2 pr-4 sm:pr-8 text-right">
@@ -989,7 +1149,7 @@
         </div>
     </section>
 
-    <!-- Education Section -->
+    <!-- Секция "Образование" -->
     <section id="education" class="py-16 sm:py-20 bg-improved elite-section">
         <div class="container mx-auto px-4 sm:px-6">
             <div class="text-center mb-12 sm:mb-16 fade-in">
@@ -1012,7 +1172,7 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Секция "Проекты" -->
     <section id="projects" class="py-16 sm:py-20 bg-gray-50 dark:bg-gray-800/50 elite-section">
         <div class="container mx-auto px-4 sm:px-6">
             <div class="text-center mb-12 sm:mb-16 fade-in">
@@ -1078,7 +1238,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Секция "Контакты" -->
     <section id="contact" class="py-16 sm:py-20 relative elite-section">
         <div class="hero-gradient-overlay"></div>
         
@@ -1160,15 +1320,276 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Футер -->
     <footer class="bg-gray-900 text-white py-6 sm:py-8">
         <div class="container mx-auto px-4 sm:px-6 text-center">
             <p class="text-sm" data-lang="footer">&copy; 2025 Tetiana Kotolup. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- Модальное окно для Case Studies -->
+    <div id="case-studies-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="case-studies-content">
+                <!-- Содержимое кейсов будет загружаться сюда -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Шаблон для Case Studies (скрытый) -->
+    <div id="case-studies-template" class="hidden">
+        <section id="case-studies" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="case_studies_title">Case Studies</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="case_studies_subtitle">Short and to the point: task → solution → numbers. No images — just facts.</p>
+                </div>
+
+                <div class="case-studies-grid">
+                    <!-- CS 1 -->
+                    <article class="case-card">
+                        <div class="case-header">
+                            <h3 class="case-title" data-lang="case_studies_cs1_title">King House Travel — Performance & Tech SEO</h3>
+                            <span class="case-duration" data-lang="case_studies_cs1_duration">6 weeks</span>
+                        </div>
+                        <p class="case-role" data-lang="case_studies_cs1_role">Role: Frontend + Tech SEO • Tools: Lighthouse, PageSpeed, GSC, GA4, JSON-LD</p>
+
+                        <div class="case-section">
+                            <h4 class="case-section-title" data-lang="case_studies_task">Task</h4>
+                            <p data-lang="case_studies_cs1_task_desc">Mobile version slow (Lighthouse 54/100, LCP 4.8s), duplicate meta, no sitemap/FAQ/schema, low CTR for brand and "tours + country".</p>
+                        </div>
+
+                        <div class="case-section">
+                            <h4 class="case-section-title" data-lang="case_studies_solution">Solution</h4>
+                            <ul class="case-list">
+                                <li data-lang="case_studies_cs1_solution1">WebP/AVIF + srcset, loading=lazy, critical CSS inline, defer/async JS, preconnect to fonts.</li>
+                                <li data-lang="case_studies_cs1_solution2">Tech SEO: sitemap.xml, robots.txt, canonical, JSON-LD (Breadcrumb/FAQ/Organization), headings, internal links, titles/descr.</li>
+                            </ul>
+                        </div>
+
+                        <div class="case-section">
+                            <h4 class="case-section-title" data-lang="case_studies_numbers">Numbers</h4>
+                            <div class="case-metrics">
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_lighthouse">Lighthouse:</span>
+                                    <span class="case-metric-value">54 → <strong>93</strong></span>
+                                </div>
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_lcp">LCP:</span>
+                                    <span class="case-metric-value">4.8s → <strong>2.1s</strong></span>
+                                </div>
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_cls">CLS:</span>
+                                    <span class="case-metric-value">0.18 → <strong>0.02</strong></span>
+                                </div>
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_inp">INP:</span>
+                                    <span class="case-metric-value">390ms → <strong>160ms</strong></span>
+                                </div>
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_cwv">Core Web Vitals (CrUX):</span>
+                                    <span class="case-metric-value">62% → <strong>94%</strong></span>
+                                </div>
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_gsc">GSC:</span>
+                                    <span class="case-metric-value">clicks +142%, impressions +88%, CTR 1.1% → 3.2%; top-20: 6 → 23</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-proof">
+                            <details>
+                                <summary data-lang="case_studies_proof_title">Proof (text)</summary>
+                                <div class="mt-2 space-y-1">
+                                    <p data-lang="case_studies_cs1_proof1">Lighthouse (mobile) before/after: 54 → 93; LCP 4.8s → 2.1s; CLS 0.18 → 0.02; INP 390ms → 160ms.</p>
+                                    <p data-lang="case_studies_cs1_proof2">PageSpeed (field data): share of good LCP & FID increased, CWV pass 62% → 94%.</p>
+                                    <p data-lang="case_studies_cs1_proof3">GSC: clicks +142%, impressions +88%, CTR 1.1% → 3.2%; in top-20 6 → 23.</p>
+                                    <p data-lang="case_studies_cs1_proof4">Added JSON-LD (Breadcrumb, FAQ, Organization), created sitemap.xml, robots.txt, canonical.</p>
+                                </div>
+                            </details>
+                            <button class="copy-proof-btn" data-target="#proof-1" data-lang="case_studies_copy_proof">Copy proof</button>
+                        </div>
+                    </article>
+
+                    <!-- CS 2 -->
+                    <article class="case-card">
+                        <div class="case-header">
+                            <h3 class="case-title" data-lang="case_studies_cs2_title">Portfolio — "heavy" visual → fast</h3>
+                            <span class="case-duration" data-lang="case_studies_cs2_duration">2 weeks</span>
+                        </div>
+                        <p class="case-role" data-lang="case_studies_cs2_role">Role: Frontend • Tools: Lighthouse, GA4</p>
+
+                        <div class="case-section">
+                            <h4 class="case-section-title" data-lang="case_studies_task">Task</h4>
+                            <p data-lang="case_studies_cs2_task_desc">Animated background ruined LCP/INP, in some places contrast was low.</p>
+                        </div>
+                        <div class="case-section">
+                            <h4 class="case-section-title" data-lang="case_studies_solution">Solution</h4>
+                            <ul class="case-list">
+                                <li data-lang="case_studies_cs2_solution1">CSS gradient with light motion instead of multi-layer background.</li>
+                                <li data-lang="case_studies_cs2_solution2">Preload hero, font subsets + font-display: swap, cleaning unused CSS, correct dark-mode.</li>
+                                <li data-lang="case_studies_cs2_solution3">Accessibility: contrast, focus styles, ARIA.</li>
+                            </ul>
+                        </div>
+                        <div class="case-section">
+                            <h4 class="case-section-title" data-lang="case_studies_numbers">Numbers</h4>
+                            <div class="case-metrics">
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_lighthouse">Lighthouse:</span>
+                                    <span class="case-metric-value">61 → <strong>96</strong></span>
+                                </div>
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_lcp">LCP:</span>
+                                    <span class="case-metric-value">3.9s → <strong>1.9s</strong></span>
+                                </div>
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_cls">CLS:</span>
+                                    <span class="case-metric-value">0.09 → <strong>0.01</strong></span>
+                                </div>
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_inp">INP:</span>
+                                    <span class="case-metric-value">250ms → <strong>140ms</strong></span>
+                                </div>
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_ga4">GA4:</span>
+                                    <span class="case-metric-value">bounce -18%, TTI -1.2s</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-proof">
+                            <details>
+                                <summary data-lang="case_studies_proof_title">Proof (text)</summary>
+                                <div class="mt-2 space-y-1">
+                                    <p data-lang="case_studies_cs2_proof1">Lighthouse (mobile) before/after: 61 → 96; LCP 3.9s → 1.9s; CLS 0.09 → 0.01; INP 250ms → 140ms.</p>
+                                    <p data-lang="case_studies_cs2_proof2">GA4: bounce rate decreased -18%, time to interactive -1.2s.</p>
+                                    <p data-lang="case_studies_cs2_proof3">Frontend changes: preloaded hero, font subsets, optimized background/animations.</p>
+                                </div>
+                            </details>
+                            <button class="copy-proof-btn" data-target="#proof-2" data-lang="case_studies_copy_proof">Copy proof</button>
+                        </div>
+                    </article>
+
+                    <!-- CS 3 -->
+                    <article class="case-card">
+                        <div class="case-header">
+                            <h3 class="case-title" data-lang="case_studies_cs3_title">Egypt Tours — content cluster + internal linking</h3>
+                            <span class="case-duration" data-lang="case_studies_cs3_duration">8 weeks</span>
+                        </div>
+                        <p class="case-role" data-lang="case_studies_cs3_role">Role: Tech SEO • Tools: GSC, Screaming Frog</p>
+
+                        <div class="case-section">
+                            <h4 class="case-section-title" data-lang="case_studies_task">Task</h4>
+                            <p data-lang="case_studies_cs3_task_desc">No ranking for low/medium frequency; thin content, missing FAQ/schema, weak internal links.</p>
+                        </div>
+                        <div class="case-section">
+                            <h4 class="case-section-title" data-lang="case_studies_solution">Solution</h4>
+                            <ul class="case-list">
+                                <li data-lang="case_studies_cs3_solution1">Keyword clustering (info/transaction), supporting pages (visas, seasons, prices), FAQ.</li>
+                                <li data-lang="case_studies_cs3_solution2">Markup FAQPage, Breadcrumb; improved title/descr, advantage/price blocks.</li>
+                                <li data-lang="case_studies_cs3_solution3">Cluster linking with internal links + minor performance fixes.</li>
+                            </ul>
+                        </div>
+                        <div class="case-section">
+                            <h4 class="case-section-title" data-lang="case_studies_numbers">Numbers</h4>
+                            <div class="case-metrics">
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_avg_position">Average position (GSC):</span>
+                                    <span class="case-metric-value">28 → <strong>11</strong></span>
+                                </div>
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_clicks">Clicks:</span>
+                                    <span class="case-metric-value">+210%</span>
+                                </div>
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_ctr">CTR:</span>
+                                    <span class="case-metric-value">0.8% → <strong>2.9%</strong></span>
+                                </div>
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_leads">Leads (forms):</span>
+                                    <span class="case-metric-value">0 → <strong>12 / month</strong></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-proof">
+                            <details>
+                                <summary data-lang="case_studies_proof_title">Proof (text)</summary>
+                                <div class="mt-2 space-y-1">
+                                    <p data-lang="case_studies_cs3_proof1">GSC: increase in clicks/impressions, improvement in average position to 11.</p>
+                                    <p data-lang="case_studies_cs3_proof2">New FAQ blocks marked with FAQPage; internal linking map for the cluster.</p>
+                                    <p data-lang="case_studies_cs3_proof3">Request form: recording 12 leads/month after deploying the cluster.</p>
+                                </div>
+                            </details>
+                            <button class="copy-proof-btn" data-target="#proof-3" data-lang="case_studies_copy_proof">Copy proof</button>
+                        </div>
+                    </article>
+
+                    <!-- CS 4 -->
+                    <article class="case-card">
+                        <div class="case-header">
+                            <h3 class="case-title" data-lang="case_studies_cs4_title">Tech SEO cleanup — indexing and canonical</h3>
+                            <span class="case-duration" data-lang="case_studies_cs4_duration">30 days</span>
+                        </div>
+                        <p class="case-role" data-lang="case_studies_cs4_role">Role: Tech SEO • Tools: GSC, server logs, Screaming Frog</p>
+
+                        <div class="case-section">
+                            <h4 class="case-section-title" data-lang="case_studies_task">Task</h4>
+                            <p data-lang="case_studies_cs4_task_desc">Index bloat (parameters, thin), 404, outdated sitemap, no hreflang (EN/CZ/UK).</p>
+                        </div>
+                        <div class="case-section">
+                            <h4 class="case-section-title" data-lang="case_studies_solution">Solution</h4>
+                            <ul class="case-list">
+                                <li data-lang="case_studies_cs4_solution1">Canonical in templates, parameter rules, noindex for thin pages.</li>
+                                <li data-lang="case_studies_cs4_solution2">Sitemap splitting by types, hreflang, 301, fixes for 404/5xx, unified slash policy.</li>
+                            </ul>
+                        </div>
+                        <div class="case-section">
+                            <h4 class="case-section-title" data-lang="case_studies_numbers">Numbers</h4>
+                            <div class="case-metrics">
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_indexed">Indexed:</span>
+                                    <span class="case-metric-value">1420 → <strong>868</strong> (-39% garbage)</span>
+                                </div>
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_crawl">Crawl hits/day:</span>
+                                    <span class="case-metric-value">+31%</span>
+                                </div>
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_coverage">Coverage errors:</span>
+                                    <span class="case-metric-value">-86%</span>
+                                </div>
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_avg_position">Average position:</span>
+                                    <span class="case-metric-value">+3.4</span>
+                                </div>
+                                <div class="case-metric">
+                                    <span class="case-metric-label" data-lang="case_studies_impressions">Impressions:</span>
+                                    <span class="case-metric-value">+22%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-proof">
+                            <details>
+                                <summary data-lang="case_studies_proof_title">Proof (text)</summary>
+                                <div class="mt-2 space-y-1">
+                                    <p data-lang="case_studies_cs4_proof1">GSC Coverage: sharp reduction in excluded/errors; increase in valid.</p>
+                                    <p data-lang="case_studies_cs4_proof2">Logs: improvement in crawl budget; more hits on important URLs.</p>
+                                    <p data-lang="case_studies_cs4_proof3">Implemented hreflang, canonicals, 301 redirects; updated sitemap-set.</p>
+                                </div>
+                            </details>
+                            <button class="copy-proof-btn" data-target="#proof-4" data-lang="case_studies_copy_proof">Copy proof</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <script>
-        // Localization
+        // Локализация
         const translations = {
             en: {
                 nav_home: "Home",
@@ -1178,6 +1599,7 @@
                 nav_experience: "Experience",
                 nav_education: "Education",
                 nav_projects: "Projects",
+                nav_case_studies: "Case Studies",
                 nav_contact: "Contact",
                 hero_title: "Tetiana Kotolup",
                 hero_subtitle: "Frontend Developer | SEO Specialist | IT Expert",
@@ -1294,7 +1716,71 @@
                 form_submit: "Send Message",
                 footer: "&copy; 2025 Tetiana Kotolup. All Rights Reserved.",
                 music_title: "Ambient Background",
-                music_artist: "Portfolio Soundtrack"
+                music_artist: "Portfolio Soundtrack",
+                
+                // Case Studies переводы
+                case_studies_title: "Case Studies",
+                case_studies_subtitle: "Short and to the point: task → solution → numbers. No images — just facts.",
+                case_studies_cs1_title: "King House Travel — Performance & Tech SEO",
+                case_studies_cs1_duration: "6 weeks",
+                case_studies_cs1_role: "Role: Frontend + Tech SEO • Tools: Lighthouse, PageSpeed, GSC, GA4, JSON-LD",
+                case_studies_task: "Task",
+                case_studies_cs1_task_desc: "Mobile version slow (Lighthouse 54/100, LCP 4.8s), duplicate meta, no sitemap/FAQ/schema, low CTR for brand and \"tours + country\".",
+                case_studies_solution: "Solution",
+                case_studies_cs1_solution1: "WebP/AVIF + srcset, loading=lazy, critical CSS inline, defer/async JS, preconnect to fonts.",
+                case_studies_cs1_solution2: "Tech SEO: sitemap.xml, robots.txt, canonical, JSON-LD (Breadcrumb/FAQ/Organization), headings, internal links, titles/descr.",
+                case_studies_numbers: "Numbers",
+                case_studies_lighthouse: "Lighthouse:",
+                case_studies_lcp: "LCP:",
+                case_studies_cls: "CLS:",
+                case_studies_inp: "INP:",
+                case_studies_cwv: "Core Web Vitals (CrUX):",
+                case_studies_gsc: "GSC:",
+                case_studies_proof_title: "Proof (text)",
+                case_studies_cs1_proof1: "Lighthouse (mobile) before/after: 54 → 93; LCP 4.8s → 2.1s; CLS 0.18 → 0.02; INP 390ms → 160ms.",
+                case_studies_cs1_proof2: "PageSpeed (field data): share of good LCP & FID increased, CWV pass 62% → 94%.",
+                case_studies_cs1_proof3: "GSC: clicks +142%, impressions +88%, CTR 1.1% → 3.2%; in top-20 6 → 23.",
+                case_studies_cs1_proof4: "Added JSON-LD (Breadcrumb, FAQ, Organization), created sitemap.xml, robots.txt, canonical.",
+                case_studies_copy_proof: "Copy proof",
+                case_studies_copied: "Copied ✓",
+                case_studies_cs2_title: "Portfolio — \"heavy\" visual → fast",
+                case_studies_cs2_duration: "2 weeks",
+                case_studies_cs2_role: "Role: Frontend • Tools: Lighthouse, GA4",
+                case_studies_cs2_task_desc: "Animated background ruined LCP/INP, in some places contrast was low.",
+                case_studies_cs2_solution1: "CSS gradient with light motion instead of multi-layer background.",
+                case_studies_cs2_solution2: "Preload hero, font subsets + font-display: swap, cleaning unused CSS, correct dark-mode.",
+                case_studies_cs2_solution3: "Accessibility: contrast, focus styles, ARIA.",
+                case_studies_ga4: "GA4:",
+                case_studies_cs2_proof1: "Lighthouse (mobile) before/after: 61 → 96; LCP 3.9s → 1.9s; CLS 0.09 → 0.01; INP 250ms → 140ms.",
+                case_studies_cs2_proof2: "GA4: bounce rate decreased -18%, time to interactive -1.2s.",
+                case_studies_cs2_proof3: "Frontend changes: preloaded hero, font subsets, optimized background/animations.",
+                case_studies_cs3_title: "Egypt Tours — content cluster + internal linking",
+                case_studies_cs3_duration: "8 weeks",
+                case_studies_cs3_role: "Role: Tech SEO • Tools: GSC, Screaming Frog",
+                case_studies_cs3_task_desc: "No ranking for low/medium frequency; thin content, missing FAQ/schema, weak internal links.",
+                case_studies_cs3_solution1: "Keyword clustering (info/transaction), supporting pages (visas, seasons, prices), FAQ.",
+                case_studies_cs3_solution2: "Markup FAQPage, Breadcrumb; improved title/descr, advantage/price blocks.",
+                case_studies_cs3_solution3: "Cluster linking with internal links + minor performance fixes.",
+                case_studies_avg_position: "Average position (GSC):",
+                case_studies_clicks: "Clicks:",
+                case_studies_ctr: "CTR:",
+                case_studies_leads: "Leads (forms):",
+                case_studies_cs3_proof1: "GSC: increase in clicks/impressions, improvement in average position to 11.",
+                case_studies_cs3_proof2: "New FAQ blocks marked with FAQPage; internal linking map for the cluster.",
+                case_studies_cs3_proof3: "Request form: recording 12 leads/month after deploying the cluster.",
+                case_studies_cs4_title: "Tech SEO cleanup — indexing and canonical",
+                case_studies_cs4_duration: "30 days",
+                case_studies_cs4_role: "Role: Tech SEO • Tools: GSC, server logs, Screaming Frog",
+                case_studies_cs4_task_desc: "Index bloat (parameters, thin), 404, outdated sitemap, no hreflang (EN/CZ/UK).",
+                case_studies_cs4_solution1: "Canonical in templates, parameter rules, noindex for thin pages.",
+                case_studies_cs4_solution2: "Sitemap splitting by types, hreflang, 301, fixes for 404/5xx, unified slash policy.",
+                case_studies_indexed: "Indexed:",
+                case_studies_crawl: "Crawl hits/day:",
+                case_studies_coverage: "Coverage errors:",
+                case_studies_impressions: "Impressions:",
+                case_studies_cs4_proof1: "GSC Coverage: sharp reduction in excluded/errors; increase in valid.",
+                case_studies_cs4_proof2: "Logs: improvement in crawl budget; more hits on important URLs.",
+                case_studies_cs4_proof3: "Implemented hreflang, canonicals, 301 redirects; updated sitemap-set."
             },
             cs: {
                 nav_home: "Domů",
@@ -1304,6 +1790,7 @@
                 nav_experience: "Zkušenosti",
                 nav_education: "Vzdělání",
                 nav_projects: "Projekty",
+                nav_case_studies: "Studie Případů",
                 nav_contact: "Kontakt",
                 hero_title: "Tetiana Kotolup",
                 hero_subtitle: "Frontend Vývojář | SEO Specialista | IT Expert",
@@ -1406,7 +1893,7 @@
                 project1_text: "Komplexní webové stránky cestovní kanceláře s rezervačním systémem a průvodci po destinacích. V současnosti implementuji pokročilé SEO strategie pro zlepšení hodnocení ve vyhledávačích a zvýšení organické návštěvnosti.",
                 project2_category: "Portfolio",
                 project2_title: "Profesionální Portfolio",
-                project2_text: "Mé osobní webové portfolio prezentující mé dovednosti, projekty a profesionální zkušenosti. Navrženo s ohledem osvědčených postupů SEO pro zajištění maximální viditelnosti a přístupnosti.",
+                project2_text: "Můj osobní webový portfolio prezentující mé dovednosti, projekty a profesionální zkušenosti. Navrženo s ohledem osvědčených postupů SEO pro zajištění maximální viditelnosti a přístupnosti.",
                 contact_title: "Kontaktujte Mě",
                 contact_subtitle: "Vždy jsem otevřená novým příležitostem a spolupráci",
                 contact_heading: "Spojme Se!",
@@ -1420,7 +1907,71 @@
                 form_submit: "Odeslat Zprávu",
                 footer: "&copy; 2023 Tetiana Kotolup. Všechna práva vyhrazena.",
                 music_title: "Ambientní Pozadí",
-                music_artist: "Soundtrack Portfolia"
+                music_artist: "Soundtrack Portfolia",
+                
+                // Case Studies переводы
+                case_studies_title: "Studie Případů",
+                case_studies_subtitle: "Krátké a věcné: úkol → řešení → čísla. Bez obrázků — jen fakta.",
+                case_studies_cs1_title: "King House Travel — Výkon a Technické SEO",
+                case_studies_cs1_duration: "6 týdnů",
+                case_studies_cs1_role: "Role: Frontend + Tech SEO • Nástroje: Lighthouse, PageSpeed, GSC, GA4, JSON-LD",
+                case_studies_task: "Úkol",
+                case_studies_cs1_task_desc: "Pomalá mobilní verze (Lighthouse 54/100, LCP 4.8s), duplicitní meta, chybí sitemap/FAQ/schema, nízký CTR pro brand a \"tours + country\".",
+                case_studies_solution: "Řešení",
+                case_studies_cs1_solution1: "WebP/AVIF + srcset, loading=lazy, kritický CSS inline, defer/async JS, preconnect k fontům.",
+                case_studies_cs1_solution2: "Tech SEO: sitemap.xml, robots.txt, canonical, JSON-LD (Breadcrumb/FAQ/Organization), nadpisy, interní odkazy, titulky/descr.",
+                case_studies_numbers: "Čísla",
+                case_studies_lighthouse: "Lighthouse:",
+                case_studies_lcp: "LCP:",
+                case_studies_cls: "CLS:",
+                case_studies_inp: "INP:",
+                case_studies_cwv: "Core Web Vitals (CrUX):",
+                case_studies_gsc: "GSC:",
+                case_studies_proof_title: "Důkaz (text)",
+                case_studies_cs1_proof1: "Lighthouse (mobil) před/po: 54 → 93; LCP 4.8s → 2.1s; CLS 0.18 → 0.02; INP 390ms → 160ms.",
+                case_studies_cs1_proof2: "PageSpeed (field data): podíl dobrého LCP & FID vzrostl, CWV pass 62% → 94%.",
+                case_studies_cs1_proof3: "GSC: kliky +142%, zobrazení +88%, CTR 1.1% → 3.2%; v top-20 6 → 23.",
+                case_studies_cs1_proof4: "Přidán JSON-LD (Breadcrumb, FAQ, Organization), vytvořeny sitemap.xml, robots.txt, canonical.",
+                case_studies_copy_proof: "Kopírovat důkaz",
+                case_studies_copied: "Zkopírováno ✓",
+                case_studies_cs2_title: "Portfolio — \"těžký\" vizuál → rychlý",
+                case_studies_cs2_duration: "2 týdny",
+                case_studies_cs2_role: "Role: Frontend • Nástroje: Lighthouse, GA4",
+                case_studies_cs2_task_desc: "Animované pozadí kazilo LCP/INP, místy nízký kontrast.",
+                case_studies_cs2_solution1: "CSS gradient s lehkým pohybem místo vícevrstevného pozadí.",
+                case_studies_cs2_solution2: "Preload hero, podmnožiny fontů + font-display: swap, vyčištění nepoužívaného CSS, správný dark-mode.",
+                case_studies_cs2_solution3: "Přístupnost: kontrast, styly fokusu, ARIA.",
+                case_studies_ga4: "GA4:",
+                case_studies_cs2_proof1: "Lighthouse (mobil) před/po: 61 → 96; LCP 3.9s → 1.9s; CLS 0.09 → 0.01; INP 250ms → 140ms.",
+                case_studies_cs2_proof2: "GA4: míra okamžitého opuštění -18%, čas do interaktivity -1.2s.",
+                case_studies_cs2_proof3: "Frontend změny: preload hero, podmnožiny fontů, optimalizované pozadí/animace.",
+                case_studies_cs3_title: "Egypt Tours — klastr obsahu + interní prolinkování",
+                case_studies_cs3_duration: "8 týdnů",
+                case_studies_cs3_role: "Role: Tech SEO • Nástroje: GSC, Screaming Frog",
+                case_studies_cs3_task_desc: "Žádné hodnocení pro nízké/střední frekvenci; tenký obsah, chybějící FAQ/schema, slabé interní odkazy.",
+                case_studies_cs3_solution1: "Klastrizace klíčových slov (info/transakce), podpůrné stránky (víza, sezóny, ceny), FAQ.",
+                case_studies_cs3_solution2: "Markup FAQPage, Breadcrumb; vylepšené title/descr, bloky výhod/cen.",
+                case_studies_cs3_solution3: "Propojení klastru interními odkazy + menší opravy výkonu.",
+                case_studies_avg_position: "Průměrná pozice (GSC):",
+                case_studies_clicks: "Kliky:",
+                case_studies_ctr: "CTR:",
+                case_studies_leads: "Leady (formuláře):",
+                case_studies_cs3_proof1: "GSC: nárůst kliknutí/zobrazení, zlepšení průměrné pozice na 11.",
+                case_studies_cs3_proof2: "Nové FAQ bloky označeny FAQPage; mapa interního prolinkování pro klastr.",
+                case_studies_cs3_proof3: "Formulář žádosti: zaznamenáváme 12 leadů/měsíc po nasazení klastru.",
+                case_studies_cs4_title: "Tech SEO úklid — indexace a kanonikály",
+                case_studies_cs4_duration: "30 dní",
+                case_studies_cs4_role: "Role: Tech SEO • Nástroje: GSC, server logs, Screaming Frog",
+                case_studies_cs4_task_desc: "Index bloat (parametry, tenké), 404, zastaralý sitemap, žádný hreflang (EN/CZ/UK).",
+                case_studies_cs4_solution1: "Kanonikály v šablonách, pravidla parametrů, noindex pro tenké stránky.",
+                case_studies_cs4_solution2: "Rozdělení sitemapu podle typů, hreflang, 301, opravy 404/5xx, jednotná politika lomítek.",
+                case_studies_indexed: "Indexováno:",
+                case_studies_crawl: "Crawl hits/den:",
+                case_studies_coverage: "Chyby pokrytí:",
+                case_studies_impressions: "Zobrazení:",
+                case_studies_cs4_proof1: "GSC Coverage: prudké snížení vyloučených/chyb; nárůst platných.",
+                case_studies_cs4_proof2: "Logy: zlepšení crawl budgetu; více hitů na důležité URL.",
+                case_studies_cs4_proof3: "Implementován hreflang, kanonikály, 301 přesměrování; aktualizovaný sitemap-set."
             },
             uk: {
                 nav_home: "Головна",
@@ -1430,6 +1981,7 @@
                 nav_experience: "Досвід",
                 nav_education: "Освіта",
                 nav_projects: "Проєкти",
+                nav_case_studies: "Кейси",
                 nav_contact: "Контакти",
                 hero_title: "Тетяна Котолуп",
                 hero_subtitle: "Frontend Розробник | SEO Спеціаліст | IT Експерт",
@@ -1546,11 +2098,75 @@
                 form_submit: "Надіслати Повідомлення",
                 footer: "&copy; 2023 Тетяна Котолуп. Всі права захищені.",
                 music_title: "Фонове Аудіо",
-                music_artist: "Саундтрек Портфоліо"
+                music_artist: "Саундтрек Портфоліо",
+                
+                // Case Studies переводы
+                case_studies_title: "Кейси",
+                case_studies_subtitle: "Коротко і по суті: завдання → рішення → цифри. Без картинок — тільки факти.",
+                case_studies_cs1_title: "King House Travel — Продуктивність та Технічне SEO",
+                case_studies_cs1_duration: "6 тижнів",
+                case_studies_cs1_role: "Роль: Frontend + Tech SEO • Інструменти: Lighthouse, PageSpeed, GSC, GA4, JSON-LD",
+                case_studies_task: "Завдання",
+                case_studies_cs1_task_desc: "Мобільна версія повільна (Lighthouse 54/100, LCP 4.8s), дублікати meta, відсутні sitemap/FAQ/schema, низький CTR за брендом та \"tours + country\".",
+                case_studies_solution: "Рішення",
+                case_studies_cs1_solution1: "WebP/AVIF + srcset, loading=lazy, критичний CSS inline, defer/async JS, preconnect до шрифтів.",
+                case_studies_cs1_solution2: "Tech SEO: sitemap.xml, robots.txt, canonical, JSON-LD (Breadcrumb/FAQ/Organization), заголовки, внутрішні посилання, тайтли/descr.",
+                case_studies_numbers: "Цифри",
+                case_studies_lighthouse: "Lighthouse:",
+                case_studies_lcp: "LCP:",
+                case_studies_cls: "CLS:",
+                case_studies_inp: "INP:",
+                case_studies_cwv: "Core Web Vitals (CrUX):",
+                case_studies_gsc: "GSC:",
+                case_studies_proof_title: "Докази (текст)",
+                case_studies_cs1_proof1: "Lighthouse (мобільний) до/після: 54 → 93; LCP 4.8s → 2.1s; CLS 0.18 → 0.02; INP 390ms → 160ms.",
+                case_studies_cs1_proof2: "PageSpeed (полеві дані): частка хороших LCP & FID зросла, CWV pass 62% → 94%.",
+                case_studies_cs1_proof3: "GSC: кліки +142%, покази +88%, CTR 1.1% → 3.2%; в топ-20 6 → 23.",
+                case_studies_cs1_proof4: "Додано JSON-LD (Breadcrumb, FAQ, Organization), створено sitemap.xml, robots.txt, canonical.",
+                case_studies_copy_proof: "Копіювати докази",
+                case_studies_copied: "Скопійовано ✓",
+                case_studies_cs2_title: "Портфоліо — «важкий» візуал → швидкий",
+                case_studies_cs2_duration: "2 тижні",
+                case_studies_cs2_role: "Роль: Frontend • Інструменти: Lighthouse, GA4",
+                case_studies_cs2_task_desc: "Анімований фон псував LCP/INP, місцями низький контраст.",
+                case_studies_cs2_solution1: "CSS градієнт з легким рухом замість багатошарового фону.",
+                case_studies_cs2_solution2: "Preload hero, підмножини шрифтів + font-display: swap, очищення невикористаного CSS, правильний dark-mode.",
+                case_studies_cs2_solution3: "Доступність: контраст, стилі фокусу, ARIA.",
+                case_studies_ga4: "GA4:",
+                case_studies_cs2_proof1: "Lighthouse (мобільний) до/після: 61 → 96; LCP 3.9s → 1.9s; CLS 0.09 → 0.01; INP 250ms → 140ms.",
+                case_studies_cs2_proof2: "GA4: показник відмов -18%, час до інтерактивності -1.2s.",
+                case_studies_cs2_proof3: "Зміни фронтенду: preload hero, підмножини шрифтів, оптимізований фон/анімації.",
+                case_studies_cs3_title: "Egypt Tours — кластер контенту + внутрішнє посилання",
+                case_studies_cs3_duration: "8 тижнів",
+                case_studies_cs3_role: "Роль: Tech SEO • Інструменти: GSC, Screaming Frog",
+                case_studies_cs3_task_desc: "Немає ранжування для низької/середньої частоти; тонкий контент, відсутні FAQ/schema, слабкі внутрішні посилання.",
+                case_studies_cs3_solution1: "Кластеризація ключових слів (інфо/транзакція), підтримуючі сторінки (візи, сезони, ціни), FAQ.",
+                case_studies_cs3_solution2: "Розмітка FAQPage, Breadcrumb; покращені title/descr, блоки переваг/цін.",
+                case_studies_cs3_solution3: "Зв'язка кластера внутрішніми посиланнями + дрібні перф-правки.",
+                case_studies_avg_position: "Середня позиція (GSC):",
+                case_studies_clicks: "Кліки:",
+                case_studies_ctr: "CTR:",
+                case_studies_leads: "Ліди (форми):",
+                case_studies_cs3_proof1: "GSC: зростання кліків/показів, покращення середньої позиції до 11.",
+                case_studies_cs3_proof2: "Нові FAQ-блоки розмічені FAQPage; карта внутрішнього посилання по кластеру.",
+                case_studies_cs3_proof3: "Форма заявок: фіксуємо 12 лідів/місяць після розгортання кластера.",
+                case_studies_cs4_title: "Tech SEO cleanup — індексація та канонікал",
+                case_studies_cs4_duration: "30 днів",
+                case_studies_cs4_role: "Роль: Tech SEO • Інструменти: GSC, server logs, Screaming Frog",
+                case_studies_cs4_task_desc: "Index bloat (параметри, тонкі), 404, застарілий sitemap, немає hreflang (EN/CZ/UK).",
+                case_studies_cs4_solution1: "Canonical в шаблонах, правила параметрів, noindex для тонких сторінок.",
+                case_studies_cs4_solution2: "Розбиття sitemap по типах, hreflang, 301, виправлення 404/5xx, єдина політика слеша.",
+                case_studies_indexed: "Проіндексовано:",
+                case_studies_crawl: "Crawl hits/день:",
+                case_studies_coverage: "Помилки Coverage:",
+                case_studies_impressions: "Покази:",
+                case_studies_cs4_proof1: "GSC Coverage: різке скорочення виключених/помилок; зростання дійсних.",
+                case_studies_cs4_proof2: "Логи: покращення crawl budget; більше хітів на важливі URL.",
+                case_studies_cs4_proof3: "Впроваджено hreflang, канонікали, редіректи 301; оновлений sitemap-set."
             }
         };
 
-        // Language switching
+        // Переключення мови
         const langSelector = document.getElementById('lang-selector');
         const elementsWithLang = document.querySelectorAll('[data-lang]');
         const elementsWithPlaceholder = document.querySelectorAll('[data-lang-placeholder]');
@@ -1575,12 +2191,12 @@
             updateLanguage(e.target.value);
         });
 
-        // Theme switching
+        // Переключення теми
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = themeToggle.querySelector('i');
         const html = document.documentElement;
         
-        // Check for saved theme preference or default to light
+        // Перевірка збережених налаштувань теми або за замовчуванням світла
         const currentTheme = localStorage.getItem('theme') || 'light';
         if (currentTheme === 'dark') {
             html.setAttribute('data-theme', 'dark');
@@ -1604,7 +2220,7 @@
             }
         });
 
-        // Mobile menu toggle
+        // Перемикання мобільного меню
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         
@@ -1612,7 +2228,7 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Digital rain effect
+        // Ефект цифрового дощу
         function createDigitalRain() {
             const digitalBg = document.getElementById('digital-bg');
             const characters = '01';
@@ -1641,7 +2257,7 @@
             createDigitalRain();
         });
 
-        // Music player
+        // Музичний плеєр
         const playBtn = document.getElementById('play-btn');
         const playIcon = playBtn.querySelector('i');
         const backgroundMusic = document.getElementById('background-music');
@@ -1668,7 +2284,7 @@
             }
         });
 
-        // Auto-play on first interaction
+        // Автовідтворення при першій взаємодії
         document.addEventListener('click', function initAudio() {
             if (!isPlaying) {
                 backgroundMusic.play().then(() => {
@@ -1683,7 +2299,7 @@
             }
         }, { once: true });
 
-        // Smooth scrolling
+        // Плавна прокрутка
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1695,14 +2311,14 @@
                     });
                 }
                 
-                // Close mobile menu if open
+                // Закрити мобільне меню, якщо відкрите
                 if (!mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
                 }
             });
         });
 
-        // Intersection Observer for animations
+        // Intersection Observer для анімацій
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -1716,25 +2332,25 @@
             });
         }, observerOptions);
 
-        // Observe elements
+        // Спостерігати за елементами
         document.querySelectorAll('.fade-in, .timeline-item').forEach(el => {
             observer.observe(el);
         });
 
-        // Contact form
+        // Контактна форма
         const contactForm = document.getElementById('contact-form');
         
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Show success message
+            // Показати повідомлення про успіх
             showNotification('Thank you for your message! I will contact you soon.', 'success');
             
-            // Reset form
+            // Скинути форму
             contactForm.reset();
         });
 
-        // Notification system
+        // Система сповіщень
         function showNotification(message, type = 'success') {
             const notification = document.createElement('div');
             notification.className = `fixed top-20 right-6 z-50 px-6 py-4 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 ${
@@ -1744,12 +2360,12 @@
             
             document.body.appendChild(notification);
             
-            // Animate in
+            // Анімація появи
             setTimeout(() => {
                 notification.style.transform = 'translateX(0)';
             }, 100);
             
-            // Remove after 3 seconds
+            // Видалити через 3 секунди
             setTimeout(() => {
                 notification.style.transform = 'translateX(100%)';
                 setTimeout(() => {
@@ -1758,7 +2374,7 @@
             }, 3000);
         }
 
-        // Custom cursor
+        // Кастомний курсор
         (function goldCursor() {
             const dot = document.getElementById('gold-cursor');
             let x = window.innerWidth / 2, y = window.innerHeight / 2;
@@ -1778,7 +2394,7 @@
             }
             raf();
 
-            // Click effect
+            // Ефект кліку
             window.addEventListener('mousedown', () => { 
                 dot.style.opacity = '0.7'; 
                 dot.style.width = '10px'; 
@@ -1791,7 +2407,7 @@
             });
         })();
 
-        // Add hover effect to links
+        // Додати ефект наведення на посилання
         document.querySelectorAll('a, button').forEach(el => {
             el.addEventListener('mouseenter', () => {
                 document.getElementById('gold-cursor').style.width = '18px';
@@ -1802,6 +2418,82 @@
                 document.getElementById('gold-cursor').style.height = '14px';
             });
         });
+
+        // Модальне вікно для Case Studies
+        const modal = document.getElementById('case-studies-modal');
+        const modalContent = document.getElementById('case-studies-content');
+        const template = document.getElementById('case-studies-template');
+        const closeBtn = document.querySelector('.close');
+
+        // Відкриття модального вікна
+        document.querySelectorAll('a[href="#case-studies"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Клонуємо шаблон
+                const clone = template.cloneNode(true);
+                clone.classList.remove('hidden');
+                // Очищуємо контент модального вікна
+                modalContent.innerHTML = '';
+                modalContent.appendChild(clone);
+                // Застосовуємо поточну мову до клону
+                const currentLang = document.getElementById('lang-selector').value;
+                updateLanguageForElement(clone, currentLang);
+                // Показуємо модальне вікно
+                modal.style.display = 'block';
+                // Ініціалізуємо кнопки копіювання
+                initCopyButtonsForElement(clone);
+            });
+        });
+
+        // Закриття модального вікна
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Функція для оновлення мови для елемента та його дочірніх елементів
+        function updateLanguageForElement(element, lang) {
+            const elementsWithLang = element.querySelectorAll('[data-lang]');
+            elementsWithLang.forEach(el => {
+                const key = el.getAttribute('data-lang');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        // Функція для ініціалізації кнопок копіювання в елементі
+        function initCopyButtonsForElement(element) {
+            element.querySelectorAll('.copy-proof-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.getAttribute('data-target');
+                    const target = element.querySelector(targetId);
+                    if (!target) return;
+                    
+                    const text = target.textContent.replace(/\s+Copy proof/g, '').trim();
+                    if (!text) return;
+                    
+                    navigator.clipboard.writeText(text).then(() => {
+                        const originalHTML = btn.innerHTML;
+                        const currentLang = document.getElementById('lang-selector').value;
+                        const copiedText = translations[currentLang].case_studies_copied || 'Copied ✓';
+                        btn.textContent = copiedText;
+                        
+                        setTimeout(() => {
+                            btn.innerHTML = originalHTML;
+                        }, 1200);
+                    }).catch(err => {
+                        console.error('Failed to copy text: ', err);
+                        showNotification('Failed to copy text. Please try again.', 'error');
+                    });
+                });
+            });
+        }
     </script>
 </body>
 </html>
