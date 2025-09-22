@@ -388,6 +388,58 @@
             background: linear-gradient(135deg, rgba(26, 35, 126, 0.7), rgba(13, 71, 161, 0.6), rgba(1, 87, 155, 0.5));
             z-index: -1;
         }
+        
+        /* Responsive text adjustments */
+        .responsive-text {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        /* Responsive containers */
+        .responsive-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .responsive-container {
+                padding: 0 1.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .responsive-container {
+                padding: 0 2rem;
+            }
+        }
+        
+        /* Responsive image containers */
+        .responsive-image {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        /* Responsive card adjustments */
+        .responsive-card {
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        @media (min-width: 768px) {
+            .responsive-card {
+                max-width: calc(50% - 1rem);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .responsive-card {
+                max-width: calc(33.333% - 1rem);
+            }
+        }
     </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
@@ -427,60 +479,60 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass px-6 py-4 transition-all duration-300">
+    <nav class="fixed top-0 w-full z-50 glass px-4 py-3 sm:px-6 sm:py-4 transition-all duration-300">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-secondary dark:text-accent">Tetiana Kotolup</a>
+            <a href="#" class="text-xl sm:text-2xl font-bold text-secondary dark:text-accent">Tetiana Kotolup</a>
             
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_home">Home</a>
-                <a href="#about" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_about">About</a>
-                <a href="#skills" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_skills">Skills</a>
-                <a href="#certificates" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_certificates">Certificates</a>
-                <a href="#experience" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_experience">Experience</a>
-                <a href="#education" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_education">Education</a>
-                <a href="#projects" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_projects">Projects</a>
-                <a href="#contact" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_contact">Contact</a>
+            <div class="hidden md:flex items-center space-x-4 sm:space-x-8">
+                <a href="#home" class="nav-link hover:text-accent transition-colors text-improved text-sm sm:text-base" data-lang="nav_home">Home</a>
+                <a href="#about" class="nav-link hover:text-accent transition-colors text-improved text-sm sm:text-base" data-lang="nav_about">About</a>
+                <a href="#skills" class="nav-link hover:text-accent transition-colors text-improved text-sm sm:text-base" data-lang="nav_skills">Skills</a>
+                <a href="#certificates" class="nav-link hover:text-accent transition-colors text-improved text-sm sm:text-base" data-lang="nav_certificates">Certificates</a>
+                <a href="#experience" class="nav-link hover:text-accent transition-colors text-improved text-sm sm:text-base" data-lang="nav_experience">Experience</a>
+                <a href="#education" class="nav-link hover:text-accent transition-colors text-improved text-sm sm:text-base" data-lang="nav_education">Education</a>
+                <a href="#projects" class="nav-link hover:text-accent transition-colors text-improved text-sm sm:text-base" data-lang="nav_projects">Projects</a>
+                <a href="#contact" class="nav-link hover:text-accent transition-colors text-improved text-sm sm:text-base" data-lang="nav_contact">Contact</a>
             </div>
             
-            <div class="flex items-center space-x-4">
-                <select class="lang-selector bg-transparent border border-secondary text-current px-3 py-1 rounded-full hover:bg-secondary hover:text-white transition-all" id="lang-selector">
+            <div class="flex items-center space-x-3 sm:space-x-4">
+                <select class="lang-selector bg-transparent border border-secondary text-current px-2 py-1 sm:px-3 rounded-full text-xs hover:bg-secondary hover:text-white transition-all" id="lang-selector">
                     <option value="en">English</option>
                     <option value="cs">Čeština</option>
                     <option value="uk">Українська</option>
                 </select>
                 
-                <button class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center hover:bg-secondary hover:text-white transition-all" id="theme-toggle">
-                    <i class="fas fa-moon"></i>
+                <button class="theme-toggle w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center hover:bg-secondary hover:text-white transition-all" id="theme-toggle">
+                    <i class="fas fa-moon text-sm"></i>
                 </button>
                 
-                <button class="md:hidden text-xl" id="mobile-menu-btn">
+                <button class="md:hidden text-lg" id="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
         
         <!-- Mobile menu -->
-        <div class="hidden md:hidden mt-4 glass rounded-lg p-4" id="mobile-menu">
-            <div class="flex flex-col space-y-3">
-                <a href="#home" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_home">Home</a>
-                <a href="#about" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_about">About</a>
-                <a href="#skills" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_skills">Skills</a>
-                <a href="#certificates" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_certificates">Certificates</a>
-                <a href="#experience" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_experience">Experience</a>
-                <a href="#education" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_education">Education</a>
-                <a href="#projects" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_projects">Projects</a>
-                <a href="#contact" class="nav-link hover:text-accent transition-colors text-improved" data-lang="nav_contact">Contact</a>
+        <div class="hidden md:hidden mt-3 sm:mt-4 glass rounded-lg p-3 sm:p-4" id="mobile-menu">
+            <div class="flex flex-col space-y-2 sm:space-y-3">
+                <a href="#home" class="nav-link hover:text-accent transition-colors text-improved text-sm" data-lang="nav_home">Home</a>
+                <a href="#about" class="nav-link hover:text-accent transition-colors text-improved text-sm" data-lang="nav_about">About</a>
+                <a href="#skills" class="nav-link hover:text-accent transition-colors text-improved text-sm" data-lang="nav_skills">Skills</a>
+                <a href="#certificates" class="nav-link hover:text-accent transition-colors text-improved text-sm" data-lang="nav_certificates">Certificates</a>
+                <a href="#experience" class="nav-link hover:text-accent transition-colors text-improved text-sm" data-lang="nav_experience">Experience</a>
+                <a href="#education" class="nav-link hover:text-accent transition-colors text-improved text-sm" data-lang="nav_education">Education</a>
+                <a href="#projects" class="nav-link hover:text-accent transition-colors text-improved text-sm" data-lang="nav_projects">Projects</a>
+                <a href="#contact" class="nav-link hover:text-accent transition-colors text-improved text-sm" data-lang="nav_contact">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Music Player -->
-    <div class="fixed bottom-6 right-6 z-40 glass rounded-full px-4 py-3 flex items-center space-x-3 shadow-lg transition-all hover:scale-105">
-        <button class="play-btn w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-accent transition-all" id="play-btn">
-            <i class="fas fa-play"></i>
+    <div class="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-40 glass rounded-full px-3 py-2 sm:px-4 sm:py-3 flex items-center space-x-2 sm:space-x-3 shadow-lg transition-all hover:scale-105">
+        <button class="play-btn w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-accent transition-all" id="play-btn">
+            <i class="fas fa-play text-sm"></i>
         </button>
         <div class="music-info">
-            <div class="music-title font-semibold text-sm" data-lang="music_title">Ambient Background</div>
+            <div class="music-title font-semibold text-xs" data-lang="music_title">Ambient Background</div>
             <div class="music-artist text-xs opacity-75" data-lang="music_artist">Portfolio Soundtrack</div>
         </div>
     </div>
@@ -489,58 +541,58 @@
     <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div class="hero-gradient-overlay"></div>
         
-        <div class="container mx-auto px-6 text-center z-10">
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in" data-lang="hero_title">Tetiana Kotolup</h1>
-            <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto animate-fade-in" data-lang="hero_subtitle">Frontend Developer | SEO Specialist | IT Expert</p>
+        <div class="container mx-auto px-4 sm:px-6 text-center z-10">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 sm:mb-6 animate-fade-in responsive-text" data-lang="hero_title">Tetiana Kotolup</h1>
+            <p class="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 sm:mb-8 max-w-full sm:max-w-2xl mx-auto animate-fade-in responsive-text" data-lang="hero_subtitle">Frontend Developer | SEO Specialist | IT Expert</p>
             
-            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
-                <a href="#projects" class="btn-primary bg-accent hover:bg-blue-400 text-white px-8 py-3 rounded-full font-semibold transition-all hover:scale-105 hover:shadow-lg" data-lang="hero_btn1">View My Projects</a>
-                <a href="#contact" class="btn-secondary border-2 border-white text-white hover:bg-white hover:text-secondary px-8 py-3 rounded-full font-semibold transition-all" data-lang="hero_btn2">Contact Me</a>
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fade-in">
+                <a href="#projects" class="btn-primary bg-accent hover:bg-blue-400 text-white px-6 py-2 sm:px-8 sm:py-3 rounded-full font-semibold transition-all hover:scale-105 hover:shadow-lg text-sm sm:text-base" data-lang="hero_btn1">View My Projects</a>
+                <a href="#contact" class="btn-secondary border-2 border-white text-white hover:bg-white hover:text-secondary px-6 py-2 sm:px-8 sm:py-3 rounded-full font-semibold transition-all text-sm sm:text-base" data-lang="hero_btn2">Contact Me</a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 relative bg-improved elite-section">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="about_title">About Me</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="about_subtitle">Get to know me, my background and expertise</p>
+    <section id="about" class="py-16 sm:py-20 relative bg-improved elite-section">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold text-secondary dark:text-accent mb-3 sm:mb-4 responsive-text" data-lang="about_title">About Me</h2>
+                <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="about_subtitle">Get to know me, my background and expertise</p>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
                 <div class="relative fade-in">
                     <div class="absolute -top-5 -left-5 w-full h-full bg-secondary rounded-lg opacity-20 -z-10"></div>
-                    <img src="img0.jpg" alt="Tetiana Kotolup" class="rounded-lg shadow-xl border-4 border-white dark:border-gray-800 transition-transform hover:scale-105">
+                    <img src="img0.jpg" alt="Tetiana Kotolup" class="rounded-lg shadow-xl border-4 border-white dark:border-gray-800 transition-transform hover:scale-105 w-full h-auto">
                 </div>
                 
                 <div class="fade-in">
-                    <h3 class="text-3xl font-bold mb-6 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-accent text-secondary dark:text-accent" data-lang="about_heading">IT Professional from Ukraine</h3>
+                    <h3 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-accent text-secondary dark:text-accent responsive-text" data-lang="about_heading">IT Professional from Ukraine</h3>
                     
-                    <p class="text-gray-700 dark:text-gray-300 mb-4" data-lang="about_text1">
+                    <p class="text-gray-700 dark:text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base responsive-text" data-lang="about_text1">
                         I am a dedicated and versatile IT professional with a strong background in frontend development, SEO optimization, and digital marketing. My passion lies in creating efficient technological solutions and continuously expanding my knowledge in emerging technologies.
                     </p>
                     
-                    <p class="text-gray-700 dark:text-gray-300 mb-6" data-lang="about_text2">
+                    <p class="text-gray-700 dark:text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base responsive-text" data-lang="about_text2">
                         Currently, I'm deeply studying SEO to enhance website visibility and ranking. With multiple certifications in web development, CRM, and AI applications, I bring a comprehensive skill set that combines technical expertise with business acumen.
                     </p>
                     
-                    <div class="space-y-3">
+                    <div class="space-y-2 sm:space-y-3">
                         <div class="flex items-center">
-                            <i class="fas fa-map-marker-alt text-secondary dark:text-accent mr-4 w-5"></i>
-                            <span data-lang="about_location">Brno, Czech Republic</span>
+                            <i class="fas fa-map-marker-alt text-secondary dark:text-accent mr-3 sm:mr-4 w-4 sm:w-5 text-sm"></i>
+                            <span class="text-sm sm:text-base" data-lang="about_location">Brno, Czech Republic</span>
                         </div>
                         <div class="flex items-center">
-                            <i class="fas fa-envelope text-secondary dark:text-accent mr-4 w-5"></i>
-                            <span>kotolup24@gmail.com</span>
+                            <i class="fas fa-envelope text-secondary dark:text-accent mr-3 sm:mr-4 w-4 sm:w-5 text-sm"></i>
+                            <span class="text-sm sm:text-base responsive-text">kotolup24@gmail.com</span>
                         </div>
                         <div class="flex items-center">
-                            <i class="fas fa-phone text-secondary dark:text-accent mr-4 w-5"></i>
-                            <span>+420 608 317 700</span>
+                            <i class="fas fa-phone text-secondary dark:text-accent mr-3 sm:mr-4 w-4 sm:w-5 text-sm"></i>
+                            <span class="text-sm sm:text-base">+420 608 317 700</span>
                         </div>
                         <div class="flex items-center">
-                            <i class="fas fa-globe text-secondary dark:text-accent mr-4 w-5"></i>
-                            <span>https://tetiana-a.github.io/portfolio1/</span>
+                            <i class="fas fa-globe text-secondary dark:text-accent mr-3 sm:mr-4 w-4 sm:w-5 text-sm"></i>
+                            <span class="text-sm sm:text-base responsive-text">https://tetiana-a.github.io/portfolio1/</span>
                         </div>
                     </div>
                 </div>
@@ -549,75 +601,75 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800/50 elite-section">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="skills_title">My Skills</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="skills_subtitle">Technical and professional expertise</p>
+    <section id="skills" class="py-16 sm:py-20 bg-gray-50 dark:bg-gray-800/50 elite-section">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold text-secondary dark:text-accent mb-3 sm:mb-4 responsive-text" data-lang="skills_title">My Skills</h2>
+                <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="skills_subtitle">Technical and professional expertise</p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 95%">
-                    <div class="w-20 h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-4 mx-auto">
-                        <i class="fas fa-search text-white text-3xl"></i>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 95%">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+                        <i class="fas fa-search text-white text-2xl sm:text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3" data-lang="skill1_title">SEO Optimization</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang="skill1_text">Deeply studying SEO techniques, keyword research, on-page and off-page optimization</p>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-lang="skill1_title">SEO Optimization</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="skill1_text">Deeply studying SEO techniques, keyword research, on-page and off-page optimization</p>
                     <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                         <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
                     </div>
                 </div>
                 
-                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 90%">
-                    <div class="w-20 h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-4 mx-auto">
-                        <i class="fas fa-code text-white text-3xl"></i>
+                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 90%">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+                        <i class="fas fa-code text-white text-2xl sm:text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3" data-lang="skill2_title">Web Development</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang="skill2_text">HTML, CSS, JavaScript, Google Web Designer</p>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-lang="skill2_title">Web Development</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="skill2_text">HTML, CSS, JavaScript, Google Web Designer</p>
                     <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                         <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
                     </div>
                 </div>
                 
-                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 75%">
-                    <div class="w-20 h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-4 mx-auto">
-                        <i class="fas fa-server text-white text-3xl"></i>
+                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 75%">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+                        <i class="fas fa-server text-white text-2xl sm:text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3" data-lang="skill3_title">Backend Technologies</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang="skill3_text">Node.js, Google Cloud Platform</p>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-lang="skill3_title">Backend Technologies</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="skill3_text">Node.js, Google Cloud Platform</p>
                     <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                         <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
                     </div>
                 </div>
                 
-                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 85%">
-                    <div class="w-20 h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-4 mx-auto">
-                        <i class="fas fa-users text-white text-3xl"></i>
+                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 85%">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+                        <i class="fas fa-users text-white text-2xl sm:text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3" data-lang="skill4_title">CRM Systems</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang="skill4_text">Customer Relationship Management</p>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-lang="skill4_title">CRM Systems</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="skill4_text">Customer Relationship Management</p>
                     <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                         <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
                     </div>
                 </div>
                 
-                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 80%">
-                    <div class="w-20 h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-4 mx-auto">
-                        <i class="fas fa-robot text-white text-3xl"></i>
+                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 80%">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+                        <i class="fas fa-robot text-white text-2xl sm:text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3" data-lang="skill5_title">AI Applications</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang="skill5_text">ChatGPT for Business, AI Marketing, Machine Learning</p>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-lang="skill5_title">AI Applications</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="skill5_text">ChatGPT for Business, AI Marketing, Machine Learning</p>
                     <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                         <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
                     </div>
                 </div>
                 
-                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 70%">
-                    <div class="w-20 h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-4 mx-auto">
-                        <i class="fas fa-chart-line text-white text-3xl"></i>
+                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 70%">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+                        <i class="fas fa-chart-line text-white text-2xl sm:text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3" data-lang="skill6_title">Finance & Trading</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang="skill6_text">Investments, Machine Learning for Trading</p>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-lang="skill6_title">Finance & Trading</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="skill6_text">Investments, Machine Learning for Trading</p>
                     <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                         <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
                     </div>
@@ -627,113 +679,113 @@
     </section>
 
     <!-- Certificates Section -->
-    <section id="certificates" class="py-20 bg-improved elite-section">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="certificates_title">Certificates & Licenses</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="certificates_subtitle">Professional certifications I've earned</p>
+    <section id="certificates" class="py-16 sm:py-20 bg-improved elite-section">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold text-secondary dark:text-accent mb-3 sm:mb-4 responsive-text" data-lang="certificates_title">Certificates & Licenses</h2>
+                <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="certificates_subtitle">Professional certifications I've earned</p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 <!-- Certificate 1 -->
-                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-search text-white dark:text-gray-900"></i>
+                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
+                    <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-search text-white dark:text-gray-900 text-sm"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold" data-lang="cert1_title">Search Engine Optimization (SEO)</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400" data-lang="cert1_issuer">Coursera</p>
+                            <h3 class="text-base sm:text-lg font-bold responsive-text" data-lang="cert1_title">Search Engine Optimization (SEO)</h3>
+                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" data-lang="cert1_issuer">Coursera</p>
                         </div>
                     </div>
-                    <div class="text-sm bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-3 py-1 rounded-full inline-block mb-4" data-lang="cert1_date">Jan 2023</div>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 sm:px-3 py-1 rounded-full inline-block mb-3 sm:mb-4" data-lang="cert1_date">Jan 2023</div>
+                    <div class="flex flex-wrap gap-1 sm:gap-2">
                         <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert1_skill">SEO</span>
                     </div>
                 </div>
                 
                 <!-- Certificate 2 -->
-                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-certificate text-white dark:text-gray-900"></i>
+                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
+                    <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-certificate text-white dark:text-gray-900 text-sm"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold" data-lang="cert2_title">Customer Relationship Management</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400" data-lang="cert2_issuer">Simplilearn</p>
+                            <h3 class="text-base sm:text-lg font-bold responsive-text" data-lang="cert2_title">Customer Relationship Management</h3>
+                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" data-lang="cert2_issuer">Simplilearn</p>
                         </div>
                     </div>
-                    <div class="text-sm bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-3 py-1 rounded-full inline-block mb-4" data-lang="cert2_date">Sep 2025</div>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 sm:px-3 py-1 rounded-full inline-block mb-3 sm:mb-4" data-lang="cert2_date">Sep 2025</div>
+                    <div class="flex flex-wrap gap-1 sm:gap-2">
                         <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert2_skill">CRM</span>
                     </div>
                 </div>
                 
                 <!-- Certificate 3 -->
-                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fab fa-node-js text-white dark:text-gray-900"></i>
+                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
+                    <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-node-js text-white dark:text-gray-900 text-sm"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold" data-lang="cert3_title">NodeJS</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400" data-lang="cert3_issuer">Simplilearn</p>
+                            <h3 class="text-base sm:text-lg font-bold responsive-text" data-lang="cert3_title">NodeJS</h3>
+                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" data-lang="cert3_issuer">Simplilearn</p>
                         </div>
                     </div>
-                    <div class="text-sm bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-3 py-1 rounded-full inline-block mb-4" data-lang="cert3_date">Sep 2025</div>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 sm:px-3 py-1 rounded-full inline-block mb-3 sm:mb-4" data-lang="cert3_date">Sep 2025</div>
+                    <div class="flex flex-wrap gap-1 sm:gap-2">
                         <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert3_skill">Node.js</span>
                     </div>
                 </div>
                 
                 <!-- Certificate 4 -->
-                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-comments text-white dark:text-gray-900"></i>
+                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
+                    <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-comments text-white dark:text-gray-900 text-sm"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold" data-lang="cert4_title">ChatGPT for Business Communication</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400" data-lang="cert4_issuer">GreatLearning</p>
+                            <h3 class="text-base sm:text-lg font-bold responsive-text" data-lang="cert4_title">ChatGPT for Business Communication</h3>
+                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" data-lang="cert4_issuer">GreatLearning</p>
                         </div>
                     </div>
-                    <div class="text-sm bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-3 py-1 rounded-full inline-block mb-4" data-lang="cert4_date">Jul 2025</div>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 sm:px-3 py-1 rounded-full inline-block mb-3 sm:mb-4" data-lang="cert4_date">Jul 2025</div>
+                    <div class="flex flex-wrap gap-1 sm:gap-2">
                         <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert4_skill">Business Communication</span>
                     </div>
                 </div>
                 
                 <!-- Certificate 5 -->
-                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-brain text-white dark:text-gray-900"></i>
+                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
+                    <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-brain text-white dark:text-gray-900 text-sm"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold" data-lang="cert5_title">Introduction to Machine Learning for Trading</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400" data-lang="cert5_issuer">QuantInsti</p>
+                            <h3 class="text-base sm:text-lg font-bold responsive-text" data-lang="cert5_title">Introduction to Machine Learning for Trading</h3>
+                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" data-lang="cert5_issuer">QuantInsti</p>
                         </div>
                     </div>
-                    <div class="text-sm bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-3 py-1 rounded-full inline-block mb-4" data-lang="cert5_date">Jul 2025 - Jul 2034</div>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 sm:px-3 py-1 rounded-full inline-block mb-3 sm:mb-4" data-lang="cert5_date">Jul 2025 - Jul 2034</div>
+                    <div class="flex flex-wrap gap-1 sm:gap-2">
                         <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert5_skill1">Trading</span>
                         <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert5_skill2">Machine Learning</span>
                     </div>
                 </div>
                 
                 <!-- Certificate 6 -->
-                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-bullhorn text-white dark:text-gray-900"></i>
+                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
+                    <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-bullhorn text-white dark:text-gray-900 text-sm"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold" data-lang="cert6_title">AI Marketing</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400" data-lang="cert6_issuer">Alison</p>
+                            <h3 class="text-base sm:text-lg font-bold responsive-text" data-lang="cert6_title">AI Marketing</h3>
+                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" data-lang="cert6_issuer">Alison</p>
                         </div>
                     </div>
-                    <div class="text-sm bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-3 py-1 rounded-full inline-block mb-4" data-lang="cert6_date">Jun 2025</div>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 sm:px-3 py-1 rounded-full inline-block mb-3 sm:mb-4" data-lang="cert6_date">Jun 2025</div>
+                    <div class="flex flex-wrap gap-1 sm:gap-2">
                         <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert6_skill">AI for Marketing</span>
                     </div>
                 </div>
@@ -742,11 +794,11 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-gray-50 dark:bg-gray-800/50 elite-section">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="experience_title">Work Experience</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="experience_subtitle">My professional journey</p>
+    <section id="experience" class="py-16 sm:py-20 bg-gray-50 dark:bg-gray-800/50 elite-section">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold text-secondary dark:text-accent mb-3 sm:mb-4 responsive-text" data-lang="experience_title">Work Experience</h2>
+                <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="experience_subtitle">My professional journey</p>
             </div>
             
             <div class="max-w-4xl mx-auto">
@@ -755,53 +807,53 @@
                     <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-secondary to-accent"></div>
                     
                     <!-- Timeline items -->
-                    <div class="timeline-item mb-12">
+                    <div class="timeline-item mb-8 sm:mb-12">
                         <div class="flex items-center">
-                            <div class="w-1/2 pr-8 text-right">
-                                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-                                    <h3 class="text-xl font-bold mb-2 text-secondary dark:text-accent" data-lang="exp1_title">EXPEDICE</h3>
-                                    <p class="text-secondary dark:text-accent font-medium mb-2" data-lang="exp1_company">ViaPharma</p>
-                                    <span class="text-sm bg-accent/10 text-accent px-3 py-1 rounded-full" data-lang="exp1_date">Jul 2025 - Present</span>
-                                    <ul class="mt-4 text-left space-y-2">
+                            <div class="w-1/2 pr-4 sm:pr-8 text-right">
+                                <div class="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
+                                    <h3 class="text-base sm:text-xl font-bold mb-1 sm:mb-2 text-secondary dark:text-accent" data-lang="exp1_title">EXPEDICE</h3>
+                                    <p class="text-secondary dark:text-accent font-medium mb-1 sm:mb-2 text-sm" data-lang="exp1_company">ViaPharma</p>
+                                    <span class="text-xs bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full" data-lang="exp1_date">Jul 2025 - Present</span>
+                                    <ul class="mt-3 sm:mt-4 text-left space-y-1 sm:space-y-2">
                                         <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                                            <span data-lang="exp1_task1">Responsible for expedition and logistics operations</span>
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
+                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp1_task1">Responsible for expedition and logistics operations</span>
                                         </li>
                                         <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                                            <span data-lang="exp1_task2">Coordinating shipments and documentation</span>
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
+                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp1_task2">Coordinating shipments and documentation</span>
                                         </li>
                                         <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                                            <span data-lang="exp1_task3">Ensuring timely delivery and customer satisfaction</span>
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
+                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp1_task3">Ensuring timely delivery and customer satisfaction</span>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="w-1/2 pl-8"></div>
+                            <div class="w-1/2 pl-4 sm:pl-8"></div>
                         </div>
                     </div>
                     
-                    <div class="timeline-item mb-12">
+                    <div class="timeline-item mb-8 sm:mb-12">
                         <div class="flex items-center">
-                            <div class="w-1/2 pr-8"></div>
-                            <div class="w-1/2 pl-8">
-                                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-                                    <h3 class="text-xl font-bold mb-2 text-secondary dark:text-accent" data-lang="exp2_title">Entrepreneur</h3>
-                                    <p class="text-secondary dark:text-accent font-medium mb-2" data-lang="exp2_company">Self-Employed</p>
-                                    <span class="text-sm bg-accent/10 text-accent px-3 py-1 rounded-full" data-lang="exp2_date">Apr 2025 - Jun 2025</span>
-                                    <ul class="mt-4 space-y-2">
+                            <div class="w-1/2 pr-4 sm:pr-8"></div>
+                            <div class="w-1/2 pl-4 sm:pl-8">
+                                <div class="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
+                                    <h3 class="text-base sm:text-xl font-bold mb-1 sm:mb-2 text-secondary dark:text-accent" data-lang="exp2_title">Entrepreneur</h3>
+                                    <p class="text-secondary dark:text-accent font-medium mb-1 sm:mb-2 text-sm" data-lang="exp2_company">Self-Employed</p>
+                                    <span class="text-xs bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full" data-lang="exp2_date">Apr 2025 - Jun 2025</span>
+                                    <ul class="mt-3 sm:mt-4 space-y-1 sm:space-y-2">
                                         <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                                            <span data-lang="exp2_task1">Managed independent business operations</span>
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
+                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp2_task1">Managed independent business operations</span>
                                         </li>
                                         <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                                            <span data-lang="exp2_task2">Developed business strategies and client relationships</span>
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
+                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp2_task2">Developed business strategies and client relationships</span>
                                         </li>
                                         <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                                            <span data-lang="exp2_task3">Handled financial planning and administration</span>
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
+                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp2_task3">Handled financial planning and administration</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -809,34 +861,34 @@
                         </div>
                     </div>
                     
-                    <div class="timeline-item mb-12">
+                    <div class="timeline-item mb-8 sm:mb-12">
                         <div class="flex items-center">
-                            <div class="w-1/2 pr-8 text-right">
-                                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-                                    <h3 class="text-xl font-bold mb-2 text-secondary dark:text-accent" data-lang="exp3_title">Production Associate</h3>
-                                    <p class="text-secondary dark:text-accent font-medium mb-2" data-lang="exp3_company">Nová Mosilana, a.s.</p>
-                                    <span class="text-sm bg-accent/10 text-accent px-3 py-1 rounded-full" data-lang="exp3_date">Mar 2018 - Mar 2025</span>
-                                    <ul class="mt-4 text-left space-y-2">
+                            <div class="w-1/2 pr-4 sm:pr-8 text-right">
+                                <div class="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
+                                    <h3 class="text-base sm:text-xl font-bold mb-1 sm:mb-2 text-secondary dark:text-accent" data-lang="exp3_title">Production Associate</h3>
+                                    <p class="text-secondary dark:text-accent font-medium mb-1 sm:mb-2 text-sm" data-lang="exp3_company">Nová Mosilana, a.s.</p>
+                                    <span class="text-xs bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full" data-lang="exp3_date">Mar 2018 - Mar 2025</span>
+                                    <ul class="mt-3 sm:mt-4 text-left space-y-1 sm:space-y-2">
                                         <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                                            <span data-lang="exp3_task1">Operated and maintained textile machinery and equipment</span>
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
+                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp3_task1">Operated and maintained textile machinery and equipment</span>
                                         </li>
                                         <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                                            <span data-lang="exp3_task2">Trained and instructed new employees</span>
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
+                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp3_task2">Trained and instructed new employees</span>
                                         </li>
                                         <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                                            <span data-lang="exp3_task3">Demonstrated physical stamina and resilience in solving problems</span>
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
+                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp3_task3">Demonstrated physical stamina and resilience in solving problems</span>
                                         </li>
                                         <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                                            <span data-lang="exp3_task4">Exhibited strong planning and organizational skills</span>
+                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
+                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp3_task4">Exhibited strong planning and organizational skills</span>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="w-1/2 pl-8"></div>
+                            <div class="w-1/2 pl-4 sm:pl-8"></div>
                         </div>
                     </div>
                 </div>
@@ -845,22 +897,22 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="py-20 bg-improved elite-section">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="education_title">Education</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="education_subtitle">My educational background</p>
+    <section id="education" class="py-16 sm:py-20 bg-improved elite-section">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold text-secondary dark:text-accent mb-3 sm:mb-4 responsive-text" data-lang="education_title">Education</h2>
+                <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="education_subtitle">My educational background</p>
             </div>
             
             <div class="max-w-2xl mx-auto">
-                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg fade-in">
-                    <h3 class="text-2xl font-bold mb-4 text-secondary dark:text-accent" data-lang="edu1_title">Junior Specialist in Information Technology</h3>
-                    <p class="text-secondary dark:text-accent font-medium mb-2" data-lang="edu1_institution">Čerkasy State Trade School</p>
-                    <span class="text-sm bg-accent/10 text-accent px-3 py-1 rounded-full" data-lang="edu1_date">2013 - 2017</span>
-                    <p class="mt-4 text-gray-700 dark:text-gray-300" data-lang="edu1_text">Specialized in Computer Systems and Network Maintenance</p>
-                    <div class="mt-4 space-y-2">
-                        <p class="font-medium" data-lang="edu1_major">Qualification: Computer Systems Technician</p>
-                        <p class="font-medium" data-lang="edu1_additional">Additional: Group Leader (nostrification in the Czech Republic)</p>
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 sm:p-8 shadow-lg fade-in">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-secondary dark:text-accent responsive-text" data-lang="edu1_title">Junior Specialist in Information Technology</h3>
+                    <p class="text-secondary dark:text-accent font-medium mb-2 text-sm" data-lang="edu1_institution">Čerkasy State Trade School</p>
+                    <span class="text-xs bg-accent/10 text-accent px-3 py-1 rounded-full" data-lang="edu1_date">2013 - 2017</span>
+                    <p class="mt-3 sm:mt-4 text-gray-700 dark:text-gray-300 text-sm responsive-text" data-lang="edu1_text">Specialized in Computer Systems and Network Maintenance</p>
+                    <div class="mt-3 sm:mt-4 space-y-1 sm:space-y-2">
+                        <p class="font-medium text-sm" data-lang="edu1_major">Qualification: Computer Systems Technician</p>
+                        <p class="font-medium text-sm" data-lang="edu1_additional">Additional: Group Leader (nostrification in the Czech Republic)</p>
                     </div>
                 </div>
             </div>
@@ -868,63 +920,63 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800/50 elite-section">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="projects_title">My Projects</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="projects_subtitle">Recent work I'm proud of</p>
+    <section id="projects" class="py-16 sm:py-20 bg-gray-50 dark:bg-gray-800/50 elite-section">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold text-secondary dark:text-accent mb-3 sm:mb-4 responsive-text" data-lang="projects_title">My Projects</h2>
+                <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="projects_subtitle">Recent work I'm proud of</p>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all fade-in">
-                    <div class="relative h-64 overflow-hidden">
+                    <div class="relative h-48 sm:h-64 overflow-hidden">
                         <img src="Lucid_Origin_Elegant_logo_Eduard_King_Traveland_professional_t_1.jpg" alt="King House Travel" class="w-full h-full object-cover transition-transform hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-6">
-                            <span class="bg-accent text-white px-3 py-1 rounded-full text-sm font-medium" data-lang="project1_category">Travel Agency</span>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-3 sm:p-6">
+                            <span class="bg-accent text-white px-2 py-1 rounded-full text-xs sm:text-sm font-medium" data-lang="project1_category">Travel Agency</span>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-3 text-secondary dark:text-accent" data-lang="project1_title">King House Travel</h3>
-                        <p class="text-gray-700 dark:text-gray-300 mb-4" data-lang="project1_text">A comprehensive travel agency website with booking functionality and destination guides. Currently implementing advanced SEO strategies to improve search engine rankings and increase organic traffic.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-secondary dark:text-accent responsive-text" data-lang="project1_title">King House Travel</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="project1_text">A comprehensive travel agency website with booking functionality and destination guides. Currently implementing advanced SEO strategies to improve search engine rankings and increase organic traffic.</p>
+                        <div class="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
                             <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">HTML</span>
                             <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">CSS</span>
                             <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">JavaScript</span>
                             <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">SEO</span>
                         </div>
-                        <div class="flex gap-3">
-                            <a href="https://kinghousetravel.github.io/0/" target="_blank" class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
-                                <i class="fas fa-external-link-alt"></i>
+                        <div class="flex gap-2 sm:gap-3">
+                            <a href="https://kinghousetravel.github.io/0/" target="_blank" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
+                                <i class="fas fa-external-link-alt text-xs"></i>
                             </a>
-                            <a href="https://github.com/kinghousetravel/kinghousetravel.github.io" target="_blank" class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
-                                <i class="fab fa-github"></i>
+                            <a href="https://github.com/kinghousetravel/kinghousetravel.github.io" target="_blank" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
+                                <i class="fab fa-github text-xs"></i>
                             </a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all fade-in">
-                    <div class="relative h-64 overflow-hidden">
+                    <div class="relative h-48 sm:h-64 overflow-hidden">
                         <img src="Gen4 Trailer Script – English Version [deep bass beat begins, slowly rising] (voice of T 1546701947.png" alt="Portfolio" class="w-full h-full object-cover transition-transform hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-6">
-                            <span class="bg-accent text-white px-3 py-1 rounded-full text-sm font-medium" data-lang="project2_category">Portfolio</span>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-3 sm:p-6">
+                            <span class="bg-accent text-white px-2 py-1 rounded-full text-xs sm:text-sm font-medium" data-lang="project2_category">Portfolio</span>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-3 text-secondary dark:text-accent" data-lang="project2_title">Professional Portfolio</h3>
-                        <p class="text-gray-700 dark:text-gray-300 mb-4" data-lang="project2_text">My personal portfolio website showcasing my skills, projects, and professional experience. Designed with SEO best practices in mind to ensure maximum visibility and accessibility.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-secondary dark:text-accent responsive-text" data-lang="project2_title">Professional Portfolio</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="project2_text">My personal portfolio website showcasing my skills, projects, and professional experience. Designed with SEO best practices in mind to ensure maximum visibility and accessibility.</p>
+                        <div class="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
                             <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">HTML</span>
                             <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">CSS</span>
                             <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">JavaScript</span>
                             <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">SEO</span>
                         </div>
-                        <div class="flex gap-3">
-                            <a href="https://tetiana-a.github.io/portfolio1/" target="_blank" class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
-                                <i class="fas fa-external-link-alt"></i>
+                        <div class="flex gap-2 sm:gap-3">
+                            <a href="https://tetiana-a.github.io/portfolio1/" target="_blank" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
+                                <i class="fas fa-external-link-alt text-xs"></i>
                             </a>
-                            <a href="https://github.com/tetiana-a/portfolio1" target="_blank" class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
-                                <i class="fab fa-github"></i>
+                            <a href="https://github.com/tetiana-a/portfolio1" target="_blank" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
+                                <i class="fab fa-github text-xs"></i>
                             </a>
                         </div>
                     </div>
@@ -934,81 +986,81 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 relative elite-section">
+    <section id="contact" class="py-16 sm:py-20 relative elite-section">
         <div class="hero-gradient-overlay"></div>
         
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold text-white mb-4" data-lang="contact_title">Get In Touch</h2>
-                <p class="text-lg text-white/90 max-w-2xl mx-auto" data-lang="contact_subtitle">I'm always open to new opportunities and collaborations</p>
+        <div class="container mx-auto px-4 sm:px-6 relative z-10">
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-3 sm:mb-4 responsive-text" data-lang="contact_title">Get In Touch</h2>
+                <p class="text-base sm:text-lg text-white/90 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="contact_subtitle">I'm always open to new opportunities and collaborations</p>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
                 <div class="fade-in">
-                    <h3 class="text-3xl font-bold text-white mb-6 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-accent" data-lang="contact_heading">Let's Connect!</h3>
-                    <p class="text-white/90 mb-8" data-lang="contact_text">If you have a project you'd like to discuss, or just want to say hello, feel free to reach out through the contact form or directly via the information below.</p>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-accent responsive-text" data-lang="contact_heading">Let's Connect!</h3>
+                    <p class="text-white/90 mb-6 sm:mb-8 text-sm responsive-text" data-lang="contact_text">If you have a project you'd like to discuss, or just want to say hello, feel free to reach out through the contact form or directly via the information below.</p>
                     
-                    <div class="space-y-4 mb-8">
+                    <div class="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                         <div class="flex items-center">
-                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4">
-                                <i class="fas fa-envelope text-accent"></i>
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center mr-3 sm:mr-4">
+                                <i class="fas fa-envelope text-accent text-sm"></i>
                             </div>
-                            <span>kotolup24@gmail.com</span>
+                            <span class="text-sm sm:text-base responsive-text">kotolup24@gmail.com</span>
                         </div>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4">
-                                <i class="fas fa-phone text-accent"></i>
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center mr-3 sm:mr-4">
+                                <i class="fas fa-phone text-accent text-sm"></i>
                             </div>
-                            <span>+420 608 317 700</span>
+                            <span class="text-sm sm:text-base">+420 608 317 700</span>
                         </div>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4">
-                                <i class="fas fa-map-marker-alt text-accent"></i>
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center mr-3 sm:mr-4">
+                                <i class="fas fa-map-marker-alt text-accent text-sm"></i>
                             </div>
-                            <span data-lang="contact_location">Brno, Czech Republic</span>
+                            <span class="text-sm sm:text-base" data-lang="contact_location">Brno, Czech Republic</span>
                         </div>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4">
-                                <i class="fas fa-globe text-accent"></i>
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center mr-3 sm:mr-4">
+                                <i class="fas fa-globe text-accent text-sm"></i>
                             </div>
-                            <span>https://tetiana-a.github.io/portfolio1/</span>
+                            <span class="text-sm sm:text-base responsive-text">https://tetiana-a.github.io/portfolio1/</span>
                         </div>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4">
-                                <i class="fas fa-certificate text-accent"></i>
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center mr-3 sm:mr-4">
+                                <i class="fas fa-certificate text-accent text-sm"></i>
                             </div>
-                            <span data-lang="contact_ef">EF SET English Certificate</span>
+                            <span class="text-sm sm:text-base" data-lang="contact_ef">EF SET English Certificate</span>
                         </div>
                     </div>
                     
-                    <div class="flex gap-4">
-                        <a href="https://www.linkedin.com/in/tetiana-kotolup-1685892a1/" target="_blank" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-all">
-                            <i class="fab fa-linkedin-in"></i>
+                    <div class="flex gap-3 sm:gap-4">
+                        <a href="https://www.linkedin.com/in/tetiana-kotolup-1685892a1/" target="_blank" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-all">
+                            <i class="fab fa-linkedin-in text-sm"></i>
                         </a>
-                        <a href="https://tetiana-a.github.io/portfolio1/" target="_blank" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-all">
-                            <i class="fas fa-globe"></i>
+                        <a href="https://tetiana-a.github.io/portfolio1/" target="_blank" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-all">
+                            <i class="fas fa-globe text-sm"></i>
                         </a>
-                        <a href="https://cert.efset.org/spKGNG" target="_blank" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-all">
-                            <i class="fas fa-certificate"></i>
+                        <a href="https://cert.efset.org/spKGNG" target="_blank" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-all">
+                            <i class="fas fa-certificate text-sm"></i>
                         </a>
                     </div>
                 </div>
                 
                 <div class="fade-in">
-                    <form id="contact-form" class="space-y-4">
+                    <form id="contact-form" class="space-y-3 sm:space-y-4">
                         <div>
-                            <input type="text" placeholder="Your Name" data-lang-placeholder="form_name" required class="w-full px-4 py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent">
+                            <input type="text" placeholder="Your Name" data-lang-placeholder="form_name" required class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent text-sm">
                         </div>
                         <div>
-                            <input type="email" placeholder="Your Email" data-lang-placeholder="form_email" required class="w-full px-4 py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent">
+                            <input type="email" placeholder="Your Email" data-lang-placeholder="form_email" required class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent text-sm">
                         </div>
                         <div>
-                            <input type="text" placeholder="Subject" data-lang-placeholder="form_subject" class="w-full px-4 py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent">
+                            <input type="text" placeholder="Subject" data-lang-placeholder="form_subject" class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent text-sm">
                         </div>
                         <div>
-                            <textarea placeholder="Your Message" data-lang-placeholder="form_message" required rows="5" class="w-full px-4 py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent resize-none"></textarea>
+                            <textarea placeholder="Your Message" data-lang-placeholder="form_message" required rows="4" class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent resize-none text-sm"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-accent hover:bg-blue-400 text-white font-semibold py-3 rounded-lg transition-all hover:scale-[1.02]" data-lang="form_submit">Send Message</button>
+                        <button type="submit" class="w-full bg-accent hover:bg-blue-400 text-white font-semibold py-2 sm:py-3 rounded-lg transition-all hover:scale-[1.02] text-sm sm:text-base" data-lang="form_submit">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -1016,9 +1068,9 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p data-lang="footer">&copy; 2025 Tetiana Kotolup. All Rights Reserved.</p>
+    <footer class="bg-gray-900 text-white py-6 sm:py-8">
+        <div class="container mx-auto px-4 sm:px-6 text-center">
+            <p class="text-sm" data-lang="footer">&copy; 2025 Tetiana Kotolup. All Rights Reserved.</p>
         </div>
     </footer>
 
