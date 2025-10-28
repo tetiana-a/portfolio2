@@ -3,7 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tetiana Kotolup - Professional Portfolio</title>
+    <meta name="description" content="Tetiana Kotolup - Professional Frontend Developer and SEO Specialist from Ukraine. Explore my portfolio, skills, projects, and case studies.">
+    <meta name="keywords" content="Tetiana Kotolup, frontend developer, SEO specialist, web development, portfolio, IT expert, Ukraine, Brno">
+    <meta name="author" content="Tetiana Kotolup">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tetiana-a.github.io/portfolio1/">
+    <meta property="og:title" content="Tetiana Kotolup - Professional Portfolio">
+    <meta property="og:description" content="Frontend Developer & SEO Specialist with expertise in web technologies and digital marketing.">
+    <meta property="og:image" content="https://tetiana-a.github.io/portfolio1/img/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tetiana-a.github.io/portfolio1/">
+    <meta property="twitter:title" content="Tetiana Kotolup - Professional Portfolio">
+    <meta property="twitter:description" content="Frontend Developer & SEO Specialist with expertise in web technologies and digital marketing.">
+    <meta property="twitter:image" content="https://tetiana-a.github.io/portfolio1/img/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    
+    <title>Tetiana Kotolup - Frontend Developer & SEO Specialist</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,23 +36,60 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Стили остаются без изменений */
+        /* Variables and base styles */
         :root {
-            --purple: #4a148c;
-            --gold: #f2d27a;
+            --primary: #4a148c;
+            --secondary: #7b1fa2;
+            --accent: #f2d27a;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --text-light: #f8f9fa;
+            --text-dark: #212529;
             --circle-opacity-light: 0.5;
             --circle-opacity-dark: 0.6;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light);
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', 'sans-serif';
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary);
         }
 
-        /* Анимированные цветные круги на фоне */
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Skip to content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Animated background circles */
         #colorful-circles {
             position: fixed;
             top: 0;
@@ -49,7 +107,6 @@
             opacity: 0.4;
         }
 
-        /* Разные цветные круги с анимациями */
         .circle-1 {
             width: 300px;
             height: 300px;
@@ -104,7 +161,7 @@
             animation: move-slower 50s linear infinite reverse;
         }
 
-        /* Темная тема для кругов */
+        /* Dark theme for circles */
         [data-theme="dark"] .color-circle {
             opacity: 0.3;
         }
@@ -133,7 +190,7 @@
             background: radial-gradient(circle, rgba(255, 159, 64, 0.8), rgba(255, 159, 64, 0.2));
         }
 
-        /* Фоновые круги */
+        /* Background circles */
         #bg-circles {
             position: fixed;
             inset: 0;
@@ -146,8 +203,8 @@
             position: absolute;
             border-radius: 50%;
             background: radial-gradient(circle at 35% 35%,
-                        color-mix(in srgb, var(--purple) 18%, transparent) 0%,
-                        color-mix(in srgb, var(--purple) 10%, transparent) 60%,
+                        color-mix(in srgb, var(--primary) 18%, transparent) 0%,
+                        color-mix(in srgb, var(--primary) 10%, transparent) 60%,
                         transparent 100%);
             filter: blur(0.2px);
             opacity: var(--circle-opacity-light);
@@ -167,7 +224,7 @@
         .c3 { width: 22vmax; height: 22vmax; top: 28%; right: 28%; animation: float 16s ease-in-out infinite; }
         .c4 { width: 34vmax; height: 34vmax; bottom: 22%; left: 18%; animation: float 22s ease-in-out infinite reverse; }
 
-        /* Эффект цифрового дождя */
+        /* Digital rain effect */
         #digital-bg {
             position: fixed;
             top: 0;
@@ -188,14 +245,7 @@
             z-index: 1;
         }
 
-        @keyframes fall {
-            0% { transform: translateY(-100px); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(100vh); opacity: 0; }
-        }
-
-        /* Фиолетовые круги */
+        /* Purple circles */
         .purple-circle {
             position: absolute;
             border-radius: 50%;
@@ -215,7 +265,7 @@
                 transparent 100%);
         }
 
-        /* Пользовательский курсор */
+        /* Gold cursor */
         #gold-cursor {
             position: fixed;
             top: 0;
@@ -224,7 +274,7 @@
             height: 14px;
             margin: -7px 0 0 -7px;
             border-radius: 50%;
-            background: var(--gold);
+            background: var(--accent);
             mix-blend-mode: screen;
             pointer-events: none;
             z-index: 9999;
@@ -233,12 +283,12 @@
             transition: width 0.12s ease, height 0.12s ease, opacity 0.2s ease;
         }
 
-        /* Переходы темы */
+        /* Theme transitions */
         * {
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
-        /* Анимация прогресса навыков */
+        /* Skill progress animation */
         .skill-progress {
             width: 0;
             transition: width 1.5s ease;
@@ -248,7 +298,7 @@
             width: var(--progress);
         }
 
-        /* Анимация временной шкалы */
+        /* Timeline animation */
         .timeline-item {
             opacity: 0;
             transform: translateY(20px);
@@ -260,7 +310,7 @@
             transform: translateY(0);
         }
 
-        /* Анимация появления */
+        /* Fade in animation */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -272,7 +322,7 @@
             transform: translateY(0);
         }
 
-        /* Эффект стекломорфизма */
+        /* Glass effect */
         .glass {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -284,7 +334,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* Улучшенная видимость текста */
+        /* Improved text visibility */
         .text-improved {
             color: var(--text-dark);
         }
@@ -309,7 +359,7 @@
             border-color: rgba(255, 255, 255, 0.1);
         }
         
-        /* Элитные анимированные секции */
+        /* Elite sections */
         .elite-section {
             position: relative;
             overflow: hidden;
@@ -330,7 +380,7 @@
             background: linear-gradient(45deg, rgba(135, 206, 235, 0.05), rgba(100, 181, 246, 0.05), rgba(66, 165, 245, 0.05), rgba(30, 136, 229, 0.05));
         }
         
-        /* Анимированный градиентный оверлей для hero секции */
+        /* Hero gradient overlay */
         .hero-gradient-overlay {
             position: absolute;
             top: 0;
@@ -341,14 +391,14 @@
             z-index: -1;
         }
         
-        /* Адаптивный текст */
+        /* Responsive text */
         .responsive-text {
             word-wrap: break-word;
             overflow-wrap: break-word;
             hyphens: auto;
         }
         
-        /* Адаптивные контейнеры */
+        /* Responsive containers */
         .responsive-container {
             width: 100%;
             max-width: 1200px;
@@ -368,14 +418,14 @@
             }
         }
         
-        /* Адаптивные изображения */
+        /* Responsive images */
         .responsive-image {
             max-width: 100%;
             height: auto;
             object-fit: cover;
         }
         
-        /* Адаптивные карточки */
+        /* Responsive cards */
         .responsive-card {
             width: 100%;
             overflow: hidden;
@@ -393,7 +443,7 @@
             }
         }
         
-        /* Стили для модального окна */
+        /* Modal styles */
         .modal {
             display: none;
             position: fixed;
@@ -434,7 +484,7 @@
             cursor: pointer;
         }
         
-        /* Стили для кейсов */
+        /* Case studies styles */
         .case-studies-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -464,7 +514,7 @@
         .case-title {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #4a148c;
+            color: var(--primary);
         }
         
         .case-duration {
@@ -526,15 +576,15 @@
         
         .case-proof summary {
             cursor: pointer;
-            color: #4a148c;
+            color: var(--primary);
             font-weight: 500;
         }
         
         .copy-proof-btn {
             margin-top: 0.5rem;
             background: transparent;
-            border: 1px solid #4a148c;
-            color: #4a148c;
+            border: 1px solid var(--primary);
+            color: var(--primary);
             padding: 0.5rem 1rem;
             border-radius: 0.375rem;
             font-size: 0.875rem;
@@ -543,11 +593,11 @@
         }
         
         .copy-proof-btn:hover {
-            background-color: #4a148c;
+            background-color: var(--primary);
             color: white;
         }
         
-        /* Темная тема для модального окна */
+        /* Dark theme for modal */
         [data-theme="dark"] .modal-content {
             background-color: #1e293b;
             color: #f8fafc;
@@ -598,11 +648,77 @@
         [data-theme="dark"] .case-proof summary {
             color: #87ceeb;
         }
+        
+        /* Animations */
+        @keyframes move {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(100px, 50px); }
+            50% { transform: translate(50px, 100px); }
+            75% { transform: translate(-50px, 50px); }
+            100% { transform: translate(0, 0); }
+        }
+        
+        @keyframes move-slow {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-80px, 40px); }
+            50% { transform: translate(-40px, 80px); }
+            75% { transform: translate(40px, 40px); }
+            100% { transform: translate(0, 0); }
+        }
+        
+        @keyframes move-slower {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(60px, 30px); }
+            50% { transform: translate(30px, 60px); }
+            75% { transform: translate(-30px, 30px); }
+            100% { transform: translate(0, 0); }
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(20px, 20px); }
+            100% { transform: translate(0, 0); }
+        }
+        
+        @keyframes fall {
+            0% { transform: translateY(-100px); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+        
+        /* Focus styles for accessibility */
+        a:focus, button:focus, input:focus, textarea:focus, select:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary: #000;
+                --accent: #ff0;
+                --light: #fff;
+                --dark: #000;
+            }
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
-    <!-- Анимированные цветные круги на фоне -->
-    <div id="colorful-circles">
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Animated background circles -->
+    <div id="colorful-circles" aria-hidden="true">
         <div class="color-circle circle-1"></div>
         <div class="color-circle circle-2"></div>
         <div class="color-circle circle-3"></div>
@@ -611,7 +727,7 @@
         <div class="color-circle circle-6"></div>
     </div>
     
-    <!-- Фоновые круги -->
+    <!-- Background circles -->
     <div id="bg-circles" aria-hidden="true">
         <div class="circle c1"></div>
         <div class="circle c2"></div>
@@ -619,27 +735,27 @@
         <div class="circle c4"></div>
     </div>
 
-    <!-- Золотой курсор-последователь -->
+    <!-- Gold cursor -->
     <div id="gold-cursor" aria-hidden="true"></div>
 
-    <!-- Аудиофайл -->
+    <!-- Audio file -->
     <audio id="background-music" loop>
-        <source src="Carpetman_Black_Soil_-_Alleys_of_My_Mind_(MP3.tm).mp3" type="audio/mpeg">
-        Ваш браузер не поддерживает аудиоэлемент.
+        <source src="audio/Carpetman_Black_Soil_-_Alleys_of_My_Mind.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
     </audio>
 
-    <!-- Цифровой фон -->
-    <div id="digital-bg">
+    <!-- Digital background -->
+    <div id="digital-bg" aria-hidden="true">
         <div class="purple-circle circle-1"></div>
         <div class="purple-circle circle-2"></div>
         <div class="purple-circle circle-3"></div>
         <div class="purple-circle circle-4"></div>
     </div>
 
-    <!-- Навигация -->
-    <nav class="fixed top-0 w-full z-50 glass px-4 py-3 sm:px-6 sm:py-4 transition-all duration-300">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass px-4 py-3 sm:px-6 sm:py-4 transition-all duration-300" role="navigation" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-xl sm:text-2xl font-bold text-secondary dark:text-accent">Tetiana Kotolup</a>
+            <a href="#home" class="text-xl sm:text-2xl font-bold text-secondary dark:text-accent">Tetiana Kotolup</a>
             
             <div class="hidden md:flex items-center space-x-4 sm:space-x-8">
                 <a href="#home" class="nav-link hover:text-accent transition-colors text-improved text-sm sm:text-base" data-lang="nav_home">Home</a>
@@ -654,23 +770,25 @@
             </div>
             
             <div class="flex items-center space-x-3 sm:space-x-4">
-                <select class="lang-selector bg-transparent border border-secondary text-current px-2 py-1 sm:px-3 rounded-full text-xs hover:bg-secondary hover:text-white transition-all" id="lang-selector">
+                <select class="lang-selector bg-transparent border border-secondary text-current px-2 py-1 sm:px-3 rounded-full text-xs hover:bg-secondary hover:text-white transition-all" id="lang-selector" aria-label="Select language">
                     <option value="en">English</option>
                     <option value="cs">Čeština</option>
                     <option value="uk">Українська</option>
                 </select>
                 
-                <button class="theme-toggle w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center hover:bg-secondary hover:text-white transition-all" id="theme-toggle">
-                    <i class="fas fa-moon text-sm"></i>
+                <button class="theme-toggle w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center hover:bg-secondary hover:text-white transition-all" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon text-sm" aria-hidden="true"></i>
+                    <span class="sr-only">Toggle dark mode</span>
                 </button>
                 
-                <button class="md:hidden text-lg" id="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
+                <button class="md:hidden text-lg" id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                    <span class="sr-only">Menu</span>
                 </button>
             </div>
         </div>
         
-        <!-- Мобильное меню -->
+        <!-- Mobile menu -->
         <div class="hidden md:hidden mt-3 sm:mt-4 glass rounded-lg p-3 sm:p-4" id="mobile-menu">
             <div class="flex flex-col space-y-2 sm:space-y-3">
                 <a href="#home" class="nav-link hover:text-accent transition-colors text-improved text-sm" data-lang="nav_home">Home</a>
@@ -686,10 +804,11 @@
         </div>
     </nav>
 
-    <!-- Музыкальный плеер -->
-    <div class="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-40 glass rounded-full px-3 py-2 sm:px-4 sm:py-3 flex items-center space-x-2 sm:space-x-3 shadow-lg transition-all hover:scale-105">
-        <button class="play-btn w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-accent transition-all" id="play-btn">
-            <i class="fas fa-play text-sm"></i>
+    <!-- Music player -->
+    <div class="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-40 glass rounded-full px-3 py-2 sm:px-4 sm:py-3 flex items-center space-x-2 sm:space-x-3 shadow-lg transition-all hover:scale-105" aria-label="Background music controls">
+        <button class="play-btn w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-accent transition-all" id="play-btn" aria-label="Play/pause music">
+            <i class="fas fa-play text-sm" aria-hidden="true"></i>
+            <span class="sr-only">Play</span>
         </button>
         <div class="music-info">
             <div class="music-title font-semibold text-xs" data-lang="music_title">Ambient Background</div>
@@ -697,652 +816,666 @@
         </div>
     </div>
 
-    <!-- Hero секция -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div class="hero-gradient-overlay"></div>
-        
-        <div class="container mx-auto px-4 sm:px-6 text-center z-10">
-            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 sm:mb-6 animate-fade-in responsive-text" data-lang="hero_title">Tetiana Kotolup</h1>
-            <p class="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 sm:mb-8 max-w-full sm:max-w-2xl mx-auto animate-fade-in responsive-text" data-lang="hero_subtitle">Frontend Developer | SEO Specialist | IT Expert</p>
+    <!-- Main content -->
+    <main id="main-content">
+        <!-- Hero section -->
+        <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+            <div class="hero-gradient-overlay"></div>
             
-            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fade-in">
-                <a href="#projects" class="btn-primary bg-accent hover:bg-blue-400 text-white px-6 py-2 sm:px-8 sm:py-3 rounded-full font-semibold transition-all hover:scale-105 hover:shadow-lg text-sm sm:text-base" data-lang="hero_btn1">View My Projects</a>
-                <a href="#contact" class="btn-secondary border-2 border-white text-white hover:bg-white hover:text-secondary px-6 py-2 sm:px-8 sm:py-3 rounded-full font-semibold transition-all text-sm sm:text-base" data-lang="hero_btn2">Contact Me</a>
+            <div class="container mx-auto px-4 sm:px-6 text-center z-10">
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 sm:mb-6 animate-fade-in responsive-text" data-lang="hero_title">Tetiana Kotolup</h1>
+                <p class="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 sm:mb-8 max-w-full sm:max-w-2xl mx-auto animate-fade-in responsive-text" data-lang="hero_subtitle">Frontend Developer | SEO Specialist | IT Expert</p>
+                
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fade-in">
+                    <a href="#projects" class="btn-primary bg-accent hover:bg-blue-400 text-white px-6 py-2 sm:px-8 sm:py-3 rounded-full font-semibold transition-all hover:scale-105 hover:shadow-lg text-sm sm:text-base" data-lang="hero_btn1">View My Projects</a>
+                    <a href="#contact" class="btn-secondary border-2 border-white text-white hover:bg-white hover:text-secondary px-6 py-2 sm:px-8 sm:py-3 rounded-full font-semibold transition-all text-sm sm:text-base" data-lang="hero_btn2">Contact Me</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Секция "О себе" -->
-    <section id="about" class="py-16 sm:py-20 relative bg-improved elite-section">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="text-center mb-12 sm:mb-16 fade-in">
-                <h2 class="text-3xl sm:text-4xl font-bold text-secondary dark:text-accent mb-3 sm:mb-4 responsive-text" data-lang="about_title">About Me</h2>
-                <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="about_subtitle">Get to know me, my background and expertise</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
-                <div class="relative fade-in">
-                    <div class="absolute -top-5 -left-5 w-full h-full bg-secondary rounded-lg opacity-20 -z-10"></div>
-                    <img src="img0.jpg" alt="Tetiana Kotolup" class="rounded-lg shadow-xl border-4 border-white dark:border-gray-800 transition-transform hover:scale-105 w-full h-auto">
+        <!-- About section -->
+        <section id="about" class="py-16 sm:py-20 relative bg-improved elite-section">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12 sm:mb-16 fade-in">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-secondary dark:text-accent mb-3 sm:mb-4 responsive-text" data-lang="about_title">About Me</h2>
+                    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="about_subtitle">Get to know me, my background and expertise</p>
                 </div>
                 
-                <div class="fade-in">
-                    <h3 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-accent text-secondary dark:text-accent responsive-text" data-lang="about_heading">IT Professional from Ukraine</h3>
+                <div class="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
+                    <div class="relative fade-in">
+                        <div class="absolute -top-5 -left-5 w-full h-full bg-secondary rounded-lg opacity-20 -z-10"></div>
+                        <img src="img/tetiana-kotolup.jpg" alt="Tetiana Kotolup" class="rounded-lg shadow-xl border-4 border-white dark:border-gray-800 transition-transform hover:scale-105 w-full h-auto">
+                    </div>
                     
-                    <p class="text-gray-700 dark:text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base responsive-text" data-lang="about_text1">
-                        I am a dedicated and versatile IT professional with a strong background in frontend development, SEO optimization, and digital marketing. My passion lies in creating efficient technological solutions and continuously expanding my knowledge in emerging technologies.
-                    </p>
-                    
-                    <p class="text-gray-700 dark:text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base responsive-text" data-lang="about_text2">
-                        Currently, I'm deeply studying SEO to enhance website visibility and ranking. With multiple certifications in web development, CRM, and AI applications, I bring a comprehensive skill set that combines technical expertise with business acumen.
-                    </p>
-                    
-                    <div class="space-y-2 sm:space-y-3">
-                        <div class="flex items-center">
-                            <i class="fas fa-map-marker-alt text-secondary dark:text-accent mr-3 sm:mr-4 w-4 sm:w-5 text-sm"></i>
-                            <span class="text-sm sm:text-base" data-lang="about_location">Brno, Czech Republic</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-envelope text-secondary dark:text-accent mr-3 sm:mr-4 w-4 sm:w-5 text-sm"></i>
-                            <span class="text-sm sm:text-base responsive-text">kotolup24@gmail.com</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-phone text-secondary dark:text-accent mr-3 sm:mr-4 w-4 sm:w-5 text-sm"></i>
-                            <span class="text-sm sm:text-base">+420 608 317 700</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-globe text-secondary dark:text-accent mr-3 sm:mr-4 w-4 sm:w-5 text-sm"></i>
-                            <span class="text-sm sm:text-base responsive-text">https://tetiana-a.github.io/portfolio1/</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Секция "Навыки" -->
-    <section id="skills" class="py-16 sm:py-20 bg-gray-50 dark:bg-gray-800/50 elite-section">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="text-center mb-12 sm:mb-16 fade-in">
-                <h2 class="text-3xl sm:text-4xl font-bold text-secondary dark:text-accent mb-3 sm:mb-4 responsive-text" data-lang="skills_title">My Skills</h2>
-                <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="skills_subtitle">Technical and professional expertise</p>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 95%">
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
-                        <i class="fas fa-search text-white text-2xl sm:text-3xl"></i>
-                    </div>
-                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-lang="skill1_title">SEO Optimization</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="skill1_text">Deeply studying SEO techniques, keyword research, on-page and off-page optimization</p>
-                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 90%">
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
-                        <i class="fas fa-code text-white text-2xl sm:text-3xl"></i>
-                    </div>
-                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-lang="skill2_title">Web Development</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="skill2_text">HTML, CSS, JavaScript, Google Web Designer</p>
-                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 75%">
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
-                        <i class="fas fa-server text-white text-2xl sm:text-3xl"></i>
-                    </div>
-                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-lang="skill3_title">Backend Technologies</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="skill3_text">Node.js, Google Cloud Platform</p>
-                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 85%">
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
-                        <i class="fas fa-users text-white text-2xl sm:text-3xl"></i>
-                    </div>
-                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-lang="skill4_title">CRM Systems</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="skill4_text">Customer Relationship Management</p>
-                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 80%">
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
-                        <i class="fas fa-robot text-white text-2xl sm:text-3xl"></i>
-                    </div>
-                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-lang="skill5_title">AI Applications</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="skill5_text">ChatGPT for Business, AI Marketing, Machine Learning</p>
-                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 70%">
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
-                        <i class="fas fa-chart-line text-white text-2xl sm:text-3xl"></i>
-                    </div>
-                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-lang="skill6_title">Finance & Trading</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="skill6_text">Investments, Machine Learning for Trading</p>
-                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Секция "Сертификаты" -->
-    <section id="certificates" class="py-16 sm:py-20 bg-improved elite-section">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="text-center mb-12 sm:mb-16 fade-in">
-                <h2 class="text-3xl sm:text-4xl font-bold text-secondary dark:text-accent mb-3 sm:mb-4 responsive-text" data-lang="certificates_title">Certificates & Licenses</h2>
-                <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="certificates_subtitle">Professional certifications I've earned</p>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                <!-- Сертификат 1 -->
-                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
-                    <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
-                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-search text-white dark:text-gray-900 text-sm"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-base sm:text-lg font-bold responsive-text" data-lang="cert1_title">Search Engine Optimization (SEO)</h3>
-                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" data-lang="cert1_issuer">Coursera</p>
-                        </div>
-                    </div>
-                    <div class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 sm:px-3 py-1 rounded-full inline-block mb-3 sm:mb-4" data-lang="cert1_date">Jan 2023</div>
-                    <div class="flex flex-wrap gap-1 sm:gap-2">
-                        <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert1_skill">SEO</span>
-                    </div>
-                </div>
-                
-                <!-- Сертификат 2 -->
-                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
-                    <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
-                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-certificate text-white dark:text-gray-900 text-sm"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-base sm:text-lg font-bold responsive-text" data-lang="cert2_title">Customer Relationship Management</h3>
-                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" data-lang="cert2_issuer">Simplilearn</p>
-                        </div>
-                    </div>
-                    <div class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 sm:px-3 py-1 rounded-full inline-block mb-3 sm:mb-4" data-lang="cert2_date">Sep 2025</div>
-                    <div class="flex flex-wrap gap-1 sm:gap-2">
-                        <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert2_skill">CRM</span>
-                    </div>
-                </div>
-                
-                <!-- Сертификат 3 -->
-                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
-                    <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
-                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fab fa-node-js text-white dark:text-gray-900 text-sm"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-base sm:text-lg font-bold responsive-text" data-lang="cert3_title">NodeJS</h3>
-                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" data-lang="cert3_issuer">Simplilearn</p>
-                        </div>
-                    </div>
-                    <div class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 sm:px-3 py-1 rounded-full inline-block mb-3 sm:mb-4" data-lang="cert3_date">Sep 2025</div>
-                    <div class="flex flex-wrap gap-1 sm:gap-2">
-                        <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert3_skill">Node.js</span>
-                    </div>
-                </div>
-                
-                <!-- Сертификат 4 -->
-                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
-                    <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
-                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-comments text-white dark:text-gray-900 text-sm"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-base sm:text-lg font-bold responsive-text" data-lang="cert4_title">ChatGPT for Business Communication</h3>
-                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" data-lang="cert4_issuer">GreatLearning</p>
-                        </div>
-                    </div>
-                    <div class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 sm:px-3 py-1 rounded-full inline-block mb-3 sm:mb-4" data-lang="cert4_date">Jul 2025</div>
-                    <div class="flex flex-wrap gap-1 sm:gap-2">
-                        <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert4_skill">Business Communication</span>
-                    </div>
-                </div>
-                
-                <!-- Сертификат 5 -->
-                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
-                    <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
-                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-brain text-white dark:text-gray-900 text-sm"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-base sm:text-lg font-bold responsive-text" data-lang="cert5_title">Introduction to Machine Learning for Trading</h3>
-                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" data-lang="cert5_issuer">QuantInsti</p>
-                        </div>
-                    </div>
-                    <div class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 sm:px-3 py-1 rounded-full inline-block mb-3 sm:mb-4" data-lang="cert5_date">Jul 2025 - Jul 2034</div>
-                    <div class="flex flex-wrap gap-1 sm:gap-2">
-                        <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert5_skill1">Trading</span>
-                        <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert5_skill2">Machine Learning</span>
-                    </div>
-                </div>
-                
-                <!-- Сертификат 6 -->
-                <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
-                    <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
-                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-bullhorn text-white dark:text-gray-900 text-sm"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-base sm:text-lg font-bold responsive-text" data-lang="cert6_title">AI Marketing</h3>
-                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" data-lang="cert6_issuer">Alison</p>
-                        </div>
-                    </div>
-                    <div class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 sm:px-3 py-1 rounded-full inline-block mb-3 sm:mb-4" data-lang="cert6_date">Jun 2025</div>
-                    <div class="flex flex-wrap gap-1 sm:gap-2">
-                        <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert6_skill">AI for Marketing</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Секция "Опыт работы" -->
-    <section id="experience" class="py-16 sm:py-20 bg-gray-50 dark:bg-gray-800/50 elite-section">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="text-center mb-12 sm:mb-16 fade-in">
-                <h2 class="text-3xl sm:text-4xl font-bold text-secondary dark:text-accent mb-3 sm:mb-4 responsive-text" data-lang="experience_title">Work Experience</h2>
-                <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="experience_subtitle">My professional journey</p>
-            </div>
-            
-            <div class="max-w-4xl mx-auto">
-                <div class="relative">
-                    <!-- Линия временной шкалы -->
-                    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-secondary to-accent"></div>
-                    
-                    <!-- Элементы временной шкалы -->
-                    <div class="timeline-item mb-8 sm:mb-12">
-                        <div class="flex items-center">
-                            <div class="w-1/2 pr-4 sm:pr-8 text-right">
-                                <div class="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
-                                    <h3 class="text-base sm:text-xl font-bold mb-1 sm:mb-2 text-secondary dark:text-accent" data-lang="exp1_title">EXPEDICE</h3>
-                                    <p class="text-secondary dark:text-accent font-medium mb-1 sm:mb-2 text-sm" data-lang="exp1_company">ViaPharma</p>
-                                    <span class="text-xs bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full" data-lang="exp1_date">Jul 2025 - Present</span>
-                                    <ul class="mt-3 sm:mt-4 text-left space-y-1 sm:space-y-2">
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp1_task1">Responsible for expedition and logistics operations</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp1_task2">Coordinating shipments and documentation</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp1_task3">Ensuring timely delivery and customer satisfaction</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                    <div class="fade-in">
+                        <h3 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-accent text-secondary dark:text-accent responsive-text" data-lang="about_heading">IT Professional from Ukraine</h3>
+                        
+                        <p class="text-gray-700 dark:text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base responsive-text" data-lang="about_text1">
+                            I am a dedicated and versatile IT professional with a strong background in frontend development, SEO optimization, and digital marketing. My passion lies in creating efficient technological solutions and continuously expanding my knowledge in emerging technologies.
+                        </p>
+                        
+                        <p class="text-gray-700 dark:text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base responsive-text" data-lang="about_text2">
+                            Currently, I'm deeply studying SEO to enhance website visibility and ranking. With multiple certifications in web development, CRM, and AI applications, I bring a comprehensive skill set that combines technical expertise with business acumen.
+                        </p>
+                        
+                        <div class="space-y-2 sm:space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-secondary dark:text-accent mr-3 sm:mr-4 w-4 sm:w-5 text-sm" aria-hidden="true"></i>
+                                <span class="text-sm sm:text-base" data-lang="about_location">Brno, Czech Republic</span>
                             </div>
-                            <div class="w-1/2 pl-4 sm:pl-8"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item mb-8 sm:mb-12">
-                        <div class="flex items-center">
-                            <div class="w-1/2 pr-4 sm:pr-8"></div>
-                            <div class="w-1/2 pl-4 sm:pl-8">
-                                <div class="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
-                                    <h3 class="text-base sm:text-xl font-bold mb-1 sm:mb-2 text-secondary dark:text-accent" data-lang="exp2_title">Entrepreneur</h3>
-                                    <p class="text-secondary dark:text-accent font-medium mb-1 sm:mb-2 text-sm" data-lang="exp2_company">Self-Employed</p>
-                                    <span class="text-xs bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full" data-lang="exp2_date">Apr 2025 - Jun 2025</span>
-                                    <ul class="mt-3 sm:mt-4 space-y-1 sm:space-y-2">
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp2_task1">Managed independent business operations</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp2_task2">Developed business strategies and client relationships</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp2_task3">Handled financial planning and administration</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-secondary dark:text-accent mr-3 sm:mr-4 w-4 sm:w-5 text-sm" aria-hidden="true"></i>
+                                <a href="mailto:kotolup24@gmail.com" class="text-sm sm:text-base responsive-text">kotolup24@gmail.com</a>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item mb-8 sm:mb-12">
-                        <div class="flex items-center">
-                            <div class="w-1/2 pr-4 sm:pr-8 text-right">
-                                <div class="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
-                                    <h3 class="text-base sm:text-xl font-bold mb-1 sm:mb-2 text-secondary dark:text-accent">Freelance Web Developer</h3>
-                                    <p class="text-secondary dark:text-accent font-medium mb-1 sm:mb-2 text-sm">Self-Employed</p>
-                                    <span class="text-xs bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full">Apr 2023 - Mar 2025</span>
-                                    <ul class="mt-3 sm:mt-4 text-left space-y-1 sm:space-y-2">
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text">Developed custom websites for diverse clients</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text">Implemented SEO strategies to improve client visibility</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text">Provided ongoing maintenance and support services</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text">Managed client relationships and project timelines</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone text-secondary dark:text-accent mr-3 sm:mr-4 w-4 sm:w-5 text-sm" aria-hidden="true"></i>
+                                <a href="tel:+420608317700" class="text-sm sm:text-base">+420 608 317 700</a>
                             </div>
-                            <div class="w-1/2 pl-4 sm:pl-8"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item mb-8 sm:mb-12">
-                        <div class="flex items-center">
-                            <div class="w-1/2 pr-4 sm:pr-8"></div>
-                            <div class="w-1/2 pl-4 sm:pl-8">
-                                <div class="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
-                                    <h3 class="text-base sm:text-xl font-bold mb-1 sm:mb-2 text-secondary dark:text-accent" data-lang="exp3_title">Production Associate</h3>
-                                    <p class="text-secondary dark:text-accent font-medium mb-1 sm:mb-2 text-sm" data-lang="exp3_company">Nová Mosilana, a.s.</p>
-                                    <span class="text-xs bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full" data-lang="exp3_date">Mar 2018 - Mar 2025</span>
-                                    <ul class="mt-3 sm:mt-4 space-y-1 sm:space-y-2">
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp3_task1">Operated and maintained textile machinery and equipment</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp3_task2">Trained and instructed new employees</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp3_task3">Demonstrated physical stamina and resilience in solving problems</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp3_task4">Exhibited strong planning and organizational skills</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item mb-8 sm:mb-12">
-                        <div class="flex items-center">
-                            <div class="w-1/2 pr-4 sm:pr-8 text-right">
-                                <div class="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
-                                    <h3 class="text-base sm:text-xl font-bold mb-1 sm:mb-2 text-secondary dark:text-accent" data-lang="exp4_title">Electrical Assembly Specialist</h3>
-                                    <p class="text-secondary dark:text-accent font-medium mb-1 sm:mb-2 text-sm" data-lang="exp4_company">TOV "UKR TECH"</p>
-                                    <span class="text-xs bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full" data-lang="exp4_date">Jan 2017 - Dec 2018</span>
-                                    <ul class="mt-3 sm:mt-4 text-left space-y-1 sm:space-y-2">
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp4_task1">Performed soldering operations and assembled voltage stabilizers</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp4_task2">Trained and instructed new employees</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp4_task3">Led and motivated teams of employees</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp4_task4">Provided car maintenance services</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="w-1/2 pl-4 sm:pl-8"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item mb-8 sm:mb-12">
-                        <div class="flex items-center">
-                            <div class="w-1/2 pr-4 sm:pr-8"></div>
-                            <div class="w-1/2 pl-4 sm:pl-8">
-                                <div class="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
-                                    <h3 class="text-base sm:text-xl font-bold mb-1 sm:mb-2 text-secondary dark:text-accent" data-lang="exp5_title">Sales Assistant</h3>
-                                    <p class="text-secondary dark:text-accent font-medium mb-1 sm:mb-2 text-sm" data-lang="exp5_company">DELIKAT</p>
-                                    <span class="text-xs bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full" data-lang="exp5_date">Oct 2016 - May 2017</span>
-                                    <ul class="mt-3 sm:mt-4 space-y-1 sm:space-y-2">
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp5_task1">Greeted and assisted customers</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp5_task2">Trained and instructed new employees</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp5_task3">Prepared documents and reports</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs"></i>
-                                            <span class="text-xs sm:text-sm responsive-text" data-lang="exp5_task4">Operated office equipment</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-globe text-secondary dark:text-accent mr-3 sm:mr-4 w-4 sm:w-5 text-sm" aria-hidden="true"></i>
+                                <a href="https://tetiana-a.github.io/portfolio1/" target="_blank" class="text-sm sm:text-base responsive-text">tetiana-a.github.io/portfolio1/</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Секция "Образование" -->
-    <section id="education" class="py-16 sm:py-20 bg-improved elite-section">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="text-center mb-12 sm:mb-16 fade-in">
-                <h2 class="text-3xl sm:text-4xl font-bold text-secondary dark:text-accent mb-3 sm:mb-4 responsive-text" data-lang="education_title">Education</h2>
-                <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="education_subtitle">My educational background</p>
-            </div>
-            
-            <div class="max-w-2xl mx-auto">
-                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 sm:p-8 shadow-lg fade-in">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-secondary dark:text-accent responsive-text" data-lang="edu1_title">Junior Specialist in Information Technology</h3>
-                    <p class="text-secondary dark:text-accent font-medium mb-2 text-sm" data-lang="edu1_institution">Čerkasy State Trade School</p>
-                    <span class="text-xs bg-accent/10 text-accent px-3 py-1 rounded-full" data-lang="edu1_date">2013 - 2017</span>
-                    <p class="mt-3 sm:mt-4 text-gray-700 dark:text-gray-300 text-sm responsive-text" data-lang="edu1_text">Specialized in Computer Systems and Network Maintenance</p>
-                    <div class="mt-3 sm:mt-4 space-y-1 sm:space-y-2">
-                        <p class="font-medium text-sm" data-lang="edu1_major">Qualification: Computer Systems Technician</p>
-                        <p class="font-medium text-sm" data-lang="edu1_additional">Additional: Group Leader (nostrification in the Czech Republic)</p>
+        <!-- Skills section -->
+        <section id="skills" class="py-16 sm:py-20 bg-gray-50 dark:bg-gray-800/50 elite-section">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12 sm:mb-16 fade-in">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-secondary dark:text-accent mb-3 sm:mb-4 responsive-text" data-lang="skills_title">My Skills</h2>
+                    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="skills_subtitle">Technical and professional expertise</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                    <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 95%">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+                            <i class="fas fa-search text-white text-2xl sm:text-3xl" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-lang="skill1_title">SEO Optimization</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="skill1_text">Deeply studying SEO techniques, keyword research, on-page and off-page optimization</p>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 90%">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+                            <i class="fas fa-code text-white text-2xl sm:text-3xl" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-lang="skill2_title">Web Development</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="skill2_text">HTML, CSS, JavaScript, Google Web Designer</p>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 75%">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+                            <i class="fas fa-server text-white text-2xl sm:text-3xl" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-lang="skill3_title">Backend Technologies</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="skill3_text">Node.js, Google Cloud Platform</p>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 85%">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+                            <i class="fas fa-users text-white text-2xl sm:text-3xl" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-lang="skill4_title">CRM Systems</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="skill4_text">Customer Relationship Management</p>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 80%">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+                            <i class="fas fa-robot text-white text-2xl sm:text-3xl" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-lang="skill5_title">AI Applications</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="skill5_text">ChatGPT for Business, AI Marketing, Machine Learning</p>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in" style="--progress: 70%">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+                            <i class="fas fa-chart-line text-white text-2xl sm:text-3xl" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-lang="skill6_title">Finance & Trading</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="skill6_text">Investments, Machine Learning for Trading</p>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="skill-progress bg-gradient-to-r from-secondary to-accent dark:from-blue-400 dark:to-blue-200 h-2 rounded-full"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Секция "Проекты" -->
-    <section id="projects" class="py-16 sm:py-20 bg-gray-50 dark:bg-gray-800/50 elite-section">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="text-center mb-12 sm:mb-16 fade-in">
-                <h2 class="text-3xl sm:text-4xl font-bold text-secondary dark:text-accent mb-3 sm:mb-4 responsive-text" data-lang="projects_title">My Projects</h2>
-                <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="projects_subtitle">Recent work I'm proud of</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all fade-in">
-                    <div class="relative h-48 sm:h-64 overflow-hidden">
-                        <img src="Lucid_Origin_Elegant_logo_Eduard_King_Traveland_professional_t_1.jpg" alt="King House Travel" class="w-full h-full object-cover transition-transform hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-3 sm:p-6">
-                            <span class="bg-accent text-white px-2 py-1 rounded-full text-xs sm:text-sm font-medium" data-lang="project1_category">Travel Agency</span>
+        <!-- Certificates section -->
+        <section id="certificates" class="py-16 sm:py-20 bg-improved elite-section">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12 sm:mb-16 fade-in">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-secondary dark:text-accent mb-3 sm:mb-4 responsive-text" data-lang="certificates_title">Certificates & Licenses</h2>
+                    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="certificates_subtitle">Professional certifications I've earned</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                    <!-- Certificate 1 -->
+                    <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
+                        <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-search text-white dark:text-gray-900 text-sm" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-base sm:text-lg font-bold responsive-text" data-lang="cert1_title">Search Engine Optimization (SEO)</h3>
+                                <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" data-lang="cert1_issuer">Coursera</p>
+                            </div>
+                        </div>
+                        <div class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 sm:px-3 py-1 rounded-full inline-block mb-3 sm:mb-4" data-lang="cert1_date">Jan 2023</div>
+                        <div class="flex flex-wrap gap-1 sm:gap-2">
+                            <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert1_skill">SEO</span>
                         </div>
                     </div>
-                    <div class="p-4 sm:p-6">
-                        <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-secondary dark:text-accent responsive-text" data-lang="project1_title">King House Travel</h3>
-                        <p class="text-gray-700 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="project1_text">A comprehensive travel agency website with booking functionality and destination guides. Currently implementing advanced SEO strategies to improve search engine rankings and increase organic traffic.</p>
-                        <div class="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
-                            <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">HTML</span>
-                            <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">CSS</span>
-                            <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">JavaScript</span>
-                            <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">SEO</span>
+                    
+                    <!-- Certificate 2 -->
+                    <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
+                        <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-certificate text-white dark:text-gray-900 text-sm" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-base sm:text-lg font-bold responsive-text" data-lang="cert2_title">Customer Relationship Management</h3>
+                                <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" data-lang="cert2_issuer">Simplilearn</p>
+                            </div>
                         </div>
-                        <div class="flex gap-2 sm:gap-3">
-                            <a href="https://kinghousetravel.github.io/0/" target="_blank" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
-                                <i class="fas fa-external-link-alt text-xs"></i>
+                        <div class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 sm:px-3 py-1 rounded-full inline-block mb-3 sm:mb-4" data-lang="cert2_date">Sep 2025</div>
+                        <div class="flex flex-wrap gap-1 sm:gap-2">
+                            <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert2_skill">CRM</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Certificate 3 -->
+                    <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
+                        <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fab fa-node-js text-white dark:text-gray-900 text-sm" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-base sm:text-lg font-bold responsive-text" data-lang="cert3_title">NodeJS</h3>
+                                <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" data-lang="cert3_issuer">Simplilearn</p>
+                            </div>
+                        </div>
+                        <div class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 sm:px-3 py-1 rounded-full inline-block mb-3 sm:mb-4" data-lang="cert3_date">Sep 2025</div>
+                        <div class="flex flex-wrap gap-1 sm:gap-2">
+                            <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert3_skill">Node.js</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Certificate 4 -->
+                    <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
+                        <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-comments text-white dark:text-gray-900 text-sm" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-base sm:text-lg font-bold responsive-text" data-lang="cert4_title">ChatGPT for Business Communication</h3>
+                                <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" data-lang="cert4_issuer">GreatLearning</p>
+                            </div>
+                        </div>
+                        <div class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 sm:px-3 py-1 rounded-full inline-block mb-3 sm:mb-4" data-lang="cert4_date">Jul 2025</div>
+                        <div class="flex flex-wrap gap-1 sm:gap-2">
+                            <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert4_skill">Business Communication</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Certificate 5 -->
+                    <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
+                        <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-brain text-white dark:text-gray-900 text-sm" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-base sm:text-lg font-bold responsive-text" data-lang="cert5_title">Introduction to Machine Learning for Trading</h3>
+                                <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" data-lang="cert5_issuer">QuantInsti</p>
+                            </div>
+                        </div>
+                        <div class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 sm:px-3 py-1 rounded-full inline-block mb-3 sm:mb-4" data-lang="cert5_date">Jul 2025 - Jul 2034</div>
+                        <div class="flex flex-wrap gap-1 sm:gap-2">
+                            <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert5_skill1">Trading</span>
+                            <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert5_skill2">Machine Learning</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Certificate 6 -->
+                    <div class="certificate-card bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 fade-in">
+                        <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-bullhorn text-white dark:text-gray-900 text-sm" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-base sm:text-lg font-bold responsive-text" data-lang="cert6_title">AI Marketing</h3>
+                                <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" data-lang="cert6_issuer">Alison</p>
+                            </div>
+                        </div>
+                        <div class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 sm:px-3 py-1 rounded-full inline-block mb-3 sm:mb-4" data-lang="cert6_date">Jun 2025</div>
+                        <div class="flex flex-wrap gap-1 sm:gap-2">
+                            <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full" data-lang="cert6_skill">AI for Marketing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience section -->
+        <section id="experience" class="py-16 sm:py-20 bg-gray-50 dark:bg-gray-800/50 elite-section">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12 sm:mb-16 fade-in">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-secondary dark:text-accent mb-3 sm:mb-4 responsive-text" data-lang="experience_title">Work Experience</h2>
+                    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="experience_subtitle">My professional journey</p>
+                </div>
+                
+                <div class="max-w-4xl mx-auto">
+                    <div class="relative">
+                        <!-- Timeline line -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-secondary to-accent" aria-hidden="true"></div>
+                        
+                        <!-- Timeline items -->
+                        <div class="timeline-item mb-8 sm:mb-12">
+                            <div class="flex items-center">
+                                <div class="w-1/2 pr-4 sm:pr-8 text-right">
+                                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
+                                        <h3 class="text-base sm:text-xl font-bold mb-1 sm:mb-2 text-secondary dark:text-accent" data-lang="exp1_title">EXPEDICE</h3>
+                                        <p class="text-secondary dark:text-accent font-medium mb-1 sm:mb-2 text-sm" data-lang="exp1_company">ViaPharma</p>
+                                        <span class="text-xs bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full" data-lang="exp1_date">Jul 2025 - Present</span>
+                                        <ul class="mt-3 sm:mt-4 text-left space-y-1 sm:space-y-2">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text" data-lang="exp1_task1">Responsible for expedition and logistics operations</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text" data-lang="exp1_task2">Coordinating shipments and documentation</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text" data-lang="exp1_task3">Ensuring timely delivery and customer satisfaction</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="w-1/2 pl-4 sm:pl-8"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item mb-8 sm:mb-12">
+                            <div class="flex items-center">
+                                <div class="w-1/2 pr-4 sm:pr-8"></div>
+                                <div class="w-1/2 pl-4 sm:pl-8">
+                                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
+                                        <h3 class="text-base sm:text-xl font-bold mb-1 sm:mb-2 text-secondary dark:text-accent" data-lang="exp2_title">Entrepreneur</h3>
+                                        <p class="text-secondary dark:text-accent font-medium mb-1 sm:mb-2 text-sm" data-lang="exp2_company">Self-Employed</p>
+                                        <span class="text-xs bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full" data-lang="exp2_date">Apr 2025 - Jun 2025</span>
+                                        <ul class="mt-3 sm:mt-4 space-y-1 sm:space-y-2">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text" data-lang="exp2_task1">Managed independent business operations</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text" data-lang="exp2_task2">Developed business strategies and client relationships</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text" data-lang="exp2_task3">Handled financial planning and administration</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item mb-8 sm:mb-12">
+                            <div class="flex items-center">
+                                <div class="w-1/2 pr-4 sm:pr-8 text-right">
+                                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
+                                        <h3 class="text-base sm:text-xl font-bold mb-1 sm:mb-2 text-secondary dark:text-accent">Freelance Web Developer</h3>
+                                        <p class="text-secondary dark:text-accent font-medium mb-1 sm:mb-2 text-sm">Self-Employed</p>
+                                        <span class="text-xs bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full">Apr 2023 - Mar 2025</span>
+                                        <ul class="mt-3 sm:mt-4 text-left space-y-1 sm:space-y-2">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text">Developed custom websites for diverse clients</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text">Implemented SEO strategies to improve client visibility</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text">Provided ongoing maintenance and support services</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text">Managed client relationships and project timelines</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="w-1/2 pl-4 sm:pl-8"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item mb-8 sm:mb-12">
+                            <div class="flex items-center">
+                                <div class="w-1/2 pr-4 sm:pr-8"></div>
+                                <div class="w-1/2 pl-4 sm:pl-8">
+                                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
+                                        <h3 class="text-base sm:text-xl font-bold mb-1 sm:mb-2 text-secondary dark:text-accent" data-lang="exp3_title">Production Associate</h3>
+                                        <p class="text-secondary dark:text-accent font-medium mb-1 sm:mb-2 text-sm" data-lang="exp3_company">Nová Mosilana, a.s.</p>
+                                        <span class="text-xs bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full" data-lang="exp3_date">Mar 2018 - Mar 2025</span>
+                                        <ul class="mt-3 sm:mt-4 space-y-1 sm:space-y-2">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text" data-lang="exp3_task1">Operated and maintained textile machinery and equipment</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text" data-lang="exp3_task2">Trained and instructed new employees</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text" data-lang="exp3_task3">Demonstrated physical stamina and resilience in solving problems</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text" data-lang="exp3_task4">Exhibited strong planning and organizational skills</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item mb-8 sm:mb-12">
+                            <div class="flex items-center">
+                                <div class="w-1/2 pr-4 sm:pr-8 text-right">
+                                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
+                                        <h3 class="text-base sm:text-xl font-bold mb-1 sm:mb-2 text-secondary dark:text-accent" data-lang="exp4_title">Electrical Assembly Specialist</h3>
+                                        <p class="text-secondary dark:text-accent font-medium mb-1 sm:mb-2 text-sm" data-lang="exp4_company">TOV "UKR TECH"</p>
+                                        <span class="text-xs bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full" data-lang="exp4_date">Jan 2017 - Dec 2018</span>
+                                        <ul class="mt-3 sm:mt-4 text-left space-y-1 sm:space-y-2">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text" data-lang="exp4_task1">Performed soldering operations and assembled voltage stabilizers</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text" data-lang="exp4_task2">Trained and instructed new employees</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text" data-lang="exp4_task3">Led and motivated teams of employees</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text" data-lang="exp4_task4">Provided car maintenance services</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="w-1/2 pl-4 sm:pl-8"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item mb-8 sm:mb-12">
+                            <div class="flex items-center">
+                                <div class="w-1/2 pr-4 sm:pr-8"></div>
+                                <div class="w-1/2 pl-4 sm:pl-8">
+                                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
+                                        <h3 class="text-base sm:text-xl font-bold mb-1 sm:mb-2 text-secondary dark:text-accent" data-lang="exp5_title">Sales Assistant</h3>
+                                        <p class="text-secondary dark:text-accent font-medium mb-1 sm:mb-2 text-sm" data-lang="exp5_company">DELIKAT</p>
+                                        <span class="text-xs bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full" data-lang="exp5_date">Oct 2016 - May 2017</span>
+                                        <ul class="mt-3 sm:mt-4 space-y-1 sm:space-y-2">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text" data-lang="exp5_task1">Greeted and assisted customers</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text" data-lang="exp5_task2">Trained and instructed new employees</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text" data-lang="exp5_task3">Prepared documents and reports</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-accent mt-1 mr-1 sm:mr-2 text-xs" aria-hidden="true"></i>
+                                                <span class="text-xs sm:text-sm responsive-text" data-lang="exp5_task4">Operated office equipment</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education section -->
+        <section id="education" class="py-16 sm:py-20 bg-improved elite-section">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12 sm:mb-16 fade-in">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-secondary dark:text-accent mb-3 sm:mb-4 responsive-text" data-lang="education_title">Education</h2>
+                    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="education_subtitle">My educational background</p>
+                </div>
+                
+                <div class="max-w-2xl mx-auto">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 sm:p-8 shadow-lg fade-in">
+                        <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-secondary dark:text-accent responsive-text" data-lang="edu1_title">Junior Specialist in Information Technology</h3>
+                        <p class="text-secondary dark:text-accent font-medium mb-2 text-sm" data-lang="edu1_institution">Čerkasy State Trade School</p>
+                        <span class="text-xs bg-accent/10 text-accent px-3 py-1 rounded-full" data-lang="edu1_date">2013 - 2017</span>
+                        <p class="mt-3 sm:mt-4 text-gray-700 dark:text-gray-300 text-sm responsive-text" data-lang="edu1_text">Specialized in Computer Systems and Network Maintenance</p>
+                        <div class="mt-3 sm:mt-4 space-y-1 sm:space-y-2">
+                            <p class="font-medium text-sm" data-lang="edu1_major">Qualification: Computer Systems Technician</p>
+                            <p class="font-medium text-sm" data-lang="edu1_additional">Additional: Group Leader (nostrification in the Czech Republic)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects section -->
+        <section id="projects" class="py-16 sm:py-20 bg-gray-50 dark:bg-gray-800/50 elite-section">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12 sm:mb-16 fade-in">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-secondary dark:text-accent mb-3 sm:mb-4 responsive-text" data-lang="projects_title">My Projects</h2>
+                    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="projects_subtitle">Recent work I'm proud of</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                    <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all fade-in">
+                        <div class="relative h-48 sm:h-64 overflow-hidden">
+                            <img src="img/king-house-travel-logo.jpg" alt="King House Travel website screenshot" class="w-full h-full object-cover transition-transform hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-3 sm:p-6">
+                                <span class="bg-accent text-white px-2 py-1 rounded-full text-xs sm:text-sm font-medium" data-lang="project1_category">Travel Agency</span>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-secondary dark:text-accent responsive-text" data-lang="project1_title">King House Travel</h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="project1_text">A comprehensive travel agency website with booking functionality and destination guides. Currently implementing advanced SEO strategies to improve search engine rankings and increase organic traffic.</p>
+                            <div class="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
+                                <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">HTML</span>
+                                <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">CSS</span>
+                                <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">JavaScript</span>
+                                <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">SEO</span>
+                            </div>
+                            <div class="flex gap-2 sm:gap-3">
+                                <a href="https://kinghousetravel.github.io/0/" target="_blank" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all" aria-label="View King House Travel project">
+                                    <i class="fas fa-external-link-alt text-xs" aria-hidden="true"></i>
+                                    <span class="sr-only">View project</span>
+                                </a>
+                                <a href="https://github.com/kinghousetravel/kinghousetravel.github.io" target="_blank" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all" aria-label="View King House Travel source code">
+                                    <i class="fab fa-github text-xs" aria-hidden="true"></i>
+                                    <span class="sr-only">View source code</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all fade-in">
+                        <div class="relative h-48 sm:h-64 overflow-hidden">
+                            <img src="img/portfolio-website.jpg" alt="Portfolio website screenshot" class="w-full h-full object-cover transition-transform hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-3 sm:p-6">
+                                <span class="bg-accent text-white px-2 py-1 rounded-full text-xs sm:text-sm font-medium" data-lang="project2_category">Portfolio</span>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-secondary dark:text-accent responsive-text" data-lang="project2_title">Professional Portfolio</h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="project2_text">My personal portfolio website showcasing my skills, projects, and professional experience. Designed with SEO best practices in mind to ensure maximum visibility and accessibility.</p>
+                            <div class="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
+                                <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">HTML</span>
+                                <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">CSS</span>
+                                <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">JavaScript</span>
+                                <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">SEO</span>
+                            </div>
+                            <div class="flex gap-2 sm:gap-3">
+                                <a href="https://tetiana-a.github.io/portfolio1/" target="_blank" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all" aria-label="View portfolio project">
+                                    <i class="fas fa-external-link-alt text-xs" aria-hidden="true"></i>
+                                    <span class="sr-only">View project</span>
+                                </a>
+                                <a href="https://github.com/tetiana-a/portfolio1" target="_blank" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all" aria-label="View portfolio source code">
+                                    <i class="fab fa-github text-xs" aria-hidden="true"></i>
+                                    <span class="sr-only">View source code</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact section -->
+        <section id="contact" class="py-16 sm:py-20 relative elite-section">
+            <div class="hero-gradient-overlay"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 relative z-10">
+                <div class="text-center mb-12 sm:mb-16 fade-in">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-3 sm:mb-4 responsive-text" data-lang="contact_title">Get In Touch</h2>
+                    <p class="text-base sm:text-lg text-white/90 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="contact_subtitle">I'm always open to new opportunities and collaborations</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+                    <div class="fade-in">
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-accent responsive-text" data-lang="contact_heading">Let's Connect!</h3>
+                        <p class="text-white/90 mb-6 sm:mb-8 text-sm responsive-text" data-lang="contact_text">If you have a project you'd like to discuss, or just want to say hello, feel free to reach out through the contact form or directly via the information below.</p>
+                        
+                        <div class="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center mr-3 sm:mr-4">
+                                    <i class="fas fa-envelope text-accent text-sm" aria-hidden="true"></i>
+                                </div>
+                                <a href="mailto:kotolup24@gmail.com" class="text-sm sm:text-base responsive-text">kotolup24@gmail.com</a>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center mr-3 sm:mr-4">
+                                    <i class="fas fa-phone text-accent text-sm" aria-hidden="true"></i>
+                                </div>
+                                <a href="tel:+420608317700" class="text-sm sm:text-base">+420 608 317 700</a>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center mr-3 sm:mr-4">
+                                    <i class="fas fa-map-marker-alt text-accent text-sm" aria-hidden="true"></i>
+                                </div>
+                                <span class="text-sm sm:text-base" data-lang="contact_location">Brno, Czech Republic</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center mr-3 sm:mr-4">
+                                    <i class="fas fa-globe text-accent text-sm" aria-hidden="true"></i>
+                                </div>
+                                <a href="https://tetiana-a.github.io/portfolio1/" target="_blank" class="text-sm sm:text-base responsive-text">tetiana-a.github.io/portfolio1/</a>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center mr-3 sm:mr-4">
+                                    <i class="fas fa-certificate text-accent text-sm" aria-hidden="true"></i>
+                                </div>
+                                <a href="https://cert.efset.org/spKGNG" target="_blank" class="text-sm sm:text-base" data-lang="contact_ef">EF SET English Certificate</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-3 sm:gap-4">
+                            <a href="https://www.linkedin.com/in/tetiana-kotolup-1685892a1/" target="_blank" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-all" aria-label="LinkedIn profile">
+                                <i class="fab fa-linkedin-in text-sm" aria-hidden="true"></i>
+                                <span class="sr-only">LinkedIn</span>
                             </a>
-                            <a href="https://github.com/kinghousetravel/kinghousetravel.github.io" target="_blank" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
-                                <i class="fab fa-github text-xs"></i>
+                            <a href="https://tetiana-a.github.io/portfolio1/" target="_blank" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-all" aria-label="Portfolio website">
+                                <i class="fas fa-globe text-sm" aria-hidden="true"></i>
+                                <span class="sr-only">Portfolio</span>
                             </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all fade-in">
-                    <div class="relative h-48 sm:h-64 overflow-hidden">
-                        <img src="Gen4 Trailer Script – English Version [deep bass beat begins, slowly rising] (voice of T 1546701947.png" alt="Portfolio" class="w-full h-full object-cover transition-transform hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-3 sm:p-6">
-                            <span class="bg-accent text-white px-2 py-1 rounded-full text-xs sm:text-sm font-medium" data-lang="project2_category">Portfolio</span>
-                        </div>
-                    </div>
-                    <div class="p-4 sm:p-6">
-                        <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-secondary dark:text-accent responsive-text" data-lang="project2_title">Professional Portfolio</h3>
-                        <p class="text-gray-700 dark:text-gray-300 mb-3 sm:mb-4 text-sm responsive-text" data-lang="project2_text">My personal portfolio website showcasing my skills, projects, and professional experience. Designed with SEO best practices in mind to ensure maximum visibility and accessibility.</p>
-                        <div class="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
-                            <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">HTML</span>
-                            <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">CSS</span>
-                            <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">JavaScript</span>
-                            <span class="text-xs bg-secondary/10 text-secondary dark:bg-accent/10 dark:text-accent px-2 py-1 rounded-full">SEO</span>
-                        </div>
-                        <div class="flex gap-2 sm:gap-3">
-                            <a href="https://tetiana-a.github.io/portfolio1/" target="_blank" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
-                                <i class="fas fa-external-link-alt text-xs"></i>
+                            <a href="https://cert.efset.org/spKGNG" target="_blank" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-all" aria-label="EF SET English Certificate">
+                                <i class="fas fa-certificate text-sm" aria-hidden="true"></i>
+                                <span class="sr-only">Certificate</span>
                             </a>
-                            <a href="https://github.com/tetiana-a/portfolio1" target="_blank" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
-                                <i class="fab fa-github text-xs"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Секция "Контакты" -->
-    <section id="contact" class="py-16 sm:py-20 relative elite-section">
-        <div class="hero-gradient-overlay"></div>
-        
-        <div class="container mx-auto px-4 sm:px-6 relative z-10">
-            <div class="text-center mb-12 sm:mb-16 fade-in">
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-3 sm:mb-4 responsive-text" data-lang="contact_title">Get In Touch</h2>
-                <p class="text-base sm:text-lg text-white/90 max-w-full sm:max-w-2xl mx-auto responsive-text" data-lang="contact_subtitle">I'm always open to new opportunities and collaborations</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
-                <div class="fade-in">
-                    <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-accent responsive-text" data-lang="contact_heading">Let's Connect!</h3>
-                    <p class="text-white/90 mb-6 sm:mb-8 text-sm responsive-text" data-lang="contact_text">If you have a project you'd like to discuss, or just want to say hello, feel free to reach out through the contact form or directly via the information below.</p>
-                    
-                    <div class="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-                        <div class="flex items-center">
-                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center mr-3 sm:mr-4">
-                                <i class="fas fa-envelope text-accent text-sm"></i>
-                            </div>
-                            <span class="text-sm sm:text-base responsive-text">kotolup24@gmail.com</span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center mr-3 sm:mr-4">
-                                <i class="fas fa-phone text-accent text-sm"></i>
-                            </div>
-                            <span class="text-sm sm:text-base">+420 608 317 700</span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center mr-3 sm:mr-4">
-                                <i class="fas fa-map-marker-alt text-accent text-sm"></i>
-                            </div>
-                            <span class="text-sm sm:text-base" data-lang="contact_location">Brno, Czech Republic</span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center mr-3 sm:mr-4">
-                                <i class="fas fa-globe text-accent text-sm"></i>
-                            </div>
-                            <span class="text-sm sm:text-base responsive-text">https://tetiana-a.github.io/portfolio1/</span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center mr-3 sm:mr-4">
-                                <i class="fas fa-certificate text-accent text-sm"></i>
-                            </div>
-                            <span class="text-sm sm:text-base" data-lang="contact_ef">EF SET English Certificate</span>
                         </div>
                     </div>
                     
-                    <div class="flex gap-3 sm:gap-4">
-                        <a href="https://www.linkedin.com/in/tetiana-kotolup-1685892a1/" target="_blank" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-all">
-                            <i class="fab fa-linkedin-in text-sm"></i>
-                        </a>
-                        <a href="https://tetiana-a.github.io/portfolio1/" target="_blank" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-all">
-                            <i class="fas fa-globe text-sm"></i>
-                        </a>
-                        <a href="https://cert.efset.org/spKGNG" target="_blank" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-all">
-                            <i class="fas fa-certificate text-sm"></i>
-                        </a>
+                    <div class="fade-in">
+                        <form id="contact-form" class="space-y-3 sm:space-y-4">
+                            <div>
+                                <label for="name" class="sr-only">Your Name</label>
+                                <input type="text" id="name" placeholder="Your Name" data-lang-placeholder="form_name" required class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent text-sm">
+                            </div>
+                            <div>
+                                <label for="email" class="sr-only">Your Email</label>
+                                <input type="email" id="email" placeholder="Your Email" data-lang-placeholder="form_email" required class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent text-sm">
+                            </div>
+                            <div>
+                                <label for="subject" class="sr-only">Subject</label>
+                                <input type="text" id="subject" placeholder="Subject" data-lang-placeholder="form_subject" class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent text-sm">
+                            </div>
+                            <div>
+                                <label for="message" class="sr-only">Your Message</label>
+                                <textarea id="message" placeholder="Your Message" data-lang-placeholder="form_message" required rows="4" class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent resize-none text-sm"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-accent hover:bg-blue-400 text-white font-semibold py-2 sm:py-3 rounded-lg transition-all hover:scale-[1.02] text-sm sm:text-base" data-lang="form_submit">Send Message</button>
+                        </form>
                     </div>
                 </div>
-                
-                <div class="fade-in">
-                    <form id="contact-form" class="space-y-3 sm:space-y-4">
-                        <div>
-                            <input type="text" placeholder="Your Name" data-lang-placeholder="form_name" required class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent text-sm">
-                        </div>
-                        <div>
-                            <input type="email" placeholder="Your Email" data-lang-placeholder="form_email" required class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent text-sm">
-                        </div>
-                        <div>
-                            <input type="text" placeholder="Subject" data-lang-placeholder="form_subject" class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent text-sm">
-                        </div>
-                        <div>
-                            <textarea placeholder="Your Message" data-lang-placeholder="form_message" required rows="4" class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 dark:bg-gray-800/50 backdrop-blur border border-white/20 text-white placeholder-white/70 dark:placeholder-gray-400 focus:outline-none focus:border-accent resize-none text-sm"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-accent hover:bg-blue-400 text-white font-semibold py-2 sm:py-3 rounded-lg transition-all hover:scale-[1.02] text-sm sm:text-base" data-lang="form_submit">Send Message</button>
-                    </form>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Футер -->
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-6 sm:py-8">
         <div class="container mx-auto px-4 sm:px-6 text-center">
             <p class="text-sm" data-lang="footer">&copy; 2025 Tetiana Kotolup. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Модальное окно для Case Studies -->
-    <div id="case-studies-modal" class="modal">
+    <!-- Modal for Case Studies -->
+    <div id="case-studies-modal" class="modal" role="dialog" aria-labelledby="case-studies-title" aria-hidden="true">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <button type="button" class="close" aria-label="Close">&times;</button>
             <div id="case-studies-content">
-                <!-- Содержимое кейсов будет загружаться сюда -->
+                <!-- Case studies content will be loaded here -->
             </div>
         </div>
     </div>
 
-    <!-- Шаблон для Case Studies (скрытый) -->
+    <!-- Template for Case Studies (hidden) -->
     <div id="case-studies-template" class="hidden">
         <section id="case-studies" class="py-20 bg-gray-50 dark:bg-gray-800/50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 fade-in">
-                    <h2 class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="case_studies_title">Case Studies</h2>
+                    <h2 id="case-studies-title" class="text-4xl font-bold text-secondary dark:text-accent mb-4" data-lang="case_studies_title">Case Studies</h2>
                     <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-lang="case_studies_subtitle">Short and to the point: task → solution → numbers. No images — just facts.</p>
                 </div>
 
@@ -1589,7 +1722,7 @@
     </div>
 
     <script>
-        // Локализация
+        // Localization
         const translations = {
             en: {
                 nav_home: "Home",
@@ -1718,7 +1851,7 @@
                 music_title: "Ambient Background",
                 music_artist: "Portfolio Soundtrack",
                 
-                // Case Studies переводы
+                // Case Studies translations
                 case_studies_title: "Case Studies",
                 case_studies_subtitle: "Short and to the point: task → solution → numbers. No images — just facts.",
                 case_studies_cs1_title: "King House Travel — Performance & Tech SEO",
@@ -1909,7 +2042,7 @@
                 music_title: "Ambientní Pozadí",
                 music_artist: "Soundtrack Portfolia",
                 
-                // Case Studies переводы
+                // Case Studies translations
                 case_studies_title: "Studie Případů",
                 case_studies_subtitle: "Krátké a věcné: úkol → řešení → čísla. Bez obrázků — jen fakta.",
                 case_studies_cs1_title: "King House Travel — Výkon a Technické SEO",
@@ -1950,16 +2083,16 @@
                 case_studies_cs3_role: "Role: Tech SEO • Nástroje: GSC, Screaming Frog",
                 case_studies_cs3_task_desc: "Žádné hodnocení pro nízké/střední frekvenci; tenký obsah, chybějící FAQ/schema, slabé interní odkazy.",
                 case_studies_cs3_solution1: "Klastrizace klíčových slov (info/transakce), podpůrné stránky (víza, sezóny, ceny), FAQ.",
-                case_studies_cs3_solution2: "Markup FAQPage, Breadcrumb; vylepšené title/descr, bloky výhod/cen.",
-                case_studies_cs3_solution3: "Propojení klastru interními odkazy + menší opravy výkonu.",
+                case_studies_cs3_solution2: "Rozmítka FAQPage, Breadcrumb; vylepšené title/descr, bloky výhod/cen.",
+                case_studies_cs3_solution3: "Propojení klastru interními odkazy + menší perfo- opravy.",
                 case_studies_avg_position: "Průměrná pozice (GSC):",
                 case_studies_clicks: "Kliky:",
                 case_studies_ctr: "CTR:",
                 case_studies_leads: "Leady (formuláře):",
                 case_studies_cs3_proof1: "GSC: nárůst kliknutí/zobrazení, zlepšení průměrné pozice na 11.",
                 case_studies_cs3_proof2: "Nové FAQ bloky označeny FAQPage; mapa interního prolinkování pro klastr.",
-                case_studies_cs3_proof3: "Formulář žádosti: zaznamenáváme 12 leadů/měsíc po nasazení klastru.",
-                case_studies_cs4_title: "Tech SEO úklid — indexace a kanonikály",
+                case_studies_cs3_proof3: "Formulář žádostí: zaznamenáváme 12 leadů/měsíc po nasazení klastru.",
+                case_studies_cs4_title: "Tech SEO úklid — indexace a kanonikál",
                 case_studies_cs4_duration: "30 dní",
                 case_studies_cs4_role: "Role: Tech SEO • Nástroje: GSC, server logs, Screaming Frog",
                 case_studies_cs4_task_desc: "Index bloat (parametry, tenké), 404, zastaralý sitemap, žádný hreflang (EN/CZ/UK).",
@@ -1967,7 +2100,7 @@
                 case_studies_cs4_solution2: "Rozdělení sitemapu podle typů, hreflang, 301, opravy 404/5xx, jednotná politika lomítek.",
                 case_studies_indexed: "Indexováno:",
                 case_studies_crawl: "Crawl hits/den:",
-                case_studies_coverage: "Chyby pokrytí:",
+                case_studies_coverage: "Chyby Coverage:",
                 case_studies_impressions: "Zobrazení:",
                 case_studies_cs4_proof1: "GSC Coverage: prudké snížení vyloučených/chyb; nárůst platných.",
                 case_studies_cs4_proof2: "Logy: zlepšení crawl budgetu; více hitů na důležité URL.",
@@ -2100,7 +2233,7 @@
                 music_title: "Фонове Аудіо",
                 music_artist: "Саундтрек Портфоліо",
                 
-                // Case Studies переводы
+                // Case Studies translations
                 case_studies_title: "Кейси",
                 case_studies_subtitle: "Коротко і по суті: завдання → рішення → цифри. Без картинок — тільки факти.",
                 case_studies_cs1_title: "King House Travel — Продуктивність та Технічне SEO",
@@ -2166,7 +2299,7 @@
             }
         };
 
-        // Переключення мови
+        // Language switching
         const langSelector = document.getElementById('lang-selector');
         const elementsWithLang = document.querySelectorAll('[data-lang]');
         const elementsWithPlaceholder = document.querySelectorAll('[data-lang-placeholder]');
@@ -2185,18 +2318,31 @@
                     element.placeholder = translations[lang][key];
                 }
             });
+            
+            // Update document lang attribute
+            document.documentElement.lang = lang;
+            
+            // Update HTML title based on language
+            const titleElement = document.querySelector('title');
+            if (lang === 'cs') {
+                titleElement.textContent = 'Tetiana Kotolup - Frontend Vývojář & SEO Specialista';
+            } else if (lang === 'uk') {
+                titleElement.textContent = 'Тетяна Котолуп - Frontend Розробник & SEO Спеціаліст';
+            } else {
+                titleElement.textContent = 'Tetiana Kotolup - Frontend Developer & SEO Specialist';
+            }
         }
         
         langSelector.addEventListener('change', (e) => {
             updateLanguage(e.target.value);
         });
 
-        // Переключення теми
+        // Theme switching
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = themeToggle.querySelector('i');
         const html = document.documentElement;
         
-        // Перевірка збережених налаштувань теми або за замовчуванням світла
+        // Check saved theme preference or default to light
         const currentTheme = localStorage.getItem('theme') || 'light';
         if (currentTheme === 'dark') {
             html.setAttribute('data-theme', 'dark');
@@ -2220,20 +2366,34 @@
             }
         });
 
-        // Перемикання мобільного меню
+        // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = mobileMenuBtn.querySelector('i');
         
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+            const isHidden = mobileMenu.classList.contains('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', !isHidden);
+            
+            if (isHidden) {
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+            } else {
+                mobileMenuIcon.classList.remove('fa-bars');
+                mobileMenuIcon.classList.add('fa-times');
+            }
         });
 
-        // Ефект цифрового дощу
+        // Digital rain effect
         function createDigitalRain() {
             const digitalBg = document.getElementById('digital-bg');
             const characters = '01';
             const fontSize = 18;
             const columns = Math.floor(window.innerWidth / fontSize);
+            
+            // Clear existing digits
+            digitalBg.innerHTML = '';
             
             for (let i = 0; i < columns; i++) {
                 const digit = document.createElement('div');
@@ -2253,15 +2413,14 @@
         createDigitalRain();
         
         window.addEventListener('resize', () => {
-            document.getElementById('digital-bg').innerHTML = '';
             createDigitalRain();
         });
 
-        // Музичний плеєр
+        // Music player
         const playBtn = document.getElementById('play-btn');
         const playIcon = playBtn.querySelector('i');
         const backgroundMusic = document.getElementById('background-music');
-        const musicPlayer = document.querySelector('.music-player');
+        const musicPlayer = playBtn.closest('.music-player');
         let isPlaying = false;
 
         playBtn.addEventListener('click', () => {
@@ -2284,7 +2443,7 @@
             }
         });
 
-        // Автовідтворення при першій взаємодії
+        // Autoplay on first interaction
         document.addEventListener('click', function initAudio() {
             if (!isPlaying) {
                 backgroundMusic.play().then(() => {
@@ -2299,7 +2458,7 @@
             }
         }, { once: true });
 
-        // Плавна прокрутка
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -2311,14 +2470,17 @@
                     });
                 }
                 
-                // Закрити мобільне меню, якщо відкрите
+                // Close mobile menu if open
                 if (!mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
+                    mobileMenuIcon.classList.remove('fa-times');
+                    mobileMenuIcon.classList.add('fa-bars');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
                 }
             });
         });
 
-        // Intersection Observer для анімацій
+        // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -2332,40 +2494,41 @@
             });
         }, observerOptions);
 
-        // Спостерігати за елементами
+        // Observe elements
         document.querySelectorAll('.fade-in, .timeline-item').forEach(el => {
             observer.observe(el);
         });
 
-        // Контактна форма
+        // Contact form
         const contactForm = document.getElementById('contact-form');
         
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Показати повідомлення про успіх
+            // Show success notification
             showNotification('Thank you for your message! I will contact you soon.', 'success');
             
-            // Скинути форму
+            // Reset form
             contactForm.reset();
         });
 
-        // Система сповіщень
+        // Notification system
         function showNotification(message, type = 'success') {
             const notification = document.createElement('div');
             notification.className = `fixed top-20 right-6 z-50 px-6 py-4 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 ${
                 type === 'success' ? 'bg-green-500' : 'bg-red-500'
             } text-white`;
             notification.textContent = message;
+            notification.setAttribute('role', 'alert');
             
             document.body.appendChild(notification);
             
-            // Анімація появи
+            // Animate in
             setTimeout(() => {
                 notification.style.transform = 'translateX(0)';
             }, 100);
             
-            // Видалити через 3 секунди
+            // Remove after 3 seconds
             setTimeout(() => {
                 notification.style.transform = 'translateX(100%)';
                 setTimeout(() => {
@@ -2374,7 +2537,7 @@
             }, 3000);
         }
 
-        // Кастомний курсор
+        // Custom cursor
         (function goldCursor() {
             const dot = document.getElementById('gold-cursor');
             let x = window.innerWidth / 2, y = window.innerHeight / 2;
@@ -2389,12 +2552,12 @@
             function raf() {
                 x += (tx - x) * ease;
                 y += (ty - y) * ease;
-                dot.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+                dot.style.transform = `translate3d(${x}px,${y}px,0)`;
                 requestAnimationFrame(raf);
             }
             raf();
 
-            // Ефект кліку
+            // Click effect
             window.addEventListener('mousedown', () => { 
                 dot.style.opacity = '0.7'; 
                 dot.style.width = '10px'; 
@@ -2407,7 +2570,7 @@
             });
         })();
 
-        // Додати ефект наведення на посилання
+        // Hover effect on links and buttons
         document.querySelectorAll('a, button').forEach(el => {
             el.addEventListener('mouseenter', () => {
                 document.getElementById('gold-cursor').style.width = '18px';
@@ -2419,44 +2582,47 @@
             });
         });
 
-        // Модальне вікно для Case Studies
+        // Modal for Case Studies
         const modal = document.getElementById('case-studies-modal');
         const modalContent = document.getElementById('case-studies-content');
         const template = document.getElementById('case-studies-template');
         const closeBtn = document.querySelector('.close');
 
-        // Відкриття модального вікна
+        // Open modal
         document.querySelectorAll('a[href="#case-studies"]').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                // Клонуємо шаблон
+                // Clone template
                 const clone = template.cloneNode(true);
                 clone.classList.remove('hidden');
-                // Очищуємо контент модального вікна
+                // Clear modal content
                 modalContent.innerHTML = '';
                 modalContent.appendChild(clone);
-                // Застосовуємо поточну мову до клону
+                // Apply current language to clone
                 const currentLang = document.getElementById('lang-selector').value;
                 updateLanguageForElement(clone, currentLang);
-                // Показуємо модальне вікно
+                // Show modal
                 modal.style.display = 'block';
-                // Ініціалізуємо кнопки копіювання
+                modal.setAttribute('aria-hidden', 'false');
+                // Initialize copy buttons
                 initCopyButtonsForElement(clone);
             });
         });
 
-        // Закриття модального вікна
+        // Close modal
         closeBtn.addEventListener('click', () => {
             modal.style.display = 'none';
+            modal.setAttribute('aria-hidden', 'true');
         });
 
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.style.display = 'none';
+                modal.setAttribute('aria-hidden', 'true');
             }
         });
 
-        // Функція для оновлення мови для елемента та його дочірніх елементів
+        // Function to update language for element and its children
         function updateLanguageForElement(element, lang) {
             const elementsWithLang = element.querySelectorAll('[data-lang]');
             elementsWithLang.forEach(el => {
@@ -2467,7 +2633,7 @@
             });
         }
 
-        // Функція для ініціалізації кнопок копіювання в елементі
+        // Function to initialize copy buttons in element
         function initCopyButtonsForElement(element) {
             element.querySelectorAll('.copy-proof-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
@@ -2497,4 +2663,3 @@
     </script>
 </body>
 </html>
-
